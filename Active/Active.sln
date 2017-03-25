@@ -13,6 +13,8 @@ Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "ActiveService", "ActiveIDAL
 EndProject
 Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "ActiveWeb", "ActiveWeb\ActiveWeb.csproj", "{10655897-8805-4AD2-92D1-A9E9F3F0AF00}"
 EndProject
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "DBUtility", "DBUtility\DBUtility.csproj", "{C02B1EF8-624D-42F6-8467-9AA958277471}"
+EndProject
 Global
 	GlobalSection(SolutionConfigurationPlatforms) = preSolution
 		Debug|Any CPU = Debug|Any CPU
@@ -39,6 +41,10 @@ Global
 		{10655897-8805-4AD2-92D1-A9E9F3F0AF00}.Debug|Any CPU.Build.0 = Debug|Any CPU
 		{10655897-8805-4AD2-92D1-A9E9F3F0AF00}.Release|Any CPU.ActiveCfg = Release|Any CPU
 		{10655897-8805-4AD2-92D1-A9E9F3F0AF00}.Release|Any CPU.Build.0 = Release|Any CPU
+		{C02B1EF8-624D-42F6-8467-9AA958277471}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{C02B1EF8-624D-42F6-8467-9AA958277471}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{C02B1EF8-624D-42F6-8467-9AA958277471}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{C02B1EF8-624D-42F6-8467-9AA958277471}.Release|Any CPU.Build.0 = Release|Any CPU
 	EndGlobalSection
 	GlobalSection(SolutionProperties) = preSolution
 		HideSolutionNode = FALSE
