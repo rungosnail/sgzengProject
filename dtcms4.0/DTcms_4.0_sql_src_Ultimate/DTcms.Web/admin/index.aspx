@@ -74,7 +74,7 @@ $(function () {
   </div>
   
   <div class="main-left">
-    <h1 class="logo"></h1>
+    <h1 class="logo" style="background-color:#EE0000;"></h1>
     <div id="sidebar-nav" class="sidebar-nav"></div>
   </div>
   

@@ -23,7 +23,7 @@
 <form id="form1" runat="server">
 <div style="width:100%; height:100%; min-width:300px; min-height:260px;"></div>
 <div class="login-wrap">
-  <div class="login-logo">LOGO</div>
+  <div style="display:none" class="login-logo">LOGO</div>
   <div class="login-form">
     <div class="col">
       <asp:TextBox ID="txtUserName" runat="server" CssClass="login-input" placeholder="管理员账号" title="管理员账号"></asp:TextBox>
@@ -41,7 +41,7 @@
 </div>
 
 <div class="copy-right">
-  <p>版权所有 深圳市动力启航软件有限公司 Copyright © 2009 - 2015 dtsoft.net Inc. All Rights Reserved.</p>
+  <p>版权所有 上海资源活动网有限公司 .</p>
 </div>
 </form>
 </body>

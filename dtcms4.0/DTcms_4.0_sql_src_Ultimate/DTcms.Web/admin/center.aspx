@@ -57,31 +57,8 @@
 </div>
 <div class="line20"></div>
 
-<div class="nlist-3">
-  <ul>
-    <li><a onclick="parent.linkMenuTree(true, 'sys_config');" class="icon-setting" href="javascript:;"></a><span>系统设置</span></li>
-    <li><a onclick="parent.linkMenuTree(true, 'sys_site_manage');" class="icon-channel" href="javascript:;"></a><span>站点管理</span></li>
-    <li><a onclick="parent.linkMenuTree(true, 'sys_site_templet');" class="icon-templet" href="javascript:;"></a><span>模板管理</span></li>
-    <li><a onclick="parent.linkMenuTree(true, 'sys_builder_html');" class="icon-mark" href="javascript:;"></a><span>生成静态</span></li>
-    <li><a onclick="parent.linkMenuTree(true, ' sys_plugin_config ');" class="icon-plugin" href="javascript:;"></a><span>插件配置</span></li>
-    <li><a onclick="parent.linkMenuTree(true, 'user_list');" class="icon-user" href="javascript:;"></a><span>会员管理</span></li>
-    <li><a onclick="parent.linkMenuTree(true, 'manager_list');" class="icon-manaer" href="javascript:;"></a><span>管理员</span></li>
-    <li><a onclick="parent.linkMenuTree(true, 'manager_log');" class="icon-log" href="javascript:;"></a><span>系统日志</span></li>
-  </ul>
-</div>
 
-<div class="nlist-4">
-  <h3><i class="site"></i>建站三步曲</h3>
-  <ul>
-    <li>1、进入后台管理中心，点击“系统设置”修改网站配置信息；</li>
-    <li>2、点击“站点管理”进行系统划分站点、建立频道、扩展字段等信息；</li>
-    <li>3、制作好网站模板，上传到站点templates目录下，点击“模板管理”生成模板；</li>
-  </ul>
-  <h3><i class="msg"></i>官方消息</h3>
-  <ul>
-    <asp:Literal ID="LitNotice" runat="server"/>
-  </ul>
-</div>
+
 <!--/内容-->
 
 </form>
