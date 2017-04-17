@@ -1,0 +1,80 @@
+﻿
+
+<!DOCTYPE HTML PUBLIC "-//W3C//DTD HTML 4.01 Transitional//EN" "http://www.w3.org/TR/html4/loose.dtd">
+<html>
+<head>
+<meta http-equiv="Content-Type" content="text/html; charset=utf-8" />
+<title></title>
+<meta name="keywords" content=""  />
+<meta name="description" content="" />
+<link href="css/swiper.min.css" rel="stylesheet" type="text/css" media="all">
+<link href="css/common.css" rel="stylesheet" type="text/css" media="all">
+<link href="css/personal.css" rel="stylesheet" type="text/css" media="all">
+
+</head>
+<body>
+<div class="logo">
+  <h1><a href="#"></a></h1>
+  <dl>
+    <dt>
+      <p><a href="#">搜索</a>
+        <input type="text" placeholder="请输入演出，艺人，场馆名称..."/>
+      </p>
+      <span>热门搜索：<a href="#">艺人</a><a href="#">场馆</a><a href="#">齐白石画展</a><a href="#">场馆</a><a href="#">场馆</a></span> </dt>
+    <dd> <span>HI，欢迎来到活动资源网</span>
+      <p><a href="#" class="login">登录</a><a href="#">注册</a></p>
+    </dd>
+  </dl>
+</div>
+<!--logo-->
+<div class="nav">
+  <div class=" content">
+    <ul>
+      <li class="cur"><a href="#">首页</a></li>
+      <li><a href="#">动漫IP </a></li>
+      <li><a href="#">文化展览</a></li>
+      <li><a href="#">创意道具</a></li>
+      <li><a href="#">文艺演出</a></li>
+      <li><a href="#">明星专家</a></li>
+      <li><a href="#">主题活动</a></li>
+    </ul>
+  </div>
+</div>
+<!--nav-->
+
+<div class="content">
+
+ <div class="forget">
+  <div class="ftitle"><span>找回密码</span></div>
+ 
+    <div class="forbox">
+    <dl><dt>邮箱：</dt><dd><input type="text" placeholder="请输入注册时的邮箱"/><span class="error">请输入邮箱</span></dd></dl>
+    <dl><dt>新密码：</dt><dd><p><a href="#">获取邮箱验证码</a><input type="text" placeholder="请输入验证码"/></p></dd></dl>
+    <dl><dt>新登录密码：</dt><dd><input type="text"  placeholder="密码"/></dd></dl>
+    <dl><dt>确认新登录密码：</dt><dd><input type="text"  placeholder="确认密码"/></dd></dl>
+    <div class="back"><a href="#">确认找回</a></div>
+   </div>
+ 
+ </div><!--forget-->
+
+
+
+</div><!--content-->
+
+
+<div class="foot">
+  <dl>
+   <dt>
+   <p><a href="#">首页</a> | <a href="#">关于我们</a> | 联系电话:13666666666</p>
+   <p>广州市天河路xx号地址信息地址信息地址信息</p>
+   <p>©2016 广州吟羊文化传播有限公司 版权所有 粤ICP备16060652号</p>
+   </dt>
+   <dd>
+    <span>活动资源网<br/>微信公众号<br/>及时掌握资源</span>
+    <em><img src="images/wx.jpg" width="120" height="120"/></em>
+   </dd>
+  </dl>
+</div><!--foot-->
+
+
+</body>

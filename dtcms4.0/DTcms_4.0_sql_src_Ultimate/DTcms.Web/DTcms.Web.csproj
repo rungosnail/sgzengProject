@@ -28,6 +28,11 @@
     <UpgradeBackupLocation>
     </UpgradeBackupLocation>
     <OldToolsVersion>4.0</OldToolsVersion>
+    <IISExpressSSLPort />
+    <IISExpressAnonymousAuthentication />
+    <IISExpressWindowsAuthentication />
+    <IISExpressUseClassicPipelineMode />
+    <UseGlobalApplicationHostFile />
   </PropertyGroup>
   <PropertyGroup Condition=" '$(Configuration)|$(Platform)' == 'Debug|AnyCPU' ">
     <DebugSymbols>true</DebugSymbols>
@@ -724,7 +729,9 @@
     <Content Include="templates\mobile\_header.html" />
     <Content Include="templates\mobile\_nav.html" />
     <Content Include="watermark.png" />
-    <Content Include="Web.config" />
+    <Content Include="Web.config">
+      <SubType>Designer</SubType>
+    </Content>
     <Content Include="Web.Debug.config">
       <DependentUpon>Web.config</DependentUpon>
     </Content>
@@ -1449,6 +1456,20 @@
     <Compile Include="tools\verify_code.ashx.cs">
       <DependentUpon>verify_code.ashx</DependentUpon>
     </Compile>
+    <Compile Include="web\master.Master.cs">
+      <DependentUpon>master.Master</DependentUpon>
+      <SubType>ASPXCodeBehind</SubType>
+    </Compile>
+    <Compile Include="web\master.Master.designer.cs">
+      <DependentUpon>master.Master</DependentUpon>
+    </Compile>
+    <Compile Include="web\Index.aspx.cs">
+      <DependentUpon>Index.aspx</DependentUpon>
+      <SubType>ASPXCodeBehind</SubType>
+    </Compile>
+    <Compile Include="web\Index.aspx.designer.cs">
+      <DependentUpon>Index.aspx</DependentUpon>
+    </Compile>
   </ItemGroup>
   <ItemGroup>
     <ProjectReference Include="..\DTcms.API\DTcms.API.csproj">
@@ -1473,12 +1494,77 @@
     </ProjectReference>
   </ItemGroup>
   <ItemGroup>
+    <Content Include="web\css\common.css" />
+    <Content Include="web\css\index.css" />
+    <Content Include="web\css\layer.css" />
+    <Content Include="web\css\list.css" />
+    <Content Include="web\css\personal.css" />
+    <Content Include="web\html\css\common.css" />
+    <Content Include="web\html\css\index.css" />
+    <Content Include="web\html\css\layer.css" />
+    <Content Include="web\html\css\list.css" />
+    <Content Include="web\html\css\personal.css" />
+    <Content Include="web\html\images\arrow.png" />
+    <Content Include="web\html\images\humanbg.png" />
+    <Content Include="web\html\images\icon.gif" />
+    <Content Include="web\html\images\index_07.gif" />
+    <Content Include="web\html\images\index_11.gif" />
+    <Content Include="web\html\images\index_15-17.gif" />
+    <Content Include="web\html\images\index_15.gif" />
+    <Content Include="web\html\images\index_19-21.gif" />
+    <Content Include="web\html\images\index_24-27.gif" />
+    <Content Include="web\html\images\index_25.gif" />
+    <Content Include="web\html\images\index_31.gif" />
+    <Content Include="web\html\images\index_34.gif" />
+    <Content Include="web\html\images\index_36.gif" />
+    <Content Include="web\html\images\index_39.gif" />
+    <Content Include="web\html\images\index_42.gif" />
+    <Content Include="web\html\images\index_45.jpg" />
+    <Content Include="web\html\images\li_left.png" />
+    <Content Include="web\html\images\li_right.png" />
+    <Content Include="web\html\images\li_right.png.jpg" />
+    <Content Include="web\html\images\member.png" />
+    <Content Include="web\html\images\noresult.gif" />
+    <Content Include="web\html\images\pay.png" />
+    <Content Include="web\html\images\perbg.jpg" />
+    <Content Include="web\html\images\shape01.png" />
+    <Content Include="web\html\images\shape02.png" />
+    <Content Include="web\html\images\starbg.jpg" />
+    <Content Include="web\html\images\wx.jpg" />
+    <Content Include="web\images\arrow.png" />
+    <Content Include="web\images\humanbg.png" />
+    <Content Include="web\images\icon.gif" />
+    <Content Include="web\images\index_07.gif" />
+    <Content Include="web\images\index_11.gif" />
+    <Content Include="web\images\index_15-17.gif" />
+    <Content Include="web\images\index_15.gif" />
+    <Content Include="web\images\index_19-21.gif" />
+    <Content Include="web\images\index_24-27.gif" />
+    <Content Include="web\images\index_25.gif" />
+    <Content Include="web\images\index_31.gif" />
+    <Content Include="web\images\index_34.gif" />
+    <Content Include="web\images\index_36.gif" />
+    <Content Include="web\images\index_39.gif" />
+    <Content Include="web\images\index_42.gif" />
+    <Content Include="web\images\index_45.jpg" />
+    <Content Include="web\images\li_left.png" />
+    <Content Include="web\images\li_right.png" />
+    <Content Include="web\images\li_right.png.jpg" />
+    <Content Include="web\images\member.png" />
+    <Content Include="web\images\noresult.gif" />
+    <Content Include="web\images\pay.png" />
+    <Content Include="web\images\perbg.jpg" />
+    <Content Include="web\images\shape01.png" />
+    <Content Include="web\images\shape02.png" />
+    <Content Include="web\images\starbg.jpg" />
+    <Content Include="web\images\wx.jpg" />
+    <Content Include="web\Index.aspx" />
     <Content Include="xmlconfig\site.config" />
     <Content Include="xmlconfig\urls.config" />
   </ItemGroup>
   <ItemGroup>
+    <Folder Include="aspnet_client\system_web\4_0_30319\" />
     <Folder Include="html\" />
-    <Folder Include="plugins\" />
     <Folder Include="upload\" />
   </ItemGroup>
   <ItemGroup>
@@ -1515,6 +1601,26 @@
     <None Include="templates\mobile\jqmobi\css\src\afui.less" />
     <None Include="templates\mobile\jqmobi\plugins\README.md" />
     <None Include="templates\mobile\jqmobi\ui\README.md" />
+    <Content Include="web\master.Master" />
+    <Content Include="web\html\个人中心--个人资料.shtml" />
+    <Content Include="web\html\个人中心--密码修改.shtml" />
+    <Content Include="web\html\个人中心--年费会员个人中心页.shtml" />
+    <Content Include="web\html\个人中心--我购买的资源.shtml" />
+    <Content Include="web\html\个人中心--我购买的资源空.shtml" />
+    <Content Include="web\html\个人中心--账户记录.shtml" />
+    <Content Include="web\html\个人中心--账户记录空.shtml" />
+    <Content Include="web\html\关于我们.shtml" />
+    <Content Include="web\html\列表页.shtml" />
+    <Content Include="web\html\年费会员支付页.shtml" />
+    <Content Include="web\html\弹出层.shtml" />
+    <Content Include="web\html\忘记密码.shtml" />
+    <Content Include="web\html\搜索页.shtml" />
+    <Content Include="web\html\搜索页无结果页.shtml" />
+    <Content Include="web\html\明星专家详细页.shtml" />
+    <Content Include="web\html\服务协议.shtml" />
+    <Content Include="web\html\详细页.shtml" />
+    <Content Include="web\html\资源支付页.shtml" />
+    <Content Include="web\html\首页.shtml" />
   </ItemGroup>
   <PropertyGroup>
     <VisualStudioVersion Condition="'$(VisualStudioVersion)' == ''">10.0</VisualStudioVersion>

@@ -1,0 +1,111 @@
+
+.personal{ background:url(../images/perbg.jpg) repeat-y; zoom:1; border:1px solid #eee; margin-top:20px;}
+.personal:after{ display:block;clear:both;content:"";visibility:hidden;height:0;}
+.perleft{ float:left; width:290px;}
+.perright{ float:left; width:907px; padding-bottom:40px;}
+
+.perleft dl dt{ font-size: 18px;line-height: 40px;margin-top: 15px;padding-left:95px; background:url(../images/member.png) no-repeat 72px -65px;}
+.perleft dl dd ul li a{display:block; line-height: 42px;padding-left: 95px;}
+.perleft dl dd ul li.percur a{background: #f9f9f9;border-left:2px #ff7c35 solid;color:#ff7c35;   width:190px; display:block;}
+
+
+
+.pertitle{ border-bottom:2px solid #ddd; height:54px; line-height:54px;}
+.pertitle span{  display:inline-block; border-bottom:2px solid #ff7c35; margin-left:30px; font:20px/54px "Microsoft Yahei";} 
+.perbox{ margin:20px 0 0 30px;}
+
+.perbox dl{ zoom:1; font-size:14px; line-height:36px; height:36px; display:block;}
+.perbox dl:after{ display:block;clear:both;content:"";visibility:hidden;height:0;}
+.perbox dl dt{ float:left; width:80px;}
+.perbox dl dd{ float:left; width:700px;}
+.perbox dl dd em.special{ background: url(../images/member.png) no-repeat 0 0; width:85px; height:18px; display:block; float:left; margin:8px 10px 0 0; }
+.perbox dl dd em.vip{ background: url(../images/member.png) no-repeat 0 -31px; width:85px; height:18px; display:block; float:left; margin:8px 10px 0 0; }
+
+.perbox dl dd a{ color:#ff7c35; text-decoration:underline; margin-left:10px;}
+.perbox dl dd b{ color:#ff0000;}
+.perbox dl dd a.pericon{ background:#ff7c35; border-radius:5px; padding:0 8px 2px; color:#fff; text-decoration:none; height:20px; line-height:16px; }
+.perbox dl dd span.red{ color:#ff0000; margin-left:12px; }
+
+.project{ border-top:1px solid #eee; margin-top:30px; padding-top:30px;}
+.project ul{  zoom:1;}
+.project ul:after{ display:block;clear:both;content:"";visibility:hidden;height:0;}
+.project ul li{width:120px; height:85px; border-radius:100px; overflow:hidden; text-align:center; margin-right:30px; color:#fff;  font-size:15px; line-height:26px; padding-top:35px; float:left;} 
+.project ul li.fa{ background:#008cee; }
+.project ul li.method{ background:#23a881;}
+.proad{ margin-top:40px;}
+
+/*账户记录*/
+.yg{ margin:20px 30px 0 30px; background:#FFC; border:1px solid #EEB402; border-radius:5px; padding:20px;}
+.yg dl{ zoom:1; line-height:32px;}
+.yg dl:after{ display:block;clear:both;content:"";visibility:hidden;height:0;}
+.yg dl dt{ float:left; width:200px;}
+.yg dl dd{ float:right; width:500px; text-align:right;}
+.yg dl dt b{ color:#ff0000; font-size:20px; }
+.yg dl dd a{ background:#ff7c35;  border-radius:5px; padding:0 20px 2px; color:#fff; text-decoration:none; height:32px; line-height:30px; margin-left:15px; display:inline-block;}
+.time{zoom:1;  margin:20px 30px 0 30px; }
+.time:after{ display:block;clear:both;content:"";visibility:hidden;height:0;}
+.time dl dt{ float:left; line-height:22px;}
+.time dl dd{ float:right;}
+.time dl dt span ,.time dl dt input ,.time dl dt a{ float:left;}
+.time dl dt input{ width:60px; border:1px solid #ddd; height:22px; box-shadow:2px 2px 2px #ddd; float:left; margin-right:10px; border-radius:2px;}
+.time dl dt a{ background:#1472e7;  border-radius:5px; color:#fff; height:24px; padding:0 20px; display:block; line-height:24px; }
+
+.time dl dd a{ float:left; margin-left:10px; background:#fff; border:1px solid #b9c5cd; color:#333;  border-radius:5px;  height:24px; padding:0 10px; display:block; line-height:24px;}
+.time dl dd a.choose{ background:#1472e7; border:1px solid #1472e7; color:#fff;}
+.time table{ width:100%; margin-top:20px; text-align:center;  font:14px/40px "Microsoft Yahei"; }
+.time table tr th{ height:26px; border-bottom:2px solid #ddd; width:25%;} 
+.time table tr td{ border-bottom:1px solid #eee;}
+.time table tr td.minus{ color:#00CE00;}
+.time table tr td.plus{ color:#ff0000;}
+
+
+.null{ text-align:center; font-size:14px; margin-top:20px; color:#666;}
+
+/*我购买的资源*/
+.myzy{margin:0 30px 0 30px;}
+.myzy ul li{ border-bottom:1px solid #eee; zoom:1; padding:25px 0 30px;}
+.myzy ul li:after{display:block;clear:both;content:"";visibility:hidden;height:0;}
+.myzy ul li div{ height:22px; line-height:22px; overflow:hidden; margin-bottom:10px;}
+.myzy ul li div em{ font-style:normal; margin-right:20px; color:#999;}
+.myzy ul li p{ float:right; text-align:center;}
+.myzy ul li p a{ display:block; color:#999; margin-top:10px;}
+.myzy ul li p a.downicon{ background:#ff7c35; height:40px; line-height:40px; text-align:center; color:#fff; width:180px; font-size:16px; margin:10px 40px 0 0; border-radius:5px;}
+.myzy ul li dl{ float:left; border-right:1px solid #eee; width:580px;}
+.myzy ul li dl dt{ float:left; width:190px; height:80px; margin-right:20px;}
+.myzy ul li dl dd{ float:left; width:370px; font-size:14px;}
+.myzy ul li dl dd b{ display:block; } 
+.myzy ul li dl dd span{ display:block; color:#999; margin-top:10px;}
+.myzy ul li dl dd span.contact{ background: url(../images/icon.gif) no-repeat 0 -515px; padding-left:20px; color:#ff7c35;}
+
+/*个人资料*/
+.data{margin:0 30px 0 30px;}
+.data dl{ zoom:1; margin:20px 0 0 0;}
+.data dl:after{display:block;clear:both;content:"";visibility:hidden;height:0;}
+.data dl dt{ float:left; width:90px; text-align:right; line-height:26px;}
+.data dl dt span{ color:#ff0000; margin-right:5px;}
+.data dl dd input{ border:1px solid #ddd; height:26px; width:312px; padding-left:5px; line-height:26px;}
+.data dl dd  select{ border:1px solid #ddd; height:26px; width:155px; margin-right:10px;} 
+.but a{ background:#ff7c35;  border-radius:5px;  color:#fff; text-decoration:none; height:36px; line-height:36px; margin:15px 0 0 90px; display:block; width:120px; text-align:center;}
+.data dl dd span.error { background:url(../images/icon.gif) no-repeat 0 -698px; padding-left:20px; color:#ff0000; margin-left:10px;}
+
+/*找回密码*/
+
+.forget{ border:1px solid #eee; padding:20px 0; margin-top:20px;}
+.ftitle{ border-bottom:2px solid #ddd; height:36px; line-height:36px;}
+.ftitle span{  display:inline-block; border-bottom:2px solid #ff7c35; margin-left:30px; font:24px/36px "Microsoft Yahei";} 
+.forbox{ width:600px; margin:40px auto;}
+.forbox dl{ zoom:1; margin:20px 0 0 0;}
+.forbox dl:after{display:block;clear:both;content:"";visibility:hidden;height:0;}
+.forbox dl dt{ float:left; width:120px; text-align:right; line-height:26px;}
+.forbox dl dd{ float:left; width:480px;}
+.forbox dl dt span{ color:#ff0000; margin-right:5px;}
+.forbox dl dd input{ border:1px solid #ddd; height:28px; width:312px; padding-left:5px; line-height:28px;}
+.forbox dl dd span.error { background:url(../images/icon.gif) no-repeat 0 -698px; padding-left:20px; color:#ff0000; margin-left:10px;}
+.back a{ background:#ff7c35;  border-radius:5px;  color:#fff; text-decoration:none; height:36px; line-height:36px; margin:15px 0 0 120px; display:block; width:120px; text-align:center;}
+.forbox dl dd  p{ border:1px solid #ddd; height:26px;  width:316px; line-height:28px;}
+.forbox dl dd a { float:right; color:#ff7c35; padding-right:5px;}
+.forbox dl dd  p input{ width:200px; border:0; line-height:26px; height:26px;}
+
+.service{ padding:20px 40px;}
+.service b{ display:block; font-size:16px; display:block; margin:20px 0;}
+.service p{ font:14px/32px "微软雅黑"; color:#333; text-indent:2em;}

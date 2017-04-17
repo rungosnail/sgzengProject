@@ -7,6 +7,8 @@ using System.Net;
 using System.Configuration;
 using System.Web;
 using System.Security.Cryptography;
+using System.Data;
+using System.Reflection;
 
 namespace DTcms.Common
 {
@@ -1493,6 +1495,50 @@ namespace DTcms.Common
             return urlPage;
         }
         #endregion
+
+        /// <summary>         、
+        /// DataSet装换为泛型集合         
+        /// </summary>         
+        /// <typeparam name="T"></typeparam>         
+        /// <param name="ds">DataSet</param>         
+        /// <param name="tableIndex">待转换数据表索引</param>         
+        /// <returns></returns>         
+        public List<T> DataSetToIList<T>(DataSet ds, int tableIndex)
+        {
+            if (ds == null || ds.Tables.Count < 0)
+                return null;
+            if (tableIndex > ds.Tables.Count - 1)
+                return null;
+            if (tableIndex < 0)
+                tableIndex = 0;
+            DataTable dt = ds.Tables[tableIndex];
+
+            IList<T> result = new List<T>();
+            for (int j = 0; j < dt.Rows.Count; j++)
+            {
+                T _t = (T)Activator.CreateInstance(typeof(T));
+                PropertyInfo[] propertys = _t.GetType().GetProperties();
+                foreach (PropertyInfo pi in propertys)
+                {
+                    for (int i = 0; i < dt.Columns.Count; i++)
+                    {
+                        if (pi.Name.Equals(dt.Columns[i].ColumnName))
+                        {
+                            if (dt.Rows[j][i] != DBNull.Value)
+                                pi.SetValue(_t, dt.Rows[j][i], null);
+                            else
+                                pi.SetValue(_t, null, null);
+                            break;
+                        }
+                    }
+                }
+                result.Add(_t);
+            }
+
+            T[] array = new T[result.Count];
+            result.CopyTo(array, 0);
+            return new List<T>(array);
+        }
 
     }
 }

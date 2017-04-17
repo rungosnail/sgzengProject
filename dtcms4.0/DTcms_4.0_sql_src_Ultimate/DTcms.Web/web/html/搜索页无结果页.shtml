@@ -1,0 +1,90 @@
+﻿<!DOCTYPE HTML PUBLIC "-//W3C//DTD HTML 4.01 Transitional//EN" "http://www.w3.org/TR/html4/loose.dtd">
+<html>
+<head>
+<meta http-equiv="Content-Type" content="text/html; charset=utf-8" />
+<title></title>
+<meta name="keywords" content=""  />
+<meta name="description" content="" />
+<link href="css/swiper.min.css" rel="stylesheet" type="text/css" media="all">
+<link href="css/common.css" rel="stylesheet" type="text/css" media="all">
+<link href="css/list.css" rel="stylesheet" type="text/css" media="all">
+
+</head>
+<body>
+<div class="logo">
+  <h1><a href="#"></a></h1>
+  <dl>
+    <dt>
+      <p><a href="#">搜索</a>
+        <input type="text" placeholder="请输入演出，艺人，场馆名称..."/>
+      </p>
+      <span>热门搜索：<a href="#">艺人</a><a href="#">场馆</a><a href="#">齐白石画展</a><a href="#">场馆</a><a href="#">场馆</a></span> </dt>
+    <dd> <span>HI，欢迎来到活动资源网</span>
+      <p><a href="#" class="login">登录</a><a href="#">注册</a></p>
+    </dd>
+  </dl>
+</div>
+<!--logo-->
+<div class="nav">
+  <div class=" content">
+    <ul>
+      <li class="cur"><a href="#">首页</a></li>
+      <li><a href="#">动漫IP </a></li>
+      <li><a href="#">文化展览</a></li>
+      <li><a href="#">创意道具</a></li>
+      <li><a href="#">文艺演出</a></li>
+      <li><a href="#">明星专家</a></li>
+      <li><a href="#">主题活动</a></li>
+    </ul>
+  </div>
+</div>
+<!--nav-->
+
+<div class="content">
+
+ <div class="search">
+  <div class="sleft">
+    <div class="result">搜索关键字<span> "福吉兄弟"</span>, 共 <span>18</span> 个结果</div>
+     <div class="noresult"><p>诶呀！暂时没有找到与<span>“DDD”</span>相关的资源</p></div>
+  
+
+  </div><!--sleft-->
+  
+  <div class="sright">
+   <a href="#"><img src="images/index_15-17.gif" width="280" height="140"/></a>
+   <ul>
+    <li><a href="#">万里江山一片红，背后的企划人辛苦了</a></li>
+    <li><a href="#">完整万人寻宝方案，购物中心..</a></li>
+    <li><a href="#">超级IP & 宇宙第一网红，带着贱萌去..</a></li>
+    <li><a href="#">助你打造人气爆棚的互动现场 体验..</a></li>
+    <li><a href="#">科技，引领新金融—2017金融科技专享会</a></li>
+    <li><a href="#">超级IP & 宇宙第一网红，带着贱萌去..</a></li>
+   </ul>
+   <div class="rad"><a href="#"><img src="images/index_15.gif" width="280"/></a></div>
+  </div><!--sright-->
+ 
+ </div><!--search-->
+ 
+ 
+ 
+ 
+ 
+</div><!--content-->
+
+
+<div class="foot">
+  <dl>
+   <dt>
+   <p><a href="#">首页</a> | <a href="#">关于我们</a> | 联系电话:13666666666</p>
+   <p>广州市天河路xx号地址信息地址信息地址信息</p>
+   <p>©2016 广州吟羊文化传播有限公司 版权所有 粤ICP备16060652号</p>
+   </dt>
+   <dd>
+    <span>活动资源网<br/>微信公众号<br/>及时掌握资源</span>
+    <em><img src="images/wx.jpg" width="120" height="120"/></em>
+   </dd>
+  </dl>
+</div><!--foot-->
+
+
+</body>

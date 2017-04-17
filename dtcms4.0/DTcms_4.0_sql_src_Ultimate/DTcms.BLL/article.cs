@@ -88,13 +88,18 @@ namespace DTcms.BLL
         {
             return dal.GetList(Top, strWhere, filedOrder);
         }
-        
+
         /// <summary>
         /// 获得查询分页数据
         /// </summary>
         public DataSet GetList(int channel_id, int category_id, int pageSize, int pageIndex, string strWhere, string filedOrder, out int recordCount)
         {
             return dal.GetList(channel_id, category_id, pageSize, pageIndex, strWhere, filedOrder, out recordCount);
+        }
+
+        public DataSet GetChannel()
+        {
+            return dal.GetChannel();
         }
 
         #endregion
@@ -172,12 +177,12 @@ namespace DTcms.BLL
         {
             return dal.GetList(channel_name, category_id, pageSize, pageIndex, strWhere, filedOrder, out recordCount);
         }
-          /// <summary>
+        /// <summary>
         /// 根据视图获取总记录数
         /// </summary>
         public int GetCount(string channel_name, int category_id, string strWhere)
         {
-            return dal.GetCount(channel_name, category_id,strWhere);
+            return dal.GetCount(channel_name, category_id, strWhere);
         }
 
         /// <summary>

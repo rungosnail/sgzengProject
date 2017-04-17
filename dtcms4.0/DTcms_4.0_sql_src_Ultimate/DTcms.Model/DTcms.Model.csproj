@@ -61,6 +61,7 @@
     <Compile Include="article_tags.cs" />
     <Compile Include="article_tags_relation.cs" />
     <Compile Include="channel.cs" />
+    <Compile Include="ChannelView.cs" />
     <Compile Include="channel_field.cs" />
     <Compile Include="channel_site.cs" />
     <Compile Include="express.cs" />

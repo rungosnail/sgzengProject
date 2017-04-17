@@ -1,0 +1,137 @@
+﻿<!DOCTYPE HTML PUBLIC "-//W3C//DTD HTML 4.01 Transitional//EN" "http://www.w3.org/TR/html4/loose.dtd">
+<html>
+<head>
+<meta http-equiv="Content-Type" content="text/html; charset=utf-8" />
+<title></title>
+<meta name="keywords" content=""  />
+<meta name="description" content="" />
+<link href="css/swiper.min.css" rel="stylesheet" type="text/css" media="all">
+<link href="css/common.css" rel="stylesheet" type="text/css" media="all">
+<link href="css/list.css" rel="stylesheet" type="text/css" media="all">
+
+</head>
+<body>
+<div class="logo">
+  <h1><a href="#"></a></h1>
+  <dl>
+    <dt>
+      <p><a href="#">搜索</a>
+        <input type="text" placeholder="请输入演出，艺人，场馆名称..."/>
+      </p>
+      <span>热门搜索：<a href="#">艺人</a><a href="#">场馆</a><a href="#">齐白石画展</a><a href="#">场馆</a><a href="#">场馆</a></span> </dt>
+    <dd> <span>HI，欢迎来到活动资源网</span>
+      <p><a href="#" class="login">登录</a><a href="#">注册</a></p>
+    </dd>
+  </dl>
+</div>
+<!--logo-->
+<div class="nav">
+  <div class=" content">
+    <ul>
+      <li class="cur"><a href="#">首页</a></li>
+      <li><a href="#">动漫IP </a></li>
+      <li><a href="#">文化展览</a></li>
+      <li><a href="#">创意道具</a></li>
+      <li><a href="#">文艺演出</a></li>
+      <li><a href="#">明星专家</a></li>
+      <li><a href="#">主题活动</a></li>
+    </ul>
+  </div>
+</div>
+<!--nav-->
+
+<div class="content">
+ <div class="crumb">您的位置：<a href="#">活动资源网</a> > <a href="#">动漫IP </a>  > <span>福吉兄弟</span></div><!--crumb-->
+
+ 
+ 
+ <div class="detail">
+ 
+	<div class="dleftshow">
+    
+        <div class="bigshow">
+         <a href="#" class="page_btn prev"><img src="images/shape01.png" alt=""></a>
+         <a href="#" class="page_btn next"><img src="images/shape02.png" alt=""></a>
+         <ul>
+          <li style="left:-530px;"><a href="#"><img src="images/index_15.gif" ></a></li>
+          <li><a href="#"><img src="images/index_15.gif"></a></li>
+          <li style="left:530px;"><a href="#"><img  src="images/index_15.gif"></a></li>
+          <li ><a href="#"><img src="images/index_15.gif"></a></li>
+         </ul>
+        </div><!--bigshow-->
+        
+        <div class="smallimg">
+           <a href="#" class="prevbut"></a>
+           <a href="#" class="nextbut"></a>
+           <div class="small_list">
+           <ul>
+             <li><a href="#"><img src="images/index_15.gif"></a></li>
+             <li class="oncur"><a href="#"><img src="images/index_15.gif"></a></li>
+             <li><a href="#"><img src="images/index_15.gif"></a></li>
+             <li><a href="#"><img src="images/index_15.gif"></a></li>
+             <li><a href="#"><img src="images/index_15.gif"></a></li>
+             <li><a href="#"><img src="images/index_15.gif"></a></li>
+             <li><a href="#"><img src="images/index_15.gif"></a></li>
+             <li><a href="#"><img src="images/index_15.gif"></a></li>
+             <li><a href="#"><img src="images/index_15.gif"></a></li>
+             <li><a href="#"><img src="images/index_15.gif"></a></li>
+            </ul>
+            </div>
+           </div><!--smallimg-->
+		</div><!--dleftshow-->
+        
+		<div class="drighttext">
+          <h3>福记兄弟</h3>
+          <p>方案组成：两个主题场景+5个DP</p>
+          <p>场地要求：100m<sup>2</sup>--200m<sup>2</sup></p>
+          <p>费用预算：20-30万</p>
+          <p>展期：30天</p>
+          <p>方案下载：<a href="#">立即下载</a></p>
+          <p>资源联系：石先生 13888888888</p>
+          <ul>
+           <li><input type="checkbox"/>方案下载 <s>￥5.9</s><span>￥0.0</span> （<a href="#" class="reg">注册会员</a> <span>免费体验 5次</span>）</li>
+           <li><input type="checkbox"/>资源联系 <span>￥9.9</span></li>
+           <li><a href="#" class="go">年费会员畅享无限方案，限时活动价仅￥600/年</a></li>
+          </ul>
+          <dl><dt>售价：<b>￥100.80</b></dt><dd><a  href="#">提交订单</a></dd></dl>
+
+	   </div><!--drighttext-->
+
+    
+    </div><!--detail-->
+    
+    
+    <div class="otherinfo">
+     <b>该主题其它资源</b>
+     <ul>
+      <li><a href="#"><img src="images/index_25.gif"/></a><p><a href="#">福记兄弟</a></p><span>100m²-200m²    20-30万 </span></li>
+      <li><a href="#"><img src="images/index_25.gif"/></a><p><a href="#">福记兄弟</a></p><span>100m²-200m²    20-30万 </span></li>
+      <li><a href="#"><img src="images/index_25.gif"/></a><p><a href="#">福记兄弟</a></p><span>100m²-200m²    20-30万 </span></li>
+      <li><a href="#"><img src="images/index_25.gif"/></a><p><a href="#">福记兄弟</a></p><span>100m²-200m²    20-30万 </span></li>
+     </ul>
+    </div>
+    
+  <div class="ad"><a href="#"><img src="images/index_19-21.gif" width="1200" height="140"/></a></div>
+
+ 
+ </div><!--content-->
+
+
+
+
+<div class="foot">
+  <dl>
+   <dt>
+   <p><a href="#">首页</a> | <a href="#">关于我们</a> | 联系电话:13666666666</p>
+   <p>广州市天河路xx号地址信息地址信息地址信息</p>
+   <p>©2016 广州吟羊文化传播有限公司 版权所有 粤ICP备16060652号</p>
+   </dt>
+   <dd>
+    <span>活动资源网<br/>微信公众号<br/>及时掌握资源</span>
+    <em><img src="images/wx.jpg" width="120" height="120"/></em>
+   </dd>
+  </dl>
+</div><!--foot-->
+
+
+</body>

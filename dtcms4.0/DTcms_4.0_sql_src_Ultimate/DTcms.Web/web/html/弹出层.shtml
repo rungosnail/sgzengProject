@@ -1,0 +1,60 @@
+﻿
+
+<!DOCTYPE HTML PUBLIC "-//W3C//DTD HTML 4.01 Transitional//EN" "http://www.w3.org/TR/html4/loose.dtd">
+<html>
+<head>
+<meta http-equiv="Content-Type" content="text/html; charset=utf-8" />
+<title></title>
+<meta name="keywords" content=""  />
+<meta name="description" content="" />
+<link href="css/swiper.min.css" rel="stylesheet" type="text/css" media="all">
+<link href="css/common.css" rel="stylesheet" type="text/css" media="all">
+<link href="css/layer.css" rel="stylesheet" type="text/css" media="all">
+
+</head>
+<body>
+
+<div class="blackbg"></div>
+<div class="layer">
+ <p><a href="#">X</a><span>余额充值</span></p>
+ <dl><dt>余额账户：</dt><dd>￥50.00</dd></dl>
+ <dl><dt>充值金额：</dt><dd><input type="text" class="money"/>元</dd></dl>
+ <dl><dt>赠送金额：</dt><dd class="gift">充100元送20，充200元送50</dd></dl>
+ <dl><dt>支付方式：</dt><dd>
+  <ul><li class="alipay"><input type="radio"><em>支付宝</em></li><li class="wx"><input type="radio"><em>微信</em></li><li class="card"><input type="radio"><em>银联</em></li></ul>
+ </dd></dl>
+ <div class="button"><a href="#">取消</a><a href="#" class="rightpay">立即支付</a></div>
+</div>
+
+
+<div class="layer" style="top:260px;">
+ <p><a href="#">X</a><span>支付结果</span></p>
+ <b>请您确认支付结果</b>
+ <div class="button"><a href="#">遇到问题</a><a href="#" class="rightpay">支付成功</a></div>
+</div>
+
+<div class="layer" style="top:320px;">
+ <p><a href="#">X</a><span>找回密码</span></p>
+ <b>已发送验证码至117889@qq.com</b>
+ <div class="button"><a href="#">取消</a><a href="#" class="rightpay">立即查看</a></div>
+</div>
+
+<div class="layer" style="top:400px;">
+ <p><a href="#">X</a><span>支付结果</span></p>
+ <b>如遇到支付问题，请直接致电138888888</b>
+ <div class="button one"><a href="#" class="rightpay">我知道了</a></div>
+</div>
+
+<div class="layer" style="top:480px;">
+ <p><a href="#">X</a><span>支付结果</span></p>
+ <b>抱歉，支付未成功，请重新支付或<a href="#">联系我们</a></b>
+ <div class="button one"><a href="#" class="rightpay">我知道了</a></div>
+</div>
+
+<div class="layer" style="top:560px;">
+ <p><a href="#">X</a><span>支付结果</span></p>
+ <b>感谢您的支持，年费会员到期：2018-03-26</b>
+ <div class="button one"><a href="#" class="rightpay">我知道了</a></div>
+</div>
+
+</body>

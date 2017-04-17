@@ -8,17 +8,17 @@ using DTcms.Common;
 
 namespace DTcms.DAL
 {
-	/// <summary>
-	/// 数据访问类:文章内容
-	/// </summary>
-	public partial class article
-	{
+    /// <summary>
+    /// 数据访问类:文章内容
+    /// </summary>
+    public partial class article
+    {
         private string databaseprefix; //数据库表名前缀
         public article(string _databaseprefix)
         {
             databaseprefix = _databaseprefix;
         }
-		#region 基本方法================================
+        #region 基本方法================================
         /// <summary>
         /// 是否存在该记录
         /// </summary>
@@ -28,7 +28,7 @@ namespace DTcms.DAL
             strSql.Append("select count(1) from " + databaseprefix + "article");
             strSql.Append(" where id=@id ");
             SqlParameter[] parameters = {
-					new SqlParameter("@id", SqlDbType.Int,4)};
+                    new SqlParameter("@id", SqlDbType.Int,4)};
             parameters[0].Value = id;
 
             return DbHelperSQL.Exists(strSql.ToString(), parameters);
@@ -47,15 +47,15 @@ namespace DTcms.DAL
             strSql.Append("select count(1) from " + databaseprefix + "article");
             strSql.Append(" where call_index=@call_index ");
             SqlParameter[] parameters = {
-					new SqlParameter("@call_index", SqlDbType.NVarChar,50)};
+                    new SqlParameter("@call_index", SqlDbType.NVarChar,50)};
             parameters[0].Value = call_index;
 
             return DbHelperSQL.Exists(strSql.ToString(), parameters);
         }
 
-		/// <summary>
-		/// 增加一条数据
-		/// </summary>
+        /// <summary>
+        /// 增加一条数据
+        /// </summary>
         public int Add(Model.article model)
         {
             using (SqlConnection conn = new SqlConnection(DbHelperSQL.connectionString))
@@ -73,30 +73,30 @@ namespace DTcms.DAL
                         strSql.Append("@channel_id,@category_id,@call_index,@title,@link_url,@img_url,@seo_title,@seo_keywords,@seo_description,@tags,@zhaiyao,@content,@sort_id,@click,@status,@is_msg,@is_top,@is_red,@is_hot,@is_slide,@is_sys,@user_name,@add_time,@update_time)");
                         strSql.Append(";select @@IDENTITY");
                         SqlParameter[] parameters = {
-					            new SqlParameter("@channel_id", SqlDbType.Int,4),
-					            new SqlParameter("@category_id", SqlDbType.Int,4),
-					            new SqlParameter("@call_index", SqlDbType.NVarChar,50),
-					            new SqlParameter("@title", SqlDbType.NVarChar,100),
-					            new SqlParameter("@link_url", SqlDbType.NVarChar,255),
-					            new SqlParameter("@img_url", SqlDbType.NVarChar,255),
-					            new SqlParameter("@seo_title", SqlDbType.NVarChar,255),
-					            new SqlParameter("@seo_keywords", SqlDbType.NVarChar,255),
-					            new SqlParameter("@seo_description", SqlDbType.NVarChar,255),
-					            new SqlParameter("@tags", SqlDbType.NVarChar,500),
-					            new SqlParameter("@zhaiyao", SqlDbType.NVarChar,255),
-					            new SqlParameter("@content", SqlDbType.NText),
-					            new SqlParameter("@sort_id", SqlDbType.Int,4),
-					            new SqlParameter("@click", SqlDbType.Int,4),
-					            new SqlParameter("@status", SqlDbType.TinyInt,1),
-					            new SqlParameter("@is_msg", SqlDbType.TinyInt,1),
-					            new SqlParameter("@is_top", SqlDbType.TinyInt,1),
-					            new SqlParameter("@is_red", SqlDbType.TinyInt,1),
-					            new SqlParameter("@is_hot", SqlDbType.TinyInt,1),
-					            new SqlParameter("@is_slide", SqlDbType.TinyInt,1),
-					            new SqlParameter("@is_sys", SqlDbType.TinyInt,1),
-					            new SqlParameter("@user_name", SqlDbType.NVarChar,100),
-					            new SqlParameter("@add_time", SqlDbType.DateTime),
-					            new SqlParameter("@update_time", SqlDbType.DateTime)};
+                                new SqlParameter("@channel_id", SqlDbType.Int,4),
+                                new SqlParameter("@category_id", SqlDbType.Int,4),
+                                new SqlParameter("@call_index", SqlDbType.NVarChar,50),
+                                new SqlParameter("@title", SqlDbType.NVarChar,100),
+                                new SqlParameter("@link_url", SqlDbType.NVarChar,255),
+                                new SqlParameter("@img_url", SqlDbType.NVarChar,255),
+                                new SqlParameter("@seo_title", SqlDbType.NVarChar,255),
+                                new SqlParameter("@seo_keywords", SqlDbType.NVarChar,255),
+                                new SqlParameter("@seo_description", SqlDbType.NVarChar,255),
+                                new SqlParameter("@tags", SqlDbType.NVarChar,500),
+                                new SqlParameter("@zhaiyao", SqlDbType.NVarChar,255),
+                                new SqlParameter("@content", SqlDbType.NText),
+                                new SqlParameter("@sort_id", SqlDbType.Int,4),
+                                new SqlParameter("@click", SqlDbType.Int,4),
+                                new SqlParameter("@status", SqlDbType.TinyInt,1),
+                                new SqlParameter("@is_msg", SqlDbType.TinyInt,1),
+                                new SqlParameter("@is_top", SqlDbType.TinyInt,1),
+                                new SqlParameter("@is_red", SqlDbType.TinyInt,1),
+                                new SqlParameter("@is_hot", SqlDbType.TinyInt,1),
+                                new SqlParameter("@is_slide", SqlDbType.TinyInt,1),
+                                new SqlParameter("@is_sys", SqlDbType.TinyInt,1),
+                                new SqlParameter("@user_name", SqlDbType.NVarChar,100),
+                                new SqlParameter("@add_time", SqlDbType.DateTime),
+                                new SqlParameter("@update_time", SqlDbType.DateTime)};
                         parameters[0].Value = model.channel_id;
                         parameters[1].Value = model.category_id;
                         parameters[2].Value = model.call_index;
@@ -171,10 +171,10 @@ namespace DTcms.DAL
                                 strSql3.Append(" values (");
                                 strSql3.Append("@article_id,@thumb_path,@original_path,@remark)");
                                 SqlParameter[] parameters3 = {
-					                new SqlParameter("@article_id", SqlDbType.Int,4),
-					                new SqlParameter("@thumb_path", SqlDbType.NVarChar,255),
-					                new SqlParameter("@original_path", SqlDbType.NVarChar,255),
-					                new SqlParameter("@remark", SqlDbType.NVarChar,500)};
+                                    new SqlParameter("@article_id", SqlDbType.Int,4),
+                                    new SqlParameter("@thumb_path", SqlDbType.NVarChar,255),
+                                    new SqlParameter("@original_path", SqlDbType.NVarChar,255),
+                                    new SqlParameter("@remark", SqlDbType.NVarChar,500)};
                                 parameters3[0].Value = model.id;
                                 parameters3[1].Value = modelt.thumb_path;
                                 parameters3[2].Value = modelt.original_path;
@@ -196,13 +196,13 @@ namespace DTcms.DAL
                                 strSql4.Append(" values (");
                                 strSql4.Append("@article_id,@file_name,@file_path,@file_size,@file_ext,@down_num,@point)");
                                 SqlParameter[] parameters4 = {
-					                    new SqlParameter("@article_id", SqlDbType.Int,4),
-					                    new SqlParameter("@file_name", SqlDbType.NVarChar,100),
-					                    new SqlParameter("@file_path", SqlDbType.NVarChar,255),
-					                    new SqlParameter("@file_size", SqlDbType.Int,4),
-					                    new SqlParameter("@file_ext", SqlDbType.NVarChar,20),
-					                    new SqlParameter("@down_num", SqlDbType.Int,4),
-					                    new SqlParameter("@point", SqlDbType.Int,4)};
+                                        new SqlParameter("@article_id", SqlDbType.Int,4),
+                                        new SqlParameter("@file_name", SqlDbType.NVarChar,100),
+                                        new SqlParameter("@file_path", SqlDbType.NVarChar,255),
+                                        new SqlParameter("@file_size", SqlDbType.Int,4),
+                                        new SqlParameter("@file_ext", SqlDbType.NVarChar,20),
+                                        new SqlParameter("@down_num", SqlDbType.Int,4),
+                                        new SqlParameter("@point", SqlDbType.Int,4)};
                                 parameters4[0].Value = model.id;
                                 parameters4[1].Value = modelt.file_name;
                                 parameters4[2].Value = modelt.file_path;
@@ -237,11 +237,11 @@ namespace DTcms.DAL
                                 strSql6.Append(" values (");
                                 strSql6.Append("@article_id,@spec_id,@parent_id,@title,@img_url)");
                                 SqlParameter[] parameters6 = {
-					                    new SqlParameter("@article_id", SqlDbType.Int,4),
-					                    new SqlParameter("@spec_id", SqlDbType.Int,4),
-					                    new SqlParameter("@parent_id", SqlDbType.Int,4),
-					                    new SqlParameter("@title", SqlDbType.NVarChar,100),
-					                    new SqlParameter("@img_url", SqlDbType.NVarChar,255)};
+                                        new SqlParameter("@article_id", SqlDbType.Int,4),
+                                        new SqlParameter("@spec_id", SqlDbType.Int,4),
+                                        new SqlParameter("@parent_id", SqlDbType.Int,4),
+                                        new SqlParameter("@title", SqlDbType.NVarChar,100),
+                                        new SqlParameter("@img_url", SqlDbType.NVarChar,255)};
                                 parameters6[0].Value = model.id;
                                 parameters6[1].Value = modelt.spec_id;
                                 parameters6[2].Value = modelt.parent_id;
@@ -278,11 +278,11 @@ namespace DTcms.DAL
             return model.id;
         }
 
-		/// <summary>
-		/// 更新一条数据
-		/// </summary>
-		public bool Update(Model.article model)
-		{
+        /// <summary>
+        /// 更新一条数据
+        /// </summary>
+        public bool Update(Model.article model)
+        {
             using (SqlConnection conn = new SqlConnection(DbHelperSQL.connectionString))
             {
                 conn.Open();
@@ -291,84 +291,84 @@ namespace DTcms.DAL
                     try
                     {
                         #region 修改主表数据==========================
-                        StringBuilder strSql=new StringBuilder();
-			            strSql.Append("update " + databaseprefix + "article set ");
-			            strSql.Append("channel_id=@channel_id,");
-			            strSql.Append("category_id=@category_id,");
-			            strSql.Append("call_index=@call_index,");
-			            strSql.Append("title=@title,");
-			            strSql.Append("link_url=@link_url,");
-			            strSql.Append("img_url=@img_url,");
-			            strSql.Append("seo_title=@seo_title,");
-			            strSql.Append("seo_keywords=@seo_keywords,");
-			            strSql.Append("seo_description=@seo_description,");
-			            strSql.Append("tags=@tags,");
-			            strSql.Append("zhaiyao=@zhaiyao,");
-			            strSql.Append("content=@content,");
-			            strSql.Append("sort_id=@sort_id,");
-			            strSql.Append("click=@click,");
-			            strSql.Append("status=@status,");
-			            strSql.Append("is_msg=@is_msg,");
-			            strSql.Append("is_top=@is_top,");
-			            strSql.Append("is_red=@is_red,");
-			            strSql.Append("is_hot=@is_hot,");
-			            strSql.Append("is_slide=@is_slide,");
-			            strSql.Append("is_sys=@is_sys,");
-			            strSql.Append("user_name=@user_name,");
-			            strSql.Append("add_time=@add_time,");
-			            strSql.Append("update_time=@update_time");
-			            strSql.Append(" where id=@id");
-			            SqlParameter[] parameters = {
-					            new SqlParameter("@channel_id", SqlDbType.Int,4),
-					            new SqlParameter("@category_id", SqlDbType.Int,4),
-					            new SqlParameter("@call_index", SqlDbType.NVarChar,50),
-					            new SqlParameter("@title", SqlDbType.NVarChar,100),
-					            new SqlParameter("@link_url", SqlDbType.NVarChar,255),
-					            new SqlParameter("@img_url", SqlDbType.NVarChar,255),
-					            new SqlParameter("@seo_title", SqlDbType.NVarChar,255),
-					            new SqlParameter("@seo_keywords", SqlDbType.NVarChar,255),
-					            new SqlParameter("@seo_description", SqlDbType.NVarChar,255),
-					            new SqlParameter("@tags", SqlDbType.NVarChar,500),
-					            new SqlParameter("@zhaiyao", SqlDbType.NVarChar,255),
-					            new SqlParameter("@content", SqlDbType.NText),
-					            new SqlParameter("@sort_id", SqlDbType.Int,4),
-					            new SqlParameter("@click", SqlDbType.Int,4),
-					            new SqlParameter("@status", SqlDbType.TinyInt,1),
-					            new SqlParameter("@is_msg", SqlDbType.TinyInt,1),
-					            new SqlParameter("@is_top", SqlDbType.TinyInt,1),
-					            new SqlParameter("@is_red", SqlDbType.TinyInt,1),
-					            new SqlParameter("@is_hot", SqlDbType.TinyInt,1),
-					            new SqlParameter("@is_slide", SqlDbType.TinyInt,1),
-					            new SqlParameter("@is_sys", SqlDbType.TinyInt,1),
-					            new SqlParameter("@user_name", SqlDbType.NVarChar,100),
-					            new SqlParameter("@add_time", SqlDbType.DateTime),
-					            new SqlParameter("@update_time", SqlDbType.DateTime),
-					            new SqlParameter("@id", SqlDbType.Int,4)};
-			            parameters[0].Value = model.channel_id;
-			            parameters[1].Value = model.category_id;
-			            parameters[2].Value = model.call_index;
-			            parameters[3].Value = model.title;
-			            parameters[4].Value = model.link_url;
-			            parameters[5].Value = model.img_url;
-			            parameters[6].Value = model.seo_title;
-			            parameters[7].Value = model.seo_keywords;
-			            parameters[8].Value = model.seo_description;
-			            parameters[9].Value = model.tags;
-			            parameters[10].Value = model.zhaiyao;
-			            parameters[11].Value = model.content;
-			            parameters[12].Value = model.sort_id;
-			            parameters[13].Value = model.click;
-			            parameters[14].Value = model.status;
-			            parameters[15].Value = model.is_msg;
-			            parameters[16].Value = model.is_top;
-			            parameters[17].Value = model.is_red;
-			            parameters[18].Value = model.is_hot;
-			            parameters[19].Value = model.is_slide;
-			            parameters[20].Value = model.is_sys;
-			            parameters[21].Value = model.user_name;
-			            parameters[22].Value = model.add_time;
-			            parameters[23].Value = model.update_time;
-			            parameters[24].Value = model.id;
+                        StringBuilder strSql = new StringBuilder();
+                        strSql.Append("update " + databaseprefix + "article set ");
+                        strSql.Append("channel_id=@channel_id,");
+                        strSql.Append("category_id=@category_id,");
+                        strSql.Append("call_index=@call_index,");
+                        strSql.Append("title=@title,");
+                        strSql.Append("link_url=@link_url,");
+                        strSql.Append("img_url=@img_url,");
+                        strSql.Append("seo_title=@seo_title,");
+                        strSql.Append("seo_keywords=@seo_keywords,");
+                        strSql.Append("seo_description=@seo_description,");
+                        strSql.Append("tags=@tags,");
+                        strSql.Append("zhaiyao=@zhaiyao,");
+                        strSql.Append("content=@content,");
+                        strSql.Append("sort_id=@sort_id,");
+                        strSql.Append("click=@click,");
+                        strSql.Append("status=@status,");
+                        strSql.Append("is_msg=@is_msg,");
+                        strSql.Append("is_top=@is_top,");
+                        strSql.Append("is_red=@is_red,");
+                        strSql.Append("is_hot=@is_hot,");
+                        strSql.Append("is_slide=@is_slide,");
+                        strSql.Append("is_sys=@is_sys,");
+                        strSql.Append("user_name=@user_name,");
+                        strSql.Append("add_time=@add_time,");
+                        strSql.Append("update_time=@update_time");
+                        strSql.Append(" where id=@id");
+                        SqlParameter[] parameters = {
+                                new SqlParameter("@channel_id", SqlDbType.Int,4),
+                                new SqlParameter("@category_id", SqlDbType.Int,4),
+                                new SqlParameter("@call_index", SqlDbType.NVarChar,50),
+                                new SqlParameter("@title", SqlDbType.NVarChar,100),
+                                new SqlParameter("@link_url", SqlDbType.NVarChar,255),
+                                new SqlParameter("@img_url", SqlDbType.NVarChar,255),
+                                new SqlParameter("@seo_title", SqlDbType.NVarChar,255),
+                                new SqlParameter("@seo_keywords", SqlDbType.NVarChar,255),
+                                new SqlParameter("@seo_description", SqlDbType.NVarChar,255),
+                                new SqlParameter("@tags", SqlDbType.NVarChar,500),
+                                new SqlParameter("@zhaiyao", SqlDbType.NVarChar,255),
+                                new SqlParameter("@content", SqlDbType.NText),
+                                new SqlParameter("@sort_id", SqlDbType.Int,4),
+                                new SqlParameter("@click", SqlDbType.Int,4),
+                                new SqlParameter("@status", SqlDbType.TinyInt,1),
+                                new SqlParameter("@is_msg", SqlDbType.TinyInt,1),
+                                new SqlParameter("@is_top", SqlDbType.TinyInt,1),
+                                new SqlParameter("@is_red", SqlDbType.TinyInt,1),
+                                new SqlParameter("@is_hot", SqlDbType.TinyInt,1),
+                                new SqlParameter("@is_slide", SqlDbType.TinyInt,1),
+                                new SqlParameter("@is_sys", SqlDbType.TinyInt,1),
+                                new SqlParameter("@user_name", SqlDbType.NVarChar,100),
+                                new SqlParameter("@add_time", SqlDbType.DateTime),
+                                new SqlParameter("@update_time", SqlDbType.DateTime),
+                                new SqlParameter("@id", SqlDbType.Int,4)};
+                        parameters[0].Value = model.channel_id;
+                        parameters[1].Value = model.category_id;
+                        parameters[2].Value = model.call_index;
+                        parameters[3].Value = model.title;
+                        parameters[4].Value = model.link_url;
+                        parameters[5].Value = model.img_url;
+                        parameters[6].Value = model.seo_title;
+                        parameters[7].Value = model.seo_keywords;
+                        parameters[8].Value = model.seo_description;
+                        parameters[9].Value = model.tags;
+                        parameters[10].Value = model.zhaiyao;
+                        parameters[11].Value = model.content;
+                        parameters[12].Value = model.sort_id;
+                        parameters[13].Value = model.click;
+                        parameters[14].Value = model.status;
+                        parameters[15].Value = model.is_msg;
+                        parameters[16].Value = model.is_top;
+                        parameters[17].Value = model.is_red;
+                        parameters[18].Value = model.is_hot;
+                        parameters[19].Value = model.is_slide;
+                        parameters[20].Value = model.is_sys;
+                        parameters[21].Value = model.user_name;
+                        parameters[22].Value = model.add_time;
+                        parameters[23].Value = model.update_time;
+                        parameters[24].Value = model.id;
                         DbHelperSQL.ExecuteSql(conn, trans, strSql.ToString(), parameters);
                         #endregion
 
@@ -421,10 +421,10 @@ namespace DTcms.DAL
                                     strSql3.Append("remark=@remark");
                                     strSql3.Append(" where id=@id");
                                     SqlParameter[] parameters3 = {
-					                        new SqlParameter("@article_id", SqlDbType.Int,4),
-					                        new SqlParameter("@thumb_path", SqlDbType.NVarChar,255),
-					                        new SqlParameter("@original_path", SqlDbType.NVarChar,255),
-					                        new SqlParameter("@remark", SqlDbType.NVarChar,500),
+                                            new SqlParameter("@article_id", SqlDbType.Int,4),
+                                            new SqlParameter("@thumb_path", SqlDbType.NVarChar,255),
+                                            new SqlParameter("@original_path", SqlDbType.NVarChar,255),
+                                            new SqlParameter("@remark", SqlDbType.NVarChar,500),
                                             new SqlParameter("@id", SqlDbType.Int,4)};
                                     parameters3[0].Value = modelt.article_id;
                                     parameters3[1].Value = modelt.thumb_path;
@@ -440,10 +440,10 @@ namespace DTcms.DAL
                                     strSql3.Append(" values (");
                                     strSql3.Append("@article_id,@thumb_path,@original_path,@remark)");
                                     SqlParameter[] parameters3 = {
-					                        new SqlParameter("@article_id", SqlDbType.Int,4),
-					                        new SqlParameter("@thumb_path", SqlDbType.NVarChar,255),
-					                        new SqlParameter("@original_path", SqlDbType.NVarChar,255),
-					                        new SqlParameter("@remark", SqlDbType.NVarChar,500)};
+                                            new SqlParameter("@article_id", SqlDbType.Int,4),
+                                            new SqlParameter("@thumb_path", SqlDbType.NVarChar,255),
+                                            new SqlParameter("@original_path", SqlDbType.NVarChar,255),
+                                            new SqlParameter("@remark", SqlDbType.NVarChar,500)};
                                     parameters3[0].Value = modelt.article_id;
                                     parameters3[1].Value = modelt.thumb_path;
                                     parameters3[2].Value = modelt.original_path;
@@ -475,13 +475,13 @@ namespace DTcms.DAL
                                     strSql4.Append("point=@point");
                                     strSql4.Append(" where id=@id");
                                     SqlParameter[] parameters4 = {
-					                        new SqlParameter("@article_id", SqlDbType.Int,4),
-					                        new SqlParameter("@file_name", SqlDbType.NVarChar,100),
-					                        new SqlParameter("@file_path", SqlDbType.NVarChar,255),
-					                        new SqlParameter("@file_size", SqlDbType.Int,4),
-					                        new SqlParameter("@file_ext", SqlDbType.NVarChar,20),
-					                        new SqlParameter("@point", SqlDbType.Int,4),
-					                        new SqlParameter("@id", SqlDbType.Int,4)};
+                                            new SqlParameter("@article_id", SqlDbType.Int,4),
+                                            new SqlParameter("@file_name", SqlDbType.NVarChar,100),
+                                            new SqlParameter("@file_path", SqlDbType.NVarChar,255),
+                                            new SqlParameter("@file_size", SqlDbType.Int,4),
+                                            new SqlParameter("@file_ext", SqlDbType.NVarChar,20),
+                                            new SqlParameter("@point", SqlDbType.Int,4),
+                                            new SqlParameter("@id", SqlDbType.Int,4)};
                                     parameters4[0].Value = modelt.article_id;
                                     parameters4[1].Value = modelt.file_name;
                                     parameters4[2].Value = modelt.file_path;
@@ -498,13 +498,13 @@ namespace DTcms.DAL
                                     strSql4.Append(" values (");
                                     strSql4.Append("@article_id,@file_name,@file_path,@file_size,@file_ext,@down_num,@point)");
                                     SqlParameter[] parameters4 = {
-					                        new SqlParameter("@article_id", SqlDbType.Int,4),
-					                        new SqlParameter("@file_name", SqlDbType.NVarChar,100),
-					                        new SqlParameter("@file_path", SqlDbType.NVarChar,255),
-					                        new SqlParameter("@file_size", SqlDbType.Int,4),
-					                        new SqlParameter("@file_ext", SqlDbType.NVarChar,20),
-					                        new SqlParameter("@down_num", SqlDbType.Int,4),
-					                        new SqlParameter("@point", SqlDbType.Int,4)};
+                                            new SqlParameter("@article_id", SqlDbType.Int,4),
+                                            new SqlParameter("@file_name", SqlDbType.NVarChar,100),
+                                            new SqlParameter("@file_path", SqlDbType.NVarChar,255),
+                                            new SqlParameter("@file_size", SqlDbType.Int,4),
+                                            new SqlParameter("@file_ext", SqlDbType.NVarChar,20),
+                                            new SqlParameter("@down_num", SqlDbType.Int,4),
+                                            new SqlParameter("@point", SqlDbType.Int,4)};
                                     parameters4[0].Value = modelt.article_id;
                                     parameters4[1].Value = modelt.file_name;
                                     parameters4[2].Value = modelt.file_path;
@@ -545,11 +545,11 @@ namespace DTcms.DAL
                                 strSql6.Append(" values (");
                                 strSql6.Append("@article_id,@spec_id,@parent_id,@title,@img_url)");
                                 SqlParameter[] parameters6 = {
-					                    new SqlParameter("@article_id", SqlDbType.Int,4),
-					                    new SqlParameter("@spec_id", SqlDbType.Int,4),
-					                    new SqlParameter("@parent_id", SqlDbType.Int,4),
-					                    new SqlParameter("@title", SqlDbType.NVarChar,100),
-					                    new SqlParameter("@img_url", SqlDbType.NVarChar,255)};
+                                        new SqlParameter("@article_id", SqlDbType.Int,4),
+                                        new SqlParameter("@spec_id", SqlDbType.Int,4),
+                                        new SqlParameter("@parent_id", SqlDbType.Int,4),
+                                        new SqlParameter("@title", SqlDbType.NVarChar,100),
+                                        new SqlParameter("@img_url", SqlDbType.NVarChar,255)};
                                 parameters6[0].Value = model.id;
                                 parameters6[1].Value = modelt.spec_id;
                                 parameters6[2].Value = modelt.parent_id;
@@ -587,13 +587,13 @@ namespace DTcms.DAL
                 }
             }
             return true;
-		}
+        }
 
-		/// <summary>
-		/// 删除一条数据
-		/// </summary>
-		public bool Delete(int id)
-		{
+        /// <summary>
+        /// 删除一条数据
+        /// </summary>
+        public bool Delete(int id)
+        {
             //取得相册MODEL
             List<Model.article_albums> albumsList = new DAL.article_albums(databaseprefix).GetList(id);
             //取得附件MODEL
@@ -604,7 +604,7 @@ namespace DTcms.DAL
             strSql1.Append("delete from " + databaseprefix + "article_attribute_value ");
             strSql1.Append(" where article_id=@article_id ");
             SqlParameter[] parameters1 = {
-					new SqlParameter("@article_id", SqlDbType.Int,4)};
+                    new SqlParameter("@article_id", SqlDbType.Int,4)};
             parameters1[0].Value = id;
             List<CommandInfo> sqllist = new List<CommandInfo>();
             CommandInfo cmd = new CommandInfo(strSql1.ToString(), parameters1);
@@ -615,7 +615,7 @@ namespace DTcms.DAL
             strSql2.Append("delete from " + databaseprefix + "article_albums ");
             strSql2.Append(" where article_id=@article_id ");
             SqlParameter[] parameters2 = {
-					new SqlParameter("@article_id", SqlDbType.Int,4)};
+                    new SqlParameter("@article_id", SqlDbType.Int,4)};
             parameters2[0].Value = id;
             cmd = new CommandInfo(strSql2.ToString(), parameters2);
             sqllist.Add(cmd);
@@ -645,7 +645,7 @@ namespace DTcms.DAL
             strSql5.Append("delete from " + databaseprefix + "article_goods");
             strSql5.Append(" where article_id=@article_id");
             SqlParameter[] parameters5 = {
-					new SqlParameter("@article_id", SqlDbType.Int,4)};
+                    new SqlParameter("@article_id", SqlDbType.Int,4)};
             parameters5[0].Value = id;
             cmd = new CommandInfo(strSql5.ToString(), parameters5);
             sqllist.Add(cmd);
@@ -655,7 +655,7 @@ namespace DTcms.DAL
             strSql6.Append("delete from " + databaseprefix + "article_goods_spec");
             strSql6.Append(" where article_id=@article_id");
             SqlParameter[] parameters6 = {
-					new SqlParameter("@article_id", SqlDbType.Int,4)};
+                    new SqlParameter("@article_id", SqlDbType.Int,4)};
             parameters6[0].Value = id;
             cmd = new CommandInfo(strSql6.ToString(), parameters6);
             sqllist.Add(cmd);
@@ -665,7 +665,7 @@ namespace DTcms.DAL
             strSql7.Append("delete from " + databaseprefix + "article_tags_relation");
             strSql7.Append(" where article_id=@article_id");
             SqlParameter[] parameters7 = {
-					new SqlParameter("@article_id", SqlDbType.Int,4)};
+                    new SqlParameter("@article_id", SqlDbType.Int,4)};
             parameters7[0].Value = id;
             cmd = new CommandInfo(strSql7.ToString(), parameters7);
             sqllist.Add(cmd);
@@ -675,7 +675,7 @@ namespace DTcms.DAL
             strSql8.Append("delete from " + databaseprefix + "article_comment ");
             strSql8.Append(" where article_id=@article_id ");
             SqlParameter[] parameters8 = {
-					new SqlParameter("@article_id", SqlDbType.Int,4)};
+                    new SqlParameter("@article_id", SqlDbType.Int,4)};
             parameters8[0].Value = id;
             cmd = new CommandInfo(strSql8.ToString(), parameters8);
             sqllist.Add(cmd);
@@ -685,7 +685,7 @@ namespace DTcms.DAL
             strSql.Append("delete from " + databaseprefix + "article ");
             strSql.Append(" where id=@id");
             SqlParameter[] parameters = {
-					new SqlParameter("@id", SqlDbType.Int,4)};
+                    new SqlParameter("@id", SqlDbType.Int,4)};
             parameters[0].Value = id;
             cmd = new CommandInfo(strSql.ToString(), parameters);
             sqllist.Add(cmd);
@@ -701,11 +701,11 @@ namespace DTcms.DAL
             {
                 return false;
             }
-		}
+        }
 
-		/// <summary>
-		/// 得到一个对象实体
-		/// </summary>
+        /// <summary>
+        /// 得到一个对象实体
+        /// </summary>
         public Model.article GetModel(int id)
         {
             StringBuilder strSql = new StringBuilder();
@@ -713,7 +713,7 @@ namespace DTcms.DAL
             strSql.Append(" from " + databaseprefix + "article");
             strSql.Append(" where id=@id");
             SqlParameter[] parameters = {
-					new SqlParameter("@id", SqlDbType.Int,4)};
+                    new SqlParameter("@id", SqlDbType.Int,4)};
             parameters[0].Value = id;
 
             Model.article model = new Model.article();
@@ -737,7 +737,7 @@ namespace DTcms.DAL
             strSql.Append("select id from " + databaseprefix + "article");
             strSql.Append(" where call_index=@call_index");
             SqlParameter[] parameters = {
-					new SqlParameter("@call_index", SqlDbType.NVarChar,50)};
+                    new SqlParameter("@call_index", SqlDbType.NVarChar,50)};
             parameters[0].Value = call_index;
 
             object obj = DbHelperSQL.GetSingle(strSql.ToString(), parameters);
@@ -748,9 +748,9 @@ namespace DTcms.DAL
             return null;
         }
 
-		/// <summary>
-		/// 获得前几行数据
-		/// </summary>
+        /// <summary>
+        /// 获得前几行数据
+        /// </summary>
         public DataSet GetList(int Top, string strWhere, string filedOrder)
         {
             StringBuilder strSql = new StringBuilder();
@@ -805,7 +805,7 @@ namespace DTcms.DAL
             recordCount = Convert.ToInt32(DbHelperSQL.GetSingle(PagingHelper.CreateCountingSql(strSql.ToString())));
             return DbHelperSQL.Query(PagingHelper.CreatePagingSql(recordCount, pageSize, pageIndex, strSql.ToString(), filedOrder));
         }
-		#endregion
+        #endregion
 
         #region 扩展方法================================
         /// <summary>
@@ -817,7 +817,7 @@ namespace DTcms.DAL
             strSql.Append("select count(1) from " + databaseprefix + "article");
             strSql.Append(" where title=@title ");
             SqlParameter[] parameters = {
-					new SqlParameter("@title", SqlDbType.VarChar,200)};
+                    new SqlParameter("@title", SqlDbType.VarChar,200)};
             parameters[0].Value = title;
 
             return DbHelperSQL.Exists(strSql.ToString(), parameters);
@@ -832,7 +832,7 @@ namespace DTcms.DAL
             strSql.Append("select count(1) from " + databaseprefix + "article");
             strSql.Append(" where title=@title and category_id=@category_id");
             SqlParameter[] parameters = {
-					new SqlParameter("@title", SqlDbType.VarChar,200),
+                    new SqlParameter("@title", SqlDbType.VarChar,200),
                     new SqlParameter("@category_id", SqlDbType.Int,4)  }
                                         ;
             parameters[0].Value = title;
@@ -1130,7 +1130,7 @@ namespace DTcms.DAL
         /// <summary>
         /// 根据视图及规格查询分页数据
         /// </summary>
-        public DataSet GetList(string channel_name, int category_id, Dictionary<string,string> dicSpecIds, int pageSize, int pageIndex, string strWhere, string filedOrder, out int recordCount)
+        public DataSet GetList(string channel_name, int category_id, Dictionary<string, string> dicSpecIds, int pageSize, int pageIndex, string strWhere, string filedOrder, out int recordCount)
         {
             string specWhere = string.Empty;
             foreach (KeyValuePair<string, string> kv in dicSpecIds)
@@ -1208,6 +1208,15 @@ namespace DTcms.DAL
         }
 
         #endregion
+
+        public DataSet GetChannel()
+        {
+            string strSql = @"SELECT ac.id as Viewid,ac.channel_id AS Viewchannel_id ,ac.title AS Viewtitle,ac2.id AS Viewid2, (ac2.parent_id) AS Viewchannel_id2, (ac2.title) AS Viewtitle2,atc.* FROM dt_article_category  AS ac
+		                        LEFT JOIN dt_article_category AS ac2 ON ac.id=ac2.parent_id 
+		                        LEFT JOIN dbo.dt_article AS atc ON ac2.id=atc.category_id
+		                        WHERE ac.parent_id=0 AND ac.channel_id!=18 ORDER BY ac.channel_id ASC";
+            return DbHelperSQL.Query(strSql.ToString());
+        }
     }
 }
 
