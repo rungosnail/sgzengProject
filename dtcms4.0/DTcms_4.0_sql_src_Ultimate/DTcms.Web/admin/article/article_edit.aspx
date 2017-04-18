@@ -187,8 +187,8 @@
       <ul>
         <li><a class="selected" href="javascript:;">基本信息</a></li>
         <li id="field_tab_item" runat="server" visible="false"><a href="javascript:;">扩展选项</a></li>
-        <li><a href="javascript:;">详细描述</a></li>
-        <li><a href="javascript:;">SEO选项</a></li>
+        <%--<li><a href="javascript:;">详细描述</a></li>--%>
+        <%--<li><a href="javascript:;">SEO选项</a></li>--%>
       </ul>
     </div>
   </div>
@@ -224,7 +224,7 @@
         <asp:ListItem Value="1">置顶</asp:ListItem>
         <asp:ListItem Value="1">推荐</asp:ListItem>
         <asp:ListItem Value="1">热门</asp:ListItem>
-        <asp:ListItem Value="1">幻灯片</asp:ListItem>
+        <%--<asp:ListItem Value="1">幻灯片</asp:ListItem>--%>
         </asp:CheckBoxList>
       </div>
     </dd>
@@ -236,39 +236,32 @@
       <span class="Validform_checktip">*标题最多100个字符</span>
     </dd>
   </dl>
-  <dl ID="div_sub_title" runat="server" visible="false">
+    <dl>
+    <dt>内容摘要</dt>
+    <dd>
+      <asp:TextBox ID="txtZhaiyao" runat="server" CssClass="input" TextMode="MultiLine" datatype="*0-255" sucmsg=" "></asp:TextBox>
+      <span class="Validform_checktip">不填写则自动截取内容前255字符</span>
+    </dd>
+  </dl>
+ <%-- <dl ID="div_sub_title" runat="server" visible="false">
     <dt><asp:Label ID="div_sub_title_title" runat="server" Text="副标题" /></dt>
     <dd>
       <asp:TextBox ID="field_control_sub_title" runat="server" CssClass="input normal" datatype="*0-255" sucmsg=" " />
       <asp:Label ID="div_sub_title_tip" runat="server" CssClass="Validform_checktip" />
     </dd>
-  </dl>
-  <dl>
+  </dl>--%>
+ <%-- <dl>
     <dt>Tags标签</dt>
     <dd>
       <asp:TextBox ID="txtTags" runat="server" CssClass="input normal" datatype="*0-500" sucmsg=" " />
       <span class="Validform_checktip">多个可用英文逗号分隔开，如：a,b</span>
     </dd>
-  </dl>
+  </dl>--%>
   <dl>
     <dt>封面图片</dt>
     <dd>
       <asp:TextBox ID="txtImgUrl" runat="server" CssClass="input normal upload-path" />
       <div class="upload-box upload-img"></div>
-    </dd>
-  </dl>
-  <dl ID="div_goods_no" runat="server" visible="false">
-    <dt><asp:Label ID="div_goods_no_title" runat="server" Text="商品货号" /></dt>
-    <dd>
-      <asp:TextBox ID="field_control_goods_no" runat="server" CssClass="input normal" datatype="*0-100" sucmsg=" " />
-      <asp:Label ID="div_goods_no_tip" runat="server" CssClass="Validform_checktip" />
-    </dd>
-  </dl>
-  <dl ID="div_stock_quantity" runat="server" visible="false">
-    <dt><asp:Label ID="div_stock_quantity_title" runat="server" Text="库存数量" /></dt>
-    <dd>
-      <asp:TextBox ID="field_control_stock_quantity" runat="server" CssClass="input small" datatype="n" sucmsg=" ">0</asp:TextBox>
-      <asp:Label ID="div_stock_quantity_tip" runat="server" CssClass="Validform_checktip" />
     </dd>
   </dl>
   <dl ID="div_market_price" runat="server" visible="false">
@@ -285,14 +278,14 @@
       <asp:Label ID="div_sell_price_tip" runat="server" CssClass="Validform_checktip" />
     </dd>
   </dl>
-  <dl ID="div_point" runat="server" visible="false">
+  <%--<dl ID="div_point" runat="server" visible="false">
     <dt><asp:Label ID="div_point_title" runat="server" Text="积分" /></dt>
     <dd>
       <asp:TextBox ID="field_control_point" runat="server" CssClass="input small" datatype="/^-?\d+$/" sucmsg=" ">0</asp:TextBox>
       <asp:Label ID="div_point_tip" runat="server" CssClass="Validform_checktip" />
     </dd>
-  </dl>
-  <dl ID="div_spec__container" runat="server" visible="false">
+  </dl>--%>
+  <%--<dl ID="div_spec__container" runat="server" visible="false">
     <dt>商品规格</dt>
     <dd>
       <a class="icon-btn add spec-btn"><span>设置规格</span></a>
@@ -336,7 +329,7 @@
         </table>
       </div>
     </dd>
-  </dl>
+  </dl>--%>
   <dl>
     <dt>排序数字</dt>
     <dd>
@@ -344,13 +337,13 @@
       <span class="Validform_checktip">*数字，越小越向前</span>
     </dd>
   </dl>
-  <dl>
+ <%-- <dl>
     <dt>浏览次数</dt>
     <dd>
       <asp:TextBox ID="txtClick" runat="server" CssClass="input small" datatype="n" sucmsg=" ">0</asp:TextBox>
       <span class="Validform_checktip">点击浏览该信息自动+1</span>
     </dd>
-  </dl>
+  </dl>--%>
   <dl>
     <dt>发布时间</dt>
     <dd>
@@ -413,7 +406,7 @@
 
 <div id="field_tab_content" runat="server" visible="false" class="tab-content" style="display:none"></div>
 
-<div class="tab-content" style="display:none">
+    <div class="tab-content" style="display:none">
   <dl>
     <dt>调用别名</dt>
     <dd>
@@ -442,13 +435,7 @@
       <asp:Label ID="div_author_tip" runat="server" CssClass="Validform_checktip" />
     </dd>
   </dl>
-  <dl>
-    <dt>内容摘要</dt>
-    <dd>
-      <asp:TextBox ID="txtZhaiyao" runat="server" CssClass="input" TextMode="MultiLine" datatype="*0-255" sucmsg=" "></asp:TextBox>
-      <span class="Validform_checktip">不填写则自动截取内容前255字符</span>
-    </dd>
-  </dl>
+  
   <dl>
     <dt>内容描述</dt>
     <dd>
@@ -480,6 +467,7 @@
     </dd>
   </dl>
 </div>
+    
 <!--/内容-->
 
 <!--工具栏-->

@@ -74,7 +74,7 @@
       <span class="Validform_checktip">*用户注册成功后自动默认为该会员组，如果存在多条，则以等级值最小的为准。</span>
     </dd>
   </dl>
-  <dl>
+  <%--<dl>
     <dt>参与自动升级：</dt>
     <dd>
       <div class="rule-single-checkbox">
@@ -82,22 +82,22 @@
       </div>
       <span class="Validform_checktip">*如果是否，在满足升级条件下系统则不会自动升级为该会员组。</span>
     </dd>
-  </dl>
-  <dl>
+  </dl>--%>
+ <%-- <dl>
     <dt>等级值：</dt>
     <dd>
       <asp:TextBox ID="txtGrade" runat="server" CssClass="input small" datatype="n" sucmsg=" "></asp:TextBox>
       <span class="Validform_checktip">*升级顺序，取值范围1-100，等级值越大，会员等级越高。</span>
     </dd>
-  </dl>
-  <dl>
+  </dl>--%>
+ <%-- <dl>
     <dt>升级所需积分：</dt>
     <dd>
       <asp:TextBox ID="txtUpgradeExp" runat="server" CssClass="input small" datatype="/^-?\d+$/" sucmsg=" "></asp:TextBox>
       <span class="Validform_checktip">*自动升级所需要的积分。</span>
     </dd>
-  </dl>
-  <dl>
+  </dl>--%>
+  <%--<dl>
     <dt>初始金额：</dt>
     <dd>
       <asp:TextBox ID="txtAmount" runat="server" CssClass="input small" datatype="/^-?(([1-9]{1}\d*)|([0]{1}))(\.(\d){1,2})?$/" sucmsg=" "></asp:TextBox>
@@ -117,7 +117,7 @@
       <asp:TextBox ID="txtDiscount" runat="server" CssClass="input small" datatype="n" sucmsg=" "></asp:TextBox>
       <span class="Validform_checktip">*购物享受的折扣，取值范围：1-100。</span>
     </dd>
-  </dl>
+  </dl>--%>
 </div>
 <!--/内容-->
 

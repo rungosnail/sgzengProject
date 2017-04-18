@@ -142,10 +142,10 @@ namespace DTcms.Web.admin.channel
             {
                 cbIsAttach.Checked = true;
             }
-            if (model.is_spec == 1)
-            {
-                cbIsSpec.Checked = true;
-            }
+            //if (model.is_spec == 1)
+            //{
+            //    cbIsSpec.Checked = true;
+            //}
             txtSortId.Text = model.sort_id.ToString();
 
             //赋值扩展字段
@@ -185,10 +185,10 @@ namespace DTcms.Web.admin.channel
             {
                 model.is_attach = 1;
             }
-            if (cbIsSpec.Checked == true)
-            {
-                model.is_spec = 1;
-            }
+            //if (cbIsSpec.Checked == true)
+            //{
+            //    model.is_spec = 1;
+            //}
             model.sort_id = Utils.StrToInt(txtSortId.Text.Trim(), 99);
 
             //添加频道扩展字段
@@ -280,10 +280,10 @@ namespace DTcms.Web.admin.channel
             {
                 model.is_attach = 1;
             }
-            if (cbIsSpec.Checked == true)
-            {
-                model.is_spec = 1;
-            }
+            //if (cbIsSpec.Checked == true)
+            //{
+            //    model.is_spec = 1;
+            //}
             model.sort_id = Utils.StrToInt(txtSortId.Text.Trim(), 99);
 
             //添加频道扩展字段

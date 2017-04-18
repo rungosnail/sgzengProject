@@ -56,13 +56,13 @@
               <asp:ListItem Value="2">已支付</asp:ListItem>
             </asp:DropDownList>
           </div>
-          <div class="rule-single-select">
+         <%-- <div class="rule-single-select">
             <asp:DropDownList ID="ddlExpressStatus" runat="server" AutoPostBack="True" onselectedindexchanged="ddlExpressStatus_SelectedIndexChanged">
               <asp:ListItem Value="0" Selected="True">发货状态</asp:ListItem>
               <asp:ListItem Value="1">待发货</asp:ListItem>
               <asp:ListItem Value="2">已发货</asp:ListItem>
             </asp:DropDownList>
-          </div>
+          </div>--%>
         </div>
       </div>
       <div class="r-list">

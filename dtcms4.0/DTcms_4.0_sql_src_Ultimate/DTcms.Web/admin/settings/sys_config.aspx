@@ -41,10 +41,10 @@
     <div class="content-tab-ul-wrap">
       <ul>
         <li><a class="selected" href="javascript:;">系统基本信息</a></li>
-        <li><a href="javascript:;">功能权限设置</a></li>
+   <%--     <li><a href="javascript:;">功能权限设置</a></li>
         <li><a href="javascript:;">短信平台设置</a></li>
         <li><a href="javascript:;">邮件发送设置</a></li>
-        <li><a href="javascript:;">文件上传设置</a></li>
+        <li><a href="javascript:;">文件上传设置</a></li>--%>
       </ul>
     </div>
   </div>

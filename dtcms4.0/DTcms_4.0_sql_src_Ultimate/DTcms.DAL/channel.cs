@@ -151,7 +151,7 @@ namespace DTcms.DAL
                         int newNavId = new DAL.navigation(databaseprefix).Add(conn, trans, parent_id, "channel_" + model.name, model.title, "", model.sort_id, model.id, "Show");
                         new DAL.navigation(databaseprefix).Add(conn, trans, newNavId, "channel_" + model.name + "_list", "内容管理", "article/article_list.aspx", 99, model.id, "Show,View,Add,Edit,Delete,Audit");
                         new DAL.navigation(databaseprefix).Add(conn, trans, newNavId, "channel_" + model.name + "_category", "栏目类别", "article/category_list.aspx", 100, model.id, "Show,View,Add,Edit,Delete");
-                        new DAL.navigation(databaseprefix).Add(conn, trans, newNavId, "channel_" + model.name + "_comment", "评论管理", "article/comment_list.aspx", 101, model.id, "Show,View,Delete,Reply");
+                        //new DAL.navigation(databaseprefix).Add(conn, trans, newNavId, "channel_" + model.name + "_comment", "评论管理", "article/comment_list.aspx", 101, model.id, "Show,View,Delete,Reply");
 
                         trans.Commit();
                     }

@@ -24,6 +24,7 @@ namespace DTcms.Model
         private string _remark = "";
         private string _action_type = "";
         private int _is_sys = 0;
+        private int _is_block = 0;
         /// <summary>
         /// 自增ID
         /// </summary>
@@ -135,6 +136,12 @@ namespace DTcms.Model
         {
             set { _is_sys = value; }
             get { return _is_sys; }
+        }
+
+        public int is_block
+        {
+            set { _is_block = value; }
+            get { return _is_block; }
         }
         #endregion Model
 

@@ -47,10 +47,10 @@ namespace DTcms.Web.admin.order
             {
                 this.ddlPaymentStatus.SelectedValue = this.payment_status.ToString();
             }
-            if (this.express_status > 0)
-            {
-                this.ddlExpressStatus.SelectedValue = this.express_status.ToString();
-            }
+            //if (this.express_status > 0)
+            //{
+            //    this.ddlExpressStatus.SelectedValue = this.express_status.ToString();
+            //}
             txtKeywords.Text = this.keywords;
             BLL.orders bll = new BLL.orders();
             this.rptList.DataSource = bll.GetList(this.pageSize, this.page, _strWhere, _orderby, out this.totalCount);
@@ -167,12 +167,12 @@ namespace DTcms.Web.admin.order
                 this.status.ToString(), ddlPaymentStatus.SelectedValue, this.express_status.ToString(), this.keywords));
         }
 
-        //发货状态
-        protected void ddlExpressStatus_SelectedIndexChanged(object sender, EventArgs e)
-        {
-            Response.Redirect(Utils.CombUrlTxt("order_list.aspx", "status={0}&payment_status={1}&express_status={2}&keywords={3}",
-                this.status.ToString(), this.payment_status.ToString(), ddlExpressStatus.SelectedValue, this.keywords));
-        }
+        ////发货状态
+        //protected void ddlExpressStatus_SelectedIndexChanged(object sender, EventArgs e)
+        //{
+        //    Response.Redirect(Utils.CombUrlTxt("order_list.aspx", "status={0}&payment_status={1}&express_status={2}&keywords={3}",
+        //        this.status.ToString(), this.payment_status.ToString(), ddlExpressStatus.SelectedValue, this.keywords));
+        //}
 
         //设置分页数量
         protected void txtPageNum_TextChanged(object sender, EventArgs e)

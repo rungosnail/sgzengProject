@@ -84,7 +84,7 @@
  <div class="ad"><a href="#"><img src="images/index_19-21.gif" width="1200" height="140"/></a></div>
 
  <div class="other">
-  <div class="otitle"><dl><dt class="dm">动漫IP</dt><dd><ul><li><a href="#">开业</a></li><li><a href="#">新年元宵节</a></li><li><a href="#">劳动节</a></li><li><a href="#">儿童节</a></li><li><a href="#">暑期主题展</a></li><li><a href="#">情人节</a></li><li><a href="#">国庆节</a></li><li><a href="#">周年庆</a></li><li><a href="#">万圣节</a></li><li><a href="#">圣诞节</a></li><li class="more"><a href="#"><em>更多</em></a></li></ul></dd></dl></div><!--otitle-->
+  <div class="otitle"><dl><dt>动漫IP</dt><dd><ul><li><a href="#">开业</a></li><li><a href="#">新年元宵节</a></li><li><a href="#">劳动节</a></li><li><a href="#">儿童节</a></li><li><a href="#">暑期主题展</a></li><li><a href="#">情人节</a></li><li><a href="#">国庆节</a></li><li><a href="#">周年庆</a></li><li><a href="#">万圣节</a></li><li><a href="#">圣诞节</a></li><li class="more"><a href="#"><em>更多</em></a></li></ul></dd></dl></div><!--otitle-->
   
   <div class="obox">
    <div class="oleft"><img src="images/index_24-27.gif" width="280" height="430"></div><!--oleft-->

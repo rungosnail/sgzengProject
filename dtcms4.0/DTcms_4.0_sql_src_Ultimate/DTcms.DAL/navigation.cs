@@ -26,7 +26,7 @@ namespace DTcms.DAL
 		{
 			StringBuilder strSql=new StringBuilder();
             strSql.Append("select count(1) from " + databaseprefix + "navigation");
-			strSql.Append(" where id=@id");
+			strSql.Append(" where id=@id and is_block=0");
 			SqlParameter[] parameters = {
 					new SqlParameter("@id", SqlDbType.Int,4)};
 			parameters[0].Value = id;
@@ -41,7 +41,7 @@ namespace DTcms.DAL
         {
             StringBuilder strSql = new StringBuilder();
             strSql.Append("select count(1) from " + databaseprefix + "navigation");
-            strSql.Append(" where name=@name ");
+            strSql.Append(" where name=@name and is_block=0");
             SqlParameter[] parameters = {
 					new SqlParameter("@name", SqlDbType.VarChar,50)};
             parameters[0].Value = name;
@@ -189,7 +189,7 @@ namespace DTcms.DAL
             StringBuilder strSql = new StringBuilder();
             strSql.Append("select  top 1 id,parent_id,channel_id,nav_type,name,title,sub_title,icon_url,link_url,sort_id,is_lock,remark,action_type,is_sys");
             strSql.Append(" from " + databaseprefix + "navigation ");
-            strSql.Append(" where id=@id");
+            strSql.Append(" where id=@id and is_block=0");
             SqlParameter[] parameters = {
 					new SqlParameter("@id", SqlDbType.Int,4)};
             parameters[0].Value = id;
@@ -214,7 +214,7 @@ namespace DTcms.DAL
             StringBuilder strSql = new StringBuilder();
             strSql.Append("select top 1 id,parent_id,channel_id,nav_type,name,title,sub_title,icon_url,link_url,sort_id,is_lock,remark,action_type,is_sys");
             strSql.Append(" from " + databaseprefix + "navigation ");
-            strSql.Append(" where name=@nav_name");
+            strSql.Append(" where name=@nav_name and is_block=0");
             SqlParameter[] parameters = {
 					new SqlParameter("@nav_name", SqlDbType.NVarChar,50)};
             parameters[0].Value = nav_name;
@@ -242,7 +242,7 @@ namespace DTcms.DAL
             StringBuilder strSql = new StringBuilder();
             strSql.Append("select id,parent_id,channel_id,nav_type,name,title,sub_title,icon_url,link_url,sort_id,is_lock,remark,action_type,is_sys");
             strSql.Append(" FROM " + databaseprefix + "navigation");
-            strSql.Append(" where nav_type='" + nav_type + "'");
+            strSql.Append(" where nav_type='" + nav_type + "' and is_block=0");
             strSql.Append(" order by sort_id asc,id desc");
             DataSet ds = DbHelperSQL.Query(strSql.ToString());
             //重组列表
@@ -282,7 +282,7 @@ namespace DTcms.DAL
         {
             StringBuilder strSql = new StringBuilder();
             strSql.Append("select top 1 id from " + databaseprefix + "navigation");
-            strSql.Append(" where name=@nav_name");
+            strSql.Append(" where name=@nav_name and is_block=0");
             SqlParameter[] parameters = {
 					new SqlParameter("@nav_name", SqlDbType.NVarChar,50)};
             parameters[0].Value = nav_name;
@@ -297,7 +297,7 @@ namespace DTcms.DAL
         {
             StringBuilder strSql = new StringBuilder();
             strSql.Append("select id,parent_id");
-            strSql.Append(" FROM " + databaseprefix + "navigation");
+            strSql.Append(" FROM " + databaseprefix + "navigation where is_block=0");
             DataSet ds = DbHelperSQL.Query(strSql.ToString());
             string ids = parent_id.ToString() + ",";
             GetChildIds(ds.Tables[0], parent_id, ref ids);
@@ -311,7 +311,7 @@ namespace DTcms.DAL
         {
             StringBuilder strSql = new StringBuilder();
             strSql.Append("select top 1 id from " + databaseprefix + "navigation");
-            strSql.Append(" where name=@nav_name");
+            strSql.Append(" where name=@nav_name and is_block=0");
             SqlParameter[] parameters = {
 					new SqlParameter("@nav_name", SqlDbType.NVarChar,50)};
             parameters[0].Value = nav_name;
@@ -349,7 +349,7 @@ namespace DTcms.DAL
         {
             StringBuilder strSql = new StringBuilder();
             strSql.Append("update " + databaseprefix + "navigation set " + strValue);
-            strSql.Append(" where name='" + name + "'");
+            strSql.Append(" where name='" + name + "' and is_block=0");
             int rows = DbHelperSQL.ExecuteSql(strSql.ToString());
             if (rows > 0)
             {
@@ -368,7 +368,7 @@ namespace DTcms.DAL
         {
             StringBuilder strSql = new StringBuilder();
             strSql.Append("update " + databaseprefix + "navigation set name=@new_name");
-            strSql.Append(" where name=@old_name");
+            strSql.Append(" where name=@old_name and is_block=0");
             SqlParameter[] parameters = {
 					            new SqlParameter("@new_name", SqlDbType.NVarChar,50),
 					            new SqlParameter("@old_name", SqlDbType.NVarChar,50)};
@@ -458,7 +458,7 @@ namespace DTcms.DAL
             //先根据名称查询该父ID
             StringBuilder strSql1 = new StringBuilder();
             strSql1.Append("select top 1 id from " + databaseprefix + "navigation");
-            strSql1.Append(" where name=@parent_name");
+            strSql1.Append(" where name=@parent_name and is_block=0");
             SqlParameter[] parameters1 = {
 					new SqlParameter("@parent_name", SqlDbType.NVarChar,50)};
             parameters1[0].Value = parent_name;
@@ -506,7 +506,7 @@ namespace DTcms.DAL
             //先根据名称查询该父ID
             StringBuilder strSql = new StringBuilder();
             strSql.Append("select top 1 id from " + databaseprefix + "navigation");
-            strSql.Append(" where name=@parent_name");
+            strSql.Append(" where name=@parent_name and is_block=0");
             SqlParameter[] parameters = {
 					new SqlParameter("@parent_name", SqlDbType.NVarChar,50)};
             parameters[0].Value = parent_name;
@@ -562,7 +562,7 @@ namespace DTcms.DAL
             StringBuilder strSql = new StringBuilder();
             strSql.Append("select top 1 id,parent_id,channel_id,nav_type,name,title,sub_title,icon_url,link_url,sort_id,is_lock,remark,action_type,is_sys");
             strSql.Append(" from " + databaseprefix + "navigation ");
-            strSql.Append(" where name=@nav_name");
+            strSql.Append(" where name=@nav_name and is_block=0");
             SqlParameter[] parameters = {
 					new SqlParameter("@nav_name", SqlDbType.NVarChar,50)};
             parameters[0].Value = nav_name;

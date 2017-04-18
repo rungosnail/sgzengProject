@@ -57,11 +57,11 @@
       <tr>
         <th width="8%">选择</th>
         <th align="left">组别名称</th>
-        <th width="8%">等级值</th>
+       <%-- <th width="8%">等级值</th>
         <th width="12%">升级积分</th>
         <th width="12%">初始金额</th>
         <th width="12%">初始积分</th>
-        <th width="9%">购物折扣</th>
+        <th width="9%">购物折扣</th>--%>
         <th width="8%">注册组</th>
         <th width="6%">状态</th>
         <th width="10%">操作</th>
@@ -76,11 +76,11 @@
         <td>
           <a href="group_edit.aspx?action=<%#DTEnums.ActionEnum.Edit %>&id=<%#Eval("id")%>"><%#Eval("title")%></a>
         </td>
-        <td align="center"><%#Eval("grade")%></td>
+        <%--<td align="center"><%#Eval("grade")%></td>
         <td align="center"><%#Eval("upgrade_exp")%></td>
         <td align="center"><%#Eval("amount")%></td>
         <td align="center"><%#Eval("point")%></td>
-        <td align="center"><%#Eval("discount")%>%</td>
+        <td align="center"><%#Eval("discount")%>%</td>--%>
         <td align="center"><%#Convert.ToInt32(Eval("is_default")) == 1 ? "√" : "×"%></td>
         <td align="center"><%#Convert.ToInt32(Eval("is_lock")) == 1 ? "禁用" : "启用"%></td>
         <td align="center">

@@ -57,13 +57,13 @@ namespace DTcms.Web.admin.users
             }
             if (model.is_upgrade == 1)
             {
-                rblIsUpgrade.Checked = true;
+                //rblIsUpgrade.Checked = true;
             }
-            txtGrade.Text = model.grade.ToString();
-            txtUpgradeExp.Text = model.upgrade_exp.ToString();
-            txtAmount.Text = model.amount.ToString();
-            txtPoint.Text = model.point.ToString();
-            txtDiscount.Text = model.discount.ToString();
+            //txtGrade.Text = model.grade.ToString();
+            //txtUpgradeExp.Text = model.upgrade_exp.ToString();
+            //txtAmount.Text = model.amount.ToString();
+            //txtPoint.Text = model.point.ToString();
+            //txtDiscount.Text = model.discount.ToString();
         }
         #endregion
 
@@ -86,15 +86,15 @@ namespace DTcms.Web.admin.users
                 model.is_default = 1;
             }
             model.is_upgrade = 0;
-            if (rblIsUpgrade.Checked == true)
-            {
-                model.is_upgrade = 1;
-            }
-            model.grade = int.Parse(txtGrade.Text.Trim());
-            model.upgrade_exp = int.Parse(txtUpgradeExp.Text.Trim());
-            model.amount = decimal.Parse(txtAmount.Text.Trim());
-            model.point = int.Parse(txtPoint.Text.Trim());
-            model.discount = int.Parse(txtDiscount.Text.Trim());
+            //if (rblIsUpgrade.Checked == true)
+            //{
+            //    model.is_upgrade = 1;
+            //}
+            //model.grade = int.Parse(txtGrade.Text.Trim());
+            //model.upgrade_exp = int.Parse(txtUpgradeExp.Text.Trim());
+            //model.amount = decimal.Parse(txtAmount.Text.Trim());
+            //model.point = int.Parse(txtPoint.Text.Trim());
+            //model.discount = int.Parse(txtDiscount.Text.Trim());
             if (bll.Add(model) > 0)
             {
                 AddAdminLog(DTEnums.ActionEnum.Add.ToString(), "添加用户组:" + model.title); //记录日志
@@ -123,15 +123,15 @@ namespace DTcms.Web.admin.users
                 model.is_default = 1;
             }
             model.is_upgrade = 0;
-            if (rblIsUpgrade.Checked == true)
-            {
-                model.is_upgrade = 1;
-            }
-            model.grade = int.Parse(txtGrade.Text.Trim());
-            model.upgrade_exp = int.Parse(txtUpgradeExp.Text.Trim());
-            model.amount = decimal.Parse(txtAmount.Text.Trim());
-            model.point = int.Parse(txtPoint.Text.Trim());
-            model.discount = int.Parse(txtDiscount.Text.Trim());
+            //if (rblIsUpgrade.Checked == true)
+            //{
+            //    model.is_upgrade = 1;
+            //}
+            //model.grade = int.Parse(txtGrade.Text.Trim());
+            //model.upgrade_exp = int.Parse(txtUpgradeExp.Text.Trim());
+            //model.amount = decimal.Parse(txtAmount.Text.Trim());
+            //model.point = int.Parse(txtPoint.Text.Trim());
+            //model.discount = int.Parse(txtDiscount.Text.Trim());
             if (bll.Update(model))
             {
                 AddAdminLog(DTEnums.ActionEnum.Edit.ToString(), "修改用户组:" + model.title); //记录日志

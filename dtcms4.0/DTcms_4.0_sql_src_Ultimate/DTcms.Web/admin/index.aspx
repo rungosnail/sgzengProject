@@ -55,9 +55,9 @@ $(function () {
         <div class="drop-wrap">
           <div class="arrow"></div>
           <ul class="item">
-            <li>
+            <%--<li>
               <a href="../" target="_blank">预览网站</a>
-            </li>
+            </li>--%>
             <li>
               <a href="center.aspx" target="mainframe">管理中心</a>
             </li>

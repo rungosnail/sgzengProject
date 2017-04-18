@@ -53,8 +53,8 @@ namespace DTcms.Web.admin.article
 
             this.ddlCategoryId.Items.Clear();
             this.ddlCategoryId.Items.Add(new ListItem("所有类别", ""));
-            this.ddlMoveId.Items.Clear();
-            this.ddlMoveId.Items.Add(new ListItem("批量移动...", ""));
+            //this.ddlMoveId.Items.Clear();
+            //this.ddlMoveId.Items.Add(new ListItem("批量移动...", ""));
             foreach (DataRow dr in dt.Rows)
             {
                 string Id = dr["id"].ToString();
@@ -64,14 +64,14 @@ namespace DTcms.Web.admin.article
                 if (ClassLayer == 1)
                 {
                     this.ddlCategoryId.Items.Add(new ListItem(Title, Id));
-                    this.ddlMoveId.Items.Add(new ListItem(Title, Id));
+                   // this.ddlMoveId.Items.Add(new ListItem(Title, Id));
                 }
                 else
                 {
                     Title = "├ " + Title;
                     Title = Utils.StringOfChar(ClassLayer - 1, "　") + Title;
                     this.ddlCategoryId.Items.Add(new ListItem(Title, Id));
-                    this.ddlMoveId.Items.Add(new ListItem(Title, Id));
+                   // this.ddlMoveId.Items.Add(new ListItem(Title, Id));
                 }
             }
         }
@@ -290,42 +290,7 @@ namespace DTcms.Web.admin.article
                 this.channel_id.ToString(), this.category_id.ToString(), this.keywords, this.property));
         }
 
-        //批量移动
-        protected void ddlMoveId_SelectedIndexChanged(object sender, EventArgs e)
-        {
-            ChkAdminLevel("channel_" + this.channel_name + "_list", DTEnums.ActionEnum.Edit.ToString()); //检查权限
-            int sucCount = 0; //成功数量
-            if (ddlMoveId.SelectedValue == "")
-            {
-                ddlMoveId.SelectedIndex = 0;
-                JscriptMsg("请选择要移动的类别！", string.Empty);
-                return;
-            }
-            BLL.article bll = new BLL.article();
-            Repeater rptList = new Repeater();
-            switch (this.prolistview)
-            {
-                case "Txt":
-                    rptList = this.rptList1;
-                    break;
-                default:
-                    rptList = this.rptList2;
-                    break;
-            }
-            for (int i = 0; i < rptList.Items.Count; i++)
-            {
-                int id = Convert.ToInt32(((HiddenField)rptList.Items[i].FindControl("hidId")).Value);
-                CheckBox cb = (CheckBox)rptList.Items[i].FindControl("chkId");
-                if (cb.Checked)
-                {
-                    sucCount++;
-                    bll.UpdateField(id, "category_id=" + ddlMoveId.SelectedValue);
-                }
-            }
-            AddAdminLog(DTEnums.ActionEnum.Edit.ToString(), "批量移动" + this.channel_name + "频道内容分类"); //记录日志
-            JscriptMsg("批量移动成功" + sucCount + "条", Utils.CombUrlTxt("article_list.aspx", "channel_id={0}&category_id={1}&keywords={2}&property={3}",
-                this.channel_id.ToString(), this.category_id.ToString(), this.keywords, this.property));
-        }
+       
 
         //批量审核
         protected void btnAudit_Click(object sender, EventArgs e)

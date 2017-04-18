@@ -102,7 +102,7 @@
     
     
     <div class="otherinfo">
-     <b>该主题其它资源</b>
+       <div class="otitle"><dl><dt class="dm">动漫IP</dt><dd><ul><li><a href="#">开业</a></li><li><a href="#">新年元宵节</a></li><li><a href="#">劳动节</a></li><li><a href="#">儿童节</a></li><li><a href="#">暑期主题展</a></li><li><a href="#">情人节</a></li><li><a href="#">国庆节</a></li><li><a href="#">周年庆</a></li><li><a href="#">万圣节</a></li><li><a href="#">圣诞节</a></li><li class="more"><a href="#"><em>更多</em></a></li></ul></dd></dl></div><!--otitle-->
      <ul>
       <li><a href="#"><img src="images/index_25.gif"/></a><p><a href="#">福记兄弟</a></p><span>100m²-200m²    20-30万 </span></li>
       <li><a href="#"><img src="images/index_25.gif"/></a><p><a href="#">福记兄弟</a></p><span>100m²-200m²    20-30万 </span></li>

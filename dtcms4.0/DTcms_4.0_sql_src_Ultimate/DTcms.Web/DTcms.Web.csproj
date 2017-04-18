@@ -1470,6 +1470,20 @@
     <Compile Include="web\Index.aspx.designer.cs">
       <DependentUpon>Index.aspx</DependentUpon>
     </Compile>
+    <Compile Include="web\Detail.aspx.cs">
+      <DependentUpon>Detail.aspx</DependentUpon>
+      <SubType>ASPXCodeBehind</SubType>
+    </Compile>
+    <Compile Include="web\Detail.aspx.designer.cs">
+      <DependentUpon>Detail.aspx</DependentUpon>
+    </Compile>
+    <Compile Include="web\WebForm1.aspx.cs">
+      <DependentUpon>WebForm1.aspx</DependentUpon>
+      <SubType>ASPXCodeBehind</SubType>
+    </Compile>
+    <Compile Include="web\WebForm1.aspx.designer.cs">
+      <DependentUpon>WebForm1.aspx</DependentUpon>
+    </Compile>
   </ItemGroup>
   <ItemGroup>
     <ProjectReference Include="..\DTcms.API\DTcms.API.csproj">
@@ -1494,11 +1508,25 @@
     </ProjectReference>
   </ItemGroup>
   <ItemGroup>
+    <Content Include="web\css\carousel-style.css" />
     <Content Include="web\css\common.css" />
     <Content Include="web\css\index.css" />
     <Content Include="web\css\layer.css" />
     <Content Include="web\css\list.css" />
     <Content Include="web\css\personal.css" />
+    <Content Include="web\html\carousel-mask\css\carousel-style.css" />
+    <Content Include="web\html\carousel-mask\img\native1.png" />
+    <Content Include="web\html\carousel-mask\img\native2.png" />
+    <Content Include="web\html\carousel-mask\img\native3.png" />
+    <Content Include="web\html\carousel-mask\img\native4.png" />
+    <Content Include="web\html\carousel-mask\img\native5.png" />
+    <Content Include="web\html\carousel-mask\img\native6.png" />
+    <Content Include="web\html\carousel-mask\img\next.png" />
+    <Content Include="web\html\carousel-mask\img\pre.png" />
+    <Content Include="web\html\carousel-mask\index.html" />
+    <Content Include="web\html\carousel-mask\js\carousel.js" />
+    <Content Include="web\html\carousel-mask\js\jquery-3.1.1.min.js" />
+    <Content Include="web\html\carousel-mask\www.jq22.com.txt" />
     <Content Include="web\html\css\common.css" />
     <Content Include="web\html\css\index.css" />
     <Content Include="web\html\css\layer.css" />
@@ -1524,9 +1552,17 @@
     <Content Include="web\html\images\li_right.png" />
     <Content Include="web\html\images\li_right.png.jpg" />
     <Content Include="web\html\images\member.png" />
+    <Content Include="web\html\images\native1.png" />
+    <Content Include="web\html\images\native2.png" />
+    <Content Include="web\html\images\native3.png" />
+    <Content Include="web\html\images\native4.png" />
+    <Content Include="web\html\images\native5.png" />
+    <Content Include="web\html\images\native6.png" />
+    <Content Include="web\html\images\next.png" />
     <Content Include="web\html\images\noresult.gif" />
     <Content Include="web\html\images\pay.png" />
     <Content Include="web\html\images\perbg.jpg" />
+    <Content Include="web\html\images\pre.png" />
     <Content Include="web\html\images\shape01.png" />
     <Content Include="web\html\images\shape02.png" />
     <Content Include="web\html\images\starbg.jpg" />
@@ -1551,14 +1587,26 @@
     <Content Include="web\images\li_right.png" />
     <Content Include="web\images\li_right.png.jpg" />
     <Content Include="web\images\member.png" />
+    <Content Include="web\images\native1.png" />
+    <Content Include="web\images\native2.png" />
+    <Content Include="web\images\native3.png" />
+    <Content Include="web\images\native4.png" />
+    <Content Include="web\images\native5.png" />
+    <Content Include="web\images\native6.png" />
+    <Content Include="web\images\next.png" />
     <Content Include="web\images\noresult.gif" />
     <Content Include="web\images\pay.png" />
     <Content Include="web\images\perbg.jpg" />
+    <Content Include="web\images\pre.png" />
     <Content Include="web\images\shape01.png" />
     <Content Include="web\images\shape02.png" />
     <Content Include="web\images\starbg.jpg" />
     <Content Include="web\images\wx.jpg" />
     <Content Include="web\Index.aspx" />
+    <Content Include="web\Detail.aspx" />
+    <Content Include="web\scripts\carousel.js" />
+    <Content Include="web\scripts\jquery-3.1.1.min.js" />
+    <Content Include="web\WebForm1.aspx" />
     <Content Include="xmlconfig\site.config" />
     <Content Include="xmlconfig\urls.config" />
   </ItemGroup>
@@ -1621,6 +1669,7 @@
     <Content Include="web\html\详细页.shtml" />
     <Content Include="web\html\资源支付页.shtml" />
     <Content Include="web\html\首页.shtml" />
+    <Content Include="web\html\carousel-mask\jquery插件库.url" />
   </ItemGroup>
   <PropertyGroup>
     <VisualStudioVersion Condition="'$(VisualStudioVersion)' == ''">10.0</VisualStudioVersion>

@@ -1,0 +1,11 @@
+#banner *{margin:0px;padding:0px;font-family:"微软雅黑";font-size:12px; text-decoration:none;list-style-type:none;}
+#banner{width:100%;overflow:hidden;}
+#banner .bannerCon{margin:0px auto;position:relative;}
+#banner .bannerCon .before{background:rgba(0,0,0,0.7);position:absolute;z-index:100;border-radius: 5px;}
+#banner .bannerCon .before img{position:absolute;right:40px;cursor:pointer;}
+#banner .bannerCon .after{background:rgba(0,0,0,0.7);position:absolute;z-index:100;border-radius: 5px;}
+#banner .bannerCon .after img{position:absolute;left:40px;cursor:pointer;}
+#banner .bannerCon .scroll{position:relative;}
+#banner .bannerCon .scroll .item{float:left;text-align: center;}
+#banner .bannerCon .scroll .item .img-box{margin: auto;}
+#banner .bannerCon .scroll .item .img-box img{display: inline-block; width: 100%;height: 100%;border-radius: 5px;}

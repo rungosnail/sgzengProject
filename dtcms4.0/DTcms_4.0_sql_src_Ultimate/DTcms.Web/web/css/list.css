@@ -53,13 +53,13 @@
 .next{right:-100px;}
 
 .smallimg{ margin-top:20px; position:relative;}
-.smallimg a.prevbut{ float:left;background: url(../images/arrow.png) no-repeat 0 -60px; width:20px;height:60px; margin-top:9px;}
-.smallimg a.nextbut{ float:right; background: url(../images/arrow.png) no-repeat right -60px; width:20px;height:60px;  margin-top:9px;}
+.smallimg .prevbut{ float:left;background: url(../images/arrow.png) no-repeat 0 -60px; width:20px;height:60px; margin-top:9px;}
+.smallimg .nextbut{ float:right; background: url(../images/arrow.png) no-repeat right -60px; width:20px;height:60px;  margin-top:9px;}
 .small_list{ margin:0 15px; width:650px; height:62px; float:left; overflow:hidden;}
 .small_list ul{ width:672px;}
 .small_list li{ float:left;margin-right:22px; }
-.small_list li a img{ display:block; border:2px solid #fff; width:86px;height:58px}
-.small_list li.oncur a img{ border:2px solid #ec6a00; width:86px;height:58px;}
+.small_list li  img{ display:block; border:2px solid #fff; width:86px;height:58px}
+.small_list li.oncur  img{ border:2px solid #ec6a00; width:86px;height:58px;}
 
 
 .drighttext{ width:400px; float:left;}
@@ -87,6 +87,18 @@
 .otherinfo ul li a img{ display:block; width:250px; height:185px; margin:15px auto 0;}
 .otherinfo ul li p a{ display:block; font-size:16px; margin-top:10px; line-height:30px;}
 .otherinfo ul li span{ display:block; color:#999;}
+
+
+.otherinfo .otitle dl{ zoom:1; height:24px; }
+.otherinfo .otitle dl:after{display:block;clear:both;content:"";visibility:hidden;height:0;}
+.otherinfo .otitle dl dt{ float:left; width:220px; color:#e14f00; font-size:24px; font-weight:bold; display:block; height:24px; line-height:24px;}
+.otitle dl dd{ float:right; width:980px;}
+.otherinfo .otitle dl dd ul{ float:right; width:980px;  margin-top:0; display:inline-block; text-align:right; } 
+.otherinfo .otitle dl dd ul li{ display:inline-block; width:auto; float:none; border:0; border-radius:0; margin:0; background:none; padding-bottom:0;}
+.otherinfo .otitle dl dd ul li a{ font-size:14px; height:18px; line-height:18px; border-right:1px solid #eee; padding-right:10px; margin-right:10px; overflow:hidden; display:inline-block; margin-top:3px;}
+.otherinfo .otitle dl dd ul li.more a{border:1px solid #eee; height:18px; border-radius:5px; padding:0 10px; }
+.otherinfo .otitle dl dd ul li.more a em{background:#fff url(../images/icon.gif) no-repeat right -578px;  padding-right:15px; font-size:14px; line-height:18px; font-style:normal;}
+
 
 /*pay*/
 .paybox{overflow: hidden;padding:20px ;background: #fff; border: 1px #e6e6e6 solid; margin-top:20px; border-radius:5px;}

@@ -323,7 +323,7 @@ namespace DTcms.Web.admin.article
             }
             if (channelModel.is_spec == 1)
             {
-                div_spec__container.Visible = true;
+                //div_spec__container.Visible = true;
             }
         }
         #endregion
@@ -365,7 +365,7 @@ namespace DTcms.Web.admin.article
             ddlCategoryId.SelectedValue = model.category_id.ToString();
             txtCallIndex.Text = model.call_index;
             txtTitle.Text = model.title;
-            txtTags.Text = model.tags;
+            //txtTags.Text = model.tags;
             txtLinkUrl.Text = model.link_url;
             //不是相册图片就绑定
             string filename = model.img_url.Substring(model.img_url.LastIndexOf("/") + 1);
@@ -379,7 +379,7 @@ namespace DTcms.Web.admin.article
             txtZhaiyao.Text = model.zhaiyao;
             txtContent.Value = model.content;
             txtSortId.Text = model.sort_id.ToString();
-            txtClick.Text = model.click.ToString();
+            //txtClick.Text = model.click.ToString();
             rblStatus.SelectedValue = model.status.ToString();
             if (action == DTEnums.ActionEnum.Edit.ToString())
             {
@@ -401,10 +401,10 @@ namespace DTcms.Web.admin.article
             {
                 cblItem.Items[3].Selected = true;
             }
-            if (model.is_slide == 1)
-            {
-                cblItem.Items[4].Selected = true;
-            }
+            //if (model.is_slide == 1)
+            //{
+            //    cblItem.Items[4].Selected = true;
+            //}
             //扩展字段赋值
             List<Model.article_attribute_field> ls1 = new BLL.article_attribute_field().GetModelList(this.channel_id, "");
             foreach (Model.article_attribute_field modelt1 in ls1)
@@ -484,10 +484,10 @@ namespace DTcms.Web.admin.article
                 }
             }
             //绑定商品规格
-            List<Model.article_goods_spec> goodsSpecList = new BLL.article_goods_spec().GetList(model.id, "");
-            hide_goods_spec_list.Value = JsonHelper.ObjectToJSON(goodsSpecList);
-            rptGroupPrice.DataSource = model.goods;
-            rptGroupPrice.DataBind();
+            //List<Model.article_goods_spec> goodsSpecList = new BLL.article_goods_spec().GetList(model.id, "");
+            //hide_goods_spec_list.Value = JsonHelper.ObjectToJSON(goodsSpecList);
+            //rptGroupPrice.DataSource = model.goods;
+            //rptGroupPrice.DataBind();
             //绑定图片相册
             if (filename.StartsWith("thumb_"))
             {
@@ -615,7 +615,7 @@ namespace DTcms.Web.admin.article
             model.category_id = Utils.StrToInt(ddlCategoryId.SelectedValue, 0);
             model.call_index = txtCallIndex.Text.Trim();
             model.title = txtTitle.Text.Trim();
-            model.tags = txtTags.Text.Trim();
+            
             model.link_url = txtLinkUrl.Text.Trim();
             model.img_url = txtImgUrl.Text;
             model.seo_title = txtSeoTitle.Text.Trim();
@@ -640,7 +640,7 @@ namespace DTcms.Web.admin.article
                 model.content = txtContent.Value;
             }
             model.sort_id = Utils.StrToInt(txtSortId.Text.Trim(), 99);
-            model.click = int.Parse(txtClick.Text.Trim());
+            //model.click = int.Parse(txtClick.Text.Trim());
             model.status = Utils.StrToInt(rblStatus.SelectedValue, 0);
             model.is_msg = 0;
             model.is_top = 0;
@@ -674,12 +674,12 @@ namespace DTcms.Web.admin.article
 
             #region 保存规格====================
             //保存商品规格
-            string goodsSpecJsonStr = hide_goods_spec_list.Value;
-            List<Model.article_goods_spec> specList = (List<Model.article_goods_spec>)JsonHelper.JSONToObject<List<Model.article_goods_spec>>(goodsSpecJsonStr);
-            if (specList != null)
-            {
-                model.specs = specList;
-            }
+            //string goodsSpecJsonStr = hide_goods_spec_list.Value;
+            //List<Model.article_goods_spec> specList = (List<Model.article_goods_spec>)JsonHelper.JSONToObject<List<Model.article_goods_spec>>(goodsSpecJsonStr);
+            //if (specList != null)
+            //{
+            //    model.specs = specList;
+            //}
             //保存商品信息
             string[] specGoodsIdArr = Request.Form.GetValues("hide_goods_id");
             string[] specGoodsNoArr = Request.Form.GetValues("spec_goods_no");
@@ -788,7 +788,7 @@ namespace DTcms.Web.admin.article
             model.category_id = Utils.StrToInt(ddlCategoryId.SelectedValue, 0);
             model.call_index = txtCallIndex.Text.Trim();
             model.title = txtTitle.Text.Trim();
-            model.tags = txtTags.Text.Trim();
+            
             model.link_url = txtLinkUrl.Text.Trim();
             model.img_url = txtImgUrl.Text;
             model.seo_title = txtSeoTitle.Text.Trim();
@@ -813,7 +813,7 @@ namespace DTcms.Web.admin.article
                 model.content = txtContent.Value;
             }
             model.sort_id = Utils.StrToInt(txtSortId.Text.Trim(), 99);
-            model.click = int.Parse(txtClick.Text.Trim());
+            //model.click = int.Parse(txtClick.Text.Trim());
             model.status = Utils.StrToInt(rblStatus.SelectedValue, 0);
             model.is_msg = 0;
             model.is_top = 0;
@@ -836,23 +836,23 @@ namespace DTcms.Web.admin.article
             {
                 model.is_hot = 1;
             }
-            if (cblItem.Items[4].Selected == true)
-            {
-                model.is_slide = 1;
-            }
-            model.add_time = Utils.StrToDateTime(txtAddTime.Text.Trim());
+            //if (cblItem.Items[4].Selected == true)
+            //{
+            //    model.is_slide = 1;
+            //}
+            //model.add_time = Utils.StrToDateTime(txtAddTime.Text.Trim());
             model.update_time = DateTime.Now;
             model.fields = SetFieldValues(this.channel_id); //扩展字段赋值
 
             #region 保存规格====================
             //保存商品规格
-            string goodsSpecJsonStr = hide_goods_spec_list.Value;
-            List<Model.article_goods_spec> specList = (List<Model.article_goods_spec>)JsonHelper.JSONToObject<List<Model.article_goods_spec>>(goodsSpecJsonStr);
-            if (specList != null)
-            {
-                model.specs = specList;
-                model.goods = new List<Model.article_goods>();
-            }
+            //string goodsSpecJsonStr = hide_goods_spec_list.Value;
+            //List<Model.article_goods_spec> specList = (List<Model.article_goods_spec>)JsonHelper.JSONToObject<List<Model.article_goods_spec>>(goodsSpecJsonStr);
+            //if (specList != null)
+            //{
+            //    model.specs = specList;
+            //    model.goods = new List<Model.article_goods>();
+            //}
             //保存商品信息
             string[] specGoodsIdArr = Request.Form.GetValues("hide_goods_id");
             string[] specGoodsNoArr = Request.Form.GetValues("spec_goods_no");
