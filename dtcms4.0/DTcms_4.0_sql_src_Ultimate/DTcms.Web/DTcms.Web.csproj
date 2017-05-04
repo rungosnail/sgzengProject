@@ -291,6 +291,7 @@
     <Content Include="css\pagination.css" />
     <Content Include="css\validate.css" />
     <Content Include="css\valid_icons.png" />
+    <Content Include="dtcms.sql" />
     <Content Include="editor\kindeditor-min.js" />
     <Content Include="editor\kindeditor.js" />
     <Content Include="editor\lang\ar.js" />
