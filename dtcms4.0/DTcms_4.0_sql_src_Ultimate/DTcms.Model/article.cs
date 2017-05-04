@@ -37,6 +37,16 @@ namespace DTcms.Model
         private string _user_name;
         private DateTime _add_time = DateTime.Now;
         private DateTime? _update_time;
+
+        public string composition_scheme { get; set; }
+        public string site_requirements { get; set; }
+        public string cost_budget { get; set; }
+        public int exhibition_time { get; set; }
+        public string resource_linkage { get; set; }
+        public string resource_phone { get; set; }
+
+        //composition_scheme, site_requirements, cost_budget, exhibition_time, resource_linkage, resource_phone
+
         /// <summary>
         /// 自增ID
         /// </summary>

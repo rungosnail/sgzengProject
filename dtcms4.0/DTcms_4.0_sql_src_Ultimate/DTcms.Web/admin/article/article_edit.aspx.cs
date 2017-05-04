@@ -363,10 +363,10 @@ namespace DTcms.Web.admin.article
             Model.article model = bll.GetModel(_id);
 
             ddlCategoryId.SelectedValue = model.category_id.ToString();
-            txtCallIndex.Text = model.call_index;
+            //txtCallIndex.Text = model.call_index;
             txtTitle.Text = model.title;
             //txtTags.Text = model.tags;
-            txtLinkUrl.Text = model.link_url;
+            // txtLinkUrl.Text = model.link_url;
             //不是相册图片就绑定
             string filename = model.img_url.Substring(model.img_url.LastIndexOf("/") + 1);
             if (!filename.StartsWith("thumb_"))
@@ -377,30 +377,41 @@ namespace DTcms.Web.admin.article
             txtSeoKeywords.Text = model.seo_keywords;
             txtSeoDescription.Text = model.seo_description;
             txtZhaiyao.Text = model.zhaiyao;
-            txtContent.Value = model.content;
+            //txtContent.Value = model.content;
             txtSortId.Text = model.sort_id.ToString();
             //txtClick.Text = model.click.ToString();
             rblStatus.SelectedValue = model.status.ToString();
+
+
+            txtCompositionscheme.Text = model.composition_scheme;
+            txtSiterequirements.Text = model.site_requirements;
+            txtCostbudget.Text = model.cost_budget;
+            txtExhibitiontime.Text = model.exhibition_time.ToString();
+            txtResourcelinkage.Text = model.resource_linkage;
+            txtResourcephone.Text = model.resource_phone;
+
             if (action == DTEnums.ActionEnum.Edit.ToString())
             {
                 txtAddTime.Text = model.add_time.ToString("yyyy-MM-dd HH:mm:ss");
             }
-            if (model.is_msg == 1)
-            {
-                cblItem.Items[0].Selected = true;
-            }
-            if (model.is_top == 1)
-            {
-                cblItem.Items[1].Selected = true;
-            }
-            if (model.is_red == 1)
-            {
-                cblItem.Items[2].Selected = true;
-            }
-            if (model.is_hot == 1)
-            {
-                cblItem.Items[3].Selected = true;
-            }
+            cblItem.SelectedValue = model.is_top != 0 ? "0" : (model.is_red != 0 ? "1" : (model.is_hot != 0 ? "2" : ""));
+
+            //if (model.is_msg == 1)
+            //{
+            //    cblItem.Items[0].Selected = true;
+            //}
+            //if (model.is_top == 1)
+            //{
+            //    cblItem.Items[0].Selected = true;
+            //}
+            //if (model.is_red == 1)
+            //{
+            //    cblItem.Items[1].Selected = true;
+            //}
+            //if (model.is_hot == 1)
+            //{
+            //    cblItem.Items[2].Selected = true;
+            //}
             //if (model.is_slide == 1)
             //{
             //    cblItem.Items[4].Selected = true;
@@ -613,18 +624,25 @@ namespace DTcms.Web.admin.article
 
             model.channel_id = this.channel_id;
             model.category_id = Utils.StrToInt(ddlCategoryId.SelectedValue, 0);
-            model.call_index = txtCallIndex.Text.Trim();
+            // model.call_index = txtCallIndex.Text.Trim();
             model.title = txtTitle.Text.Trim();
-            
-            model.link_url = txtLinkUrl.Text.Trim();
+
+            //model.link_url = txtLinkUrl.Text.Trim();
             model.img_url = txtImgUrl.Text;
             model.seo_title = txtSeoTitle.Text.Trim();
             model.seo_keywords = txtSeoKeywords.Text.Trim();
             model.seo_description = txtSeoDescription.Text.Trim();
+
+            model.composition_scheme = txtCompositionscheme.Text.Trim();
+            model.site_requirements = txtSiterequirements.Text.Trim();
+            model.cost_budget = txtCostbudget.Text.Trim();
+            model.exhibition_time = string.IsNullOrEmpty(txtExhibitiontime.Text.Trim()) == true ? 0 : Convert.ToInt32(txtExhibitiontime.Text.Trim());
+            model.resource_linkage = txtResourcelinkage.Text.Trim();
+            model.resource_phone = txtResourcephone.Text.Trim();
             //内容摘要提取内容前255个字符
             if (string.IsNullOrEmpty(txtZhaiyao.Text.Trim()))
             {
-                model.zhaiyao = Utils.DropHTML(txtContent.Value, 255);
+                //model.zhaiyao = Utils.DropHTML(txtContent.Value, 255);
             }
             else
             {
@@ -633,11 +651,11 @@ namespace DTcms.Web.admin.article
             //是否将编辑器远程图片保存到本地
             if (siteConfig.fileremote == 1)
             {
-                model.content = AutoRemoteImageSave(txtContent.Value);
+                // model.content = AutoRemoteImageSave(txtContent.Value);
             }
             else
             {
-                model.content = txtContent.Value;
+                //model.content = txtContent.Value;
             }
             model.sort_id = Utils.StrToInt(txtSortId.Text.Trim(), 99);
             //model.click = int.Parse(txtClick.Text.Trim());
@@ -647,26 +665,48 @@ namespace DTcms.Web.admin.article
             model.is_red = 0;
             model.is_hot = 0;
             model.is_slide = 0;
-            if (cblItem.Items[0].Selected == true)
+
+
+            switch (cblItem.SelectedValue)
             {
-                model.is_msg = 1;
+                case "0":
+                    model.is_top = 1;
+                    model.is_red = 0;
+                    model.is_hot = 0;
+                    break;
+                case "1":
+                    model.is_top = 0;
+                    model.is_red = 1;
+                    model.is_hot = 0;
+                    break;
+                case "2":
+                    model.is_top = 0;
+                    model.is_red = 0;
+                    model.is_hot = 1;
+                    break;
+                default:
+                    break;
             }
-            if (cblItem.Items[1].Selected == true)
-            {
-                model.is_top = 1;
-            }
-            if (cblItem.Items[2].Selected == true)
-            {
-                model.is_red = 1;
-            }
-            if (cblItem.Items[3].Selected == true)
-            {
-                model.is_hot = 1;
-            }
-            if (cblItem.Items[4].Selected == true)
-            {
-                model.is_slide = 1;
-            }
+            //if (cblItem.Items[0].Selected == true)
+            //{
+            //    model.is_msg = 1;
+            //}
+            //if (cblItem.Items[0].Selected == true)
+            //{
+            //    model.is_top = 1;
+            //}
+            //if (cblItem.Items[1].Selected == true)
+            //{
+            //    model.is_red = 1;
+            //}
+            //if (cblItem.Items[2].Selected == true)
+            //{
+            //    model.is_hot = 1;
+            //}
+            //if (cblItem.Items[4].Selected == true)
+            //{
+            //    model.is_slide = 1;
+            //}
             model.is_sys = 1; //管理员发布
             model.user_name = GetAdminInfo().user_name; //获得当前登录用户名
             model.add_time = Utils.StrToDateTime(txtAddTime.Text.Trim());
@@ -786,18 +826,26 @@ namespace DTcms.Web.admin.article
 
             model.channel_id = this.channel_id;
             model.category_id = Utils.StrToInt(ddlCategoryId.SelectedValue, 0);
-            model.call_index = txtCallIndex.Text.Trim();
+            // model.call_index = txtCallIndex.Text.Trim();
             model.title = txtTitle.Text.Trim();
-            
-            model.link_url = txtLinkUrl.Text.Trim();
+
+            //  model.link_url = txtLinkUrl.Text.Trim();
             model.img_url = txtImgUrl.Text;
             model.seo_title = txtSeoTitle.Text.Trim();
             model.seo_keywords = txtSeoKeywords.Text.Trim();
             model.seo_description = txtSeoDescription.Text.Trim();
+
+            model.composition_scheme = txtCompositionscheme.Text.Trim();
+            model.site_requirements = txtSiterequirements.Text.Trim();
+            model.cost_budget = txtCostbudget.Text.Trim();
+            model.exhibition_time = string.IsNullOrEmpty(txtExhibitiontime.Text.Trim()) == true ? 0 : Convert.ToInt32(txtExhibitiontime.Text.Trim());
+            model.resource_linkage = txtResourcelinkage.Text.Trim();
+            model.resource_phone = txtResourcephone.Text.Trim();
+
             //内容摘要提取内容前255个字符
             if (string.IsNullOrEmpty(txtZhaiyao.Text.Trim()))
             {
-                model.zhaiyao = Utils.DropHTML(txtContent.Value, 255);
+                //  model.zhaiyao = Utils.DropHTML(txtContent.Value, 255);
             }
             else
             {
@@ -806,11 +854,11 @@ namespace DTcms.Web.admin.article
             //是否将编辑器远程图片保存到本地
             if (siteConfig.fileremote == 1)
             {
-                model.content = AutoRemoteImageSave(txtContent.Value);
+                //model.content = AutoRemoteImageSave(txtContent.Value);
             }
             else
             {
-                model.content = txtContent.Value;
+                //model.content = txtContent.Value;
             }
             model.sort_id = Utils.StrToInt(txtSortId.Text.Trim(), 99);
             //model.click = int.Parse(txtClick.Text.Trim());
@@ -820,22 +868,44 @@ namespace DTcms.Web.admin.article
             model.is_red = 0;
             model.is_hot = 0;
             model.is_slide = 0;
-            if (cblItem.Items[0].Selected == true)
+            //if (cblItem.Items[0].Selected == true)
+            //{
+            //    model.is_msg = 1;
+            //}
+
+            switch (cblItem.SelectedValue)
             {
-                model.is_msg = 1;
+                case "0":
+                    model.is_top = 1;
+                    model.is_red = 0;
+                    model.is_hot = 0;
+                    break;
+                case "1":
+                    model.is_top = 0;
+                    model.is_red = 1;
+                    model.is_hot = 0;
+                    break;
+                case "2":
+                    model.is_top = 0;
+                    model.is_red = 0;
+                    model.is_hot = 1;
+                    break;
+                default:
+                    break;
             }
-            if (cblItem.Items[1].Selected == true)
-            {
-                model.is_top = 1;
-            }
-            if (cblItem.Items[2].Selected == true)
-            {
-                model.is_red = 1;
-            }
-            if (cblItem.Items[3].Selected == true)
-            {
-                model.is_hot = 1;
-            }
+
+            //if (cblItem.Items[0].Selected == true)
+            //{
+            //    model.is_top = 1;
+            //}
+            //if (cblItem.Items[1].Selected == true)
+            //{
+            //    model.is_red = 1;
+            //}
+            //if (cblItem.Items[2].Selected == true)
+            //{
+            //    model.is_hot = 1;
+            //}
             //if (cblItem.Items[4].Selected == true)
             //{
             //    model.is_slide = 1;

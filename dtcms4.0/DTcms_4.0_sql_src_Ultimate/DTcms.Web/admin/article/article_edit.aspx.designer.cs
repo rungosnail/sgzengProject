@@ -55,7 +55,7 @@ namespace DTcms.Web.admin.article {
         /// 自动生成的字段。
         /// 若要进行修改，请将字段声明从设计器文件移到代码隐藏文件。
         /// </remarks>
-        protected global::System.Web.UI.WebControls.CheckBoxList cblItem;
+        protected global::System.Web.UI.WebControls.RadioButtonList cblItem;
         
         /// <summary>
         /// txtTitle 控件。
@@ -229,103 +229,58 @@ namespace DTcms.Web.admin.article {
         protected global::System.Web.UI.HtmlControls.HtmlGenericControl field_tab_content;
         
         /// <summary>
-        /// txtCallIndex 控件。
+        /// txtCompositionscheme 控件。
         /// </summary>
         /// <remarks>
         /// 自动生成的字段。
         /// 若要进行修改，请将字段声明从设计器文件移到代码隐藏文件。
         /// </remarks>
-        protected global::System.Web.UI.WebControls.TextBox txtCallIndex;
+        protected global::System.Web.UI.WebControls.TextBox txtCompositionscheme;
         
         /// <summary>
-        /// txtLinkUrl 控件。
+        /// txtSiterequirements 控件。
         /// </summary>
         /// <remarks>
         /// 自动生成的字段。
         /// 若要进行修改，请将字段声明从设计器文件移到代码隐藏文件。
         /// </remarks>
-        protected global::System.Web.UI.WebControls.TextBox txtLinkUrl;
+        protected global::System.Web.UI.WebControls.TextBox txtSiterequirements;
         
         /// <summary>
-        /// div_source 控件。
+        /// txtCostbudget 控件。
         /// </summary>
         /// <remarks>
         /// 自动生成的字段。
         /// 若要进行修改，请将字段声明从设计器文件移到代码隐藏文件。
         /// </remarks>
-        protected global::System.Web.UI.HtmlControls.HtmlGenericControl div_source;
+        protected global::System.Web.UI.WebControls.TextBox txtCostbudget;
         
         /// <summary>
-        /// div_source_title 控件。
+        /// txtExhibitiontime 控件。
         /// </summary>
         /// <remarks>
         /// 自动生成的字段。
         /// 若要进行修改，请将字段声明从设计器文件移到代码隐藏文件。
         /// </remarks>
-        protected global::System.Web.UI.WebControls.Label div_source_title;
+        protected global::System.Web.UI.WebControls.TextBox txtExhibitiontime;
         
         /// <summary>
-        /// field_control_source 控件。
+        /// txtResourcelinkage 控件。
         /// </summary>
         /// <remarks>
         /// 自动生成的字段。
         /// 若要进行修改，请将字段声明从设计器文件移到代码隐藏文件。
         /// </remarks>
-        protected global::System.Web.UI.WebControls.TextBox field_control_source;
+        protected global::System.Web.UI.WebControls.TextBox txtResourcelinkage;
         
         /// <summary>
-        /// div_source_tip 控件。
+        /// txtResourcephone 控件。
         /// </summary>
         /// <remarks>
         /// 自动生成的字段。
         /// 若要进行修改，请将字段声明从设计器文件移到代码隐藏文件。
         /// </remarks>
-        protected global::System.Web.UI.WebControls.Label div_source_tip;
-        
-        /// <summary>
-        /// div_author 控件。
-        /// </summary>
-        /// <remarks>
-        /// 自动生成的字段。
-        /// 若要进行修改，请将字段声明从设计器文件移到代码隐藏文件。
-        /// </remarks>
-        protected global::System.Web.UI.HtmlControls.HtmlGenericControl div_author;
-        
-        /// <summary>
-        /// div_author_title 控件。
-        /// </summary>
-        /// <remarks>
-        /// 自动生成的字段。
-        /// 若要进行修改，请将字段声明从设计器文件移到代码隐藏文件。
-        /// </remarks>
-        protected global::System.Web.UI.WebControls.Label div_author_title;
-        
-        /// <summary>
-        /// field_control_author 控件。
-        /// </summary>
-        /// <remarks>
-        /// 自动生成的字段。
-        /// 若要进行修改，请将字段声明从设计器文件移到代码隐藏文件。
-        /// </remarks>
-        protected global::System.Web.UI.WebControls.TextBox field_control_author;
-        
-        /// <summary>
-        /// div_author_tip 控件。
-        /// </summary>
-        /// <remarks>
-        /// 自动生成的字段。
-        /// 若要进行修改，请将字段声明从设计器文件移到代码隐藏文件。
-        /// </remarks>
-        protected global::System.Web.UI.WebControls.Label div_author_tip;
-        
-        /// <summary>
-        /// txtContent 控件。
-        /// </summary>
-        /// <remarks>
-        /// 自动生成的字段。
-        /// 若要进行修改，请将字段声明从设计器文件移到代码隐藏文件。
-        /// </remarks>
-        protected global::System.Web.UI.HtmlControls.HtmlTextArea txtContent;
+        protected global::System.Web.UI.WebControls.TextBox txtResourcephone;
         
         /// <summary>
         /// txtSeoTitle 控件。

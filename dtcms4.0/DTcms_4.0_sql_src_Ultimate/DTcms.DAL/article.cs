@@ -68,9 +68,9 @@ namespace DTcms.DAL
                         #region 添加主表数据====================
                         StringBuilder strSql = new StringBuilder();
                         strSql.Append("insert into " + databaseprefix + "article(");
-                        strSql.Append("channel_id,category_id,call_index,title,link_url,img_url,seo_title,seo_keywords,seo_description,tags,zhaiyao,content,sort_id,click,status,is_msg,is_top,is_red,is_hot,is_slide,is_sys,user_name,add_time,update_time)");
+                        strSql.Append("channel_id,category_id,call_index,title,link_url,img_url,seo_title,seo_keywords,seo_description,tags,zhaiyao,content,sort_id,click,status,is_msg,is_top,is_red,is_hot,is_slide,is_sys,user_name,add_time,update_time,composition_scheme ,site_requirements,cost_budget,exhibition_time,resource_linkage,resource_phone)");
                         strSql.Append(" values (");
-                        strSql.Append("@channel_id,@category_id,@call_index,@title,@link_url,@img_url,@seo_title,@seo_keywords,@seo_description,@tags,@zhaiyao,@content,@sort_id,@click,@status,@is_msg,@is_top,@is_red,@is_hot,@is_slide,@is_sys,@user_name,@add_time,@update_time)");
+                        strSql.Append("@channel_id,@category_id,@call_index,@title,@link_url,@img_url,@seo_title,@seo_keywords,@seo_description,@tags,@zhaiyao,@content,@sort_id,@click,@status,@is_msg,@is_top,@is_red,@is_hot,@is_slide,@is_sys,@user_name,@add_time,@update_time,@composition_scheme ,@site_requirements,@cost_budget,@exhibition_time,@resource_linkage,@resource_phone");
                         strSql.Append(";select @@IDENTITY");
                         SqlParameter[] parameters = {
                                 new SqlParameter("@channel_id", SqlDbType.Int,4),
@@ -96,7 +96,14 @@ namespace DTcms.DAL
                                 new SqlParameter("@is_sys", SqlDbType.TinyInt,1),
                                 new SqlParameter("@user_name", SqlDbType.NVarChar,100),
                                 new SqlParameter("@add_time", SqlDbType.DateTime),
-                                new SqlParameter("@update_time", SqlDbType.DateTime)};
+                                new SqlParameter("@update_time", SqlDbType.DateTime),
+                                new SqlParameter("@composition_scheme", SqlDbType.NVarChar,100),
+                                new SqlParameter("@site_requirements", SqlDbType.NVarChar,100),
+                                new SqlParameter("@cost_budget", SqlDbType.NVarChar,100),
+                                new SqlParameter("@exhibition_time", SqlDbType.Int,4),
+                                new SqlParameter("@resource_linkage", SqlDbType.NVarChar,20),
+                                new SqlParameter("@resource_phone", SqlDbType.Int)
+                                };
                         parameters[0].Value = model.channel_id;
                         parameters[1].Value = model.category_id;
                         parameters[2].Value = model.call_index;
@@ -121,6 +128,13 @@ namespace DTcms.DAL
                         parameters[21].Value = model.user_name;
                         parameters[22].Value = model.add_time;
                         parameters[23].Value = model.update_time;
+
+                        parameters[24].Value = model.composition_scheme;
+                        parameters[25].Value = model.site_requirements;
+                        parameters[26].Value = model.cost_budget;
+                        parameters[27].Value = model.exhibition_time;
+                        parameters[28].Value = model.resource_linkage;
+                        parameters[29].Value = model.resource_phone;
                         //添加主表数据
                         object obj = DbHelperSQL.GetSingle(conn, trans, strSql.ToString(), parameters); //带事务
                         model.id = Convert.ToInt32(obj);
@@ -316,7 +330,13 @@ namespace DTcms.DAL
                         strSql.Append("is_sys=@is_sys,");
                         strSql.Append("user_name=@user_name,");
                         strSql.Append("add_time=@add_time,");
-                        strSql.Append("update_time=@update_time");
+                        strSql.Append("update_time=@update_time,");
+                        strSql.Append("composition_scheme=@composition_scheme,");
+                        strSql.Append("site_requirements=@site_requirements,");
+                        strSql.Append("cost_budget=@cost_budget,");
+                        strSql.Append("exhibition_time=@exhibition_time,");
+                        strSql.Append("resource_linkage=@resource_linkage,");
+                        strSql.Append("resource_phone@resource_phone");
                         strSql.Append(" where id=@id");
                         SqlParameter[] parameters = {
                                 new SqlParameter("@channel_id", SqlDbType.Int,4),
@@ -343,6 +363,12 @@ namespace DTcms.DAL
                                 new SqlParameter("@user_name", SqlDbType.NVarChar,100),
                                 new SqlParameter("@add_time", SqlDbType.DateTime),
                                 new SqlParameter("@update_time", SqlDbType.DateTime),
+                                new SqlParameter("@composition_scheme", SqlDbType.NVarChar,100),
+                                new SqlParameter("@site_requirements", SqlDbType.NVarChar,100),
+                                new SqlParameter("@cost_budget", SqlDbType.NVarChar,100),
+                                new SqlParameter("@exhibition_time", SqlDbType.Int,4),
+                                new SqlParameter("@resource_linkage", SqlDbType.NVarChar,20),
+                                new SqlParameter("@resource_phone", SqlDbType.Int),
                                 new SqlParameter("@id", SqlDbType.Int,4)};
                         parameters[0].Value = model.channel_id;
                         parameters[1].Value = model.category_id;
@@ -709,7 +735,7 @@ namespace DTcms.DAL
         public Model.article GetModel(int id)
         {
             StringBuilder strSql = new StringBuilder();
-            strSql.Append("select top 1 id,channel_id,category_id,call_index,title,link_url,img_url,seo_title,seo_keywords,seo_description,tags,zhaiyao,content,sort_id,click,status,is_msg,is_top,is_red,is_hot,is_slide,is_sys,user_name,add_time,update_time");
+            strSql.Append("select top 1 id,channel_id,category_id,call_index,title,link_url,img_url,seo_title,seo_keywords,seo_description,tags,zhaiyao,content,sort_id,click,status,is_msg,is_top,is_red,is_hot,is_slide,is_sys,user_name,add_time,update_time,composition_scheme,site_requirements,cost_budget,exhibition_time,resource_linkage,resource_phone");
             strSql.Append(" from " + databaseprefix + "article");
             strSql.Append(" where id=@id");
             SqlParameter[] parameters = {
@@ -759,7 +785,7 @@ namespace DTcms.DAL
             {
                 strSql.Append(" top " + Top.ToString());
             }
-            strSql.Append(" id,channel_id,category_id,call_index,title,link_url,img_url,seo_title,seo_keywords,seo_description,tags,zhaiyao,content,sort_id,click,status,is_msg,is_top,is_red,is_hot,is_slide,is_sys,user_name,add_time,update_time ");
+            strSql.Append(" id,channel_id,category_id,call_index,title,link_url,img_url,seo_title,seo_keywords,seo_description,tags,zhaiyao,content,sort_id,click,status,is_msg,is_top,is_red,is_hot,is_slide,is_sys,user_name,add_time,update_time,composition_scheme ,site_requirements,cost_budget,exhibition_time,resource_linkage,resource_phone ");
             strSql.Append(" FROM " + databaseprefix + "article ");
             if (strWhere.Trim() != "")
             {
@@ -1025,6 +1051,32 @@ namespace DTcms.DAL
                 {
                     model.update_time = DateTime.Parse(row["update_time"].ToString());
                 }
+                if (row["composition_scheme"] != null)
+                {
+                    model.composition_scheme = row["composition_scheme"].ToString();
+                }
+                if (row["site_requirements"] != null)
+                {
+                    model.site_requirements = row["site_requirements"].ToString();
+                }
+                if (row["cost_budget"] != null)
+                {
+                    model.cost_budget = row["cost_budget"].ToString();
+                }
+                if (row["exhibition_time"] != null && row["exhibition_time"].ToString() != "")
+                {
+                    model.exhibition_time = int.Parse(row["exhibition_time"].ToString());
+                }
+                if (row["resource_linkage"] != null)
+                {
+                    model.resource_linkage = row["resource_linkage"].ToString();
+                }
+                if (row["resource_phone"] != null && row["resource_phone"].ToString() != "")
+                {
+                    model.resource_phone = row["resource_phone"].ToString();
+                }
+               
+
                 #endregion
 
                 //扩展字段信息

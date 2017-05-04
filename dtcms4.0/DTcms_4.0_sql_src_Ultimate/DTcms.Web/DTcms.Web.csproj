@@ -1532,6 +1532,7 @@
     <Content Include="web\html\css\layer.css" />
     <Content Include="web\html\css\list.css" />
     <Content Include="web\html\css\personal.css" />
+    <Content Include="web\html\css\reg.css" />
     <Content Include="web\html\images\arrow.png" />
     <Content Include="web\html\images\humanbg.png" />
     <Content Include="web\html\images\icon.gif" />
@@ -1670,6 +1671,8 @@
     <Content Include="web\html\资源支付页.shtml" />
     <Content Include="web\html\首页.shtml" />
     <Content Include="web\html\carousel-mask\jquery插件库.url" />
+    <Content Include="web\html\注册.shtml" />
+    <Content Include="web\html\登录.shtml" />
   </ItemGroup>
   <PropertyGroup>
     <VisualStudioVersion Condition="'$(VisualStudioVersion)' == ''">10.0</VisualStudioVersion>
