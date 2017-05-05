@@ -46,10 +46,10 @@
     <form id="form1" runat="server">
         <!--导航栏-->
         <div class="location">
-            <a href="#" class="back"><i></i><span>返回列表页</span></a>
+            <a href="Index.aspx" class="back"><i></i><span>返回列表页</span></a>
             <a href="../center.aspx" class="home"><i></i><span>首页</span></a>
             <i class="arrow"></i>
-            <a href="#"><span>内容管理</span></a>
+            <a href="Index.aspx"><span>内容管理</span></a>
             <i class="arrow"></i>
             <span>编辑内容</span>
         </div>
@@ -90,7 +90,7 @@
                 </dd>
             </dl>
          <dl>
-                <dt>图片</dt>
+                <dt>链接地址</dt>
                 <dd>
                     <asp:TextBox ID="txtUrl" runat="server" datatype="*2-100" CssClass="input normal upload-path" />
                      <span class="Validform_checktip">*</span>
@@ -131,7 +131,7 @@
         <div class="page-footer">
             <div class="btn-wrap">
                 <asp:Button ID="btnSubmit" runat="server" Text="提交保存" CssClass="btn" OnClick="btnSubmit_Click"  />
-                <input name="btnReturn" type="button" value="返回上一页" class="btn yellow"/>
+                <input name="btnReturn" type="button" value="返回上一页" class="btn yellow" onclick="javascript: history.back(-1);"/>
             </div>
         </div>
         <!--/工具栏-->

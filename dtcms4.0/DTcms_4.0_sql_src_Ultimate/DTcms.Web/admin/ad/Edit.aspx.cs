@@ -6,6 +6,7 @@ using System.Web.UI;
 using System.Web.UI.WebControls;
 using DTcms.Model;
 using DTcms.BLL;
+using DTcms.Common;
 
 namespace DTcms.Web.admin.ad
 {
@@ -14,7 +15,34 @@ namespace DTcms.Web.admin.ad
         BLL.advertisementBll bll = new advertisementBll();
         protected void Page_Load(object sender, EventArgs e)
         {
+            if (!Page.IsPostBack)
+            {
+                int id = DTRequest.GetQueryInt("id", 0);
+                if (id > 0)
+                {
+                    BindInfo(id);
+                }
+            }
+        }
 
+        /// <summary>
+        /// 绑定信息
+        /// </summary>
+        /// <param name="id"></param>
+        public void BindInfo(int id)
+        {
+            var model = bll.GetModel(id);
+            if (model != null)
+            {
+                txtName.Text = model.name;
+                txtTitle.Text = model.title;
+                txtImgUrl.Text = model.imgurl;
+                txtUrl.Text = model.url;
+                rblStatus.SelectedValue = model.state.ToString();
+                txtState.Text = model.type;
+
+                hdID.Value = model.id.ToString();
+            }
         }
 
         /// <summary>
@@ -31,8 +59,6 @@ namespace DTcms.Web.admin.ad
             model.state = rblStatus.SelectedValue == null ? 0 : Convert.ToInt32(rblStatus.SelectedValue);
             model.url = txtUrl.Text;
             model.type = txtState.Text;
-            model.createdate = DateTime.Now;
-            model.userId = GetAdminInfo().id;
             if (!string.IsNullOrEmpty(hdID.Value))
             {
                 //修改
@@ -42,11 +68,13 @@ namespace DTcms.Web.admin.ad
             }
             else
             {
+                model.createdate = DateTime.Now;
+                model.userId = GetAdminInfo().id;
                 int b = bll.Add(model);
 
             }
 
-
+            JscriptMsg("添加信息成功！", "index.aspx?channel_id=20");
 
 
         }

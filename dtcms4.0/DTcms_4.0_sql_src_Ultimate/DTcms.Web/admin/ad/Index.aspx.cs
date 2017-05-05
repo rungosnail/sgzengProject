@@ -15,8 +15,8 @@ namespace DTcms.Web.admin.ad
 
         public advertisementBll bll = new advertisementBll();
         protected int totalCount;
-        protected int page=0;
-        protected int pageSize;
+        protected int page=1;
+        protected int pageSize=10;
         protected void Page_Load(object sender, EventArgs e)
         {
             if (!Page.IsPostBack)
@@ -30,13 +30,33 @@ namespace DTcms.Web.admin.ad
         /// </summary>
         public void GetList()
         {
-            this.rptList2.DataSource = bll.GetListByPage("", "", 0, 20);
+            this.page = DTRequest.GetQueryInt("page", 1);
+            this.rptList2.DataSource = bll.GetList(this.pageSize,this.page,"","id desc",out totalCount);
             //bll.GetList(_channel_id, _category_id, this.pageSize, this.page, _strWhere, _orderby, out this.totalCount);
             this.rptList2.DataBind();
             //绑定页码
             txtPageNum.Text = this.pageSize.ToString();
-            string pageUrl = Utils.CombUrlTxt("article_list.aspx", "page={0}","__id__");
-            PageContent.InnerHtml = Utils.OutPageList(10, this.page, this.totalCount, pageUrl, 8);
+            string pageUrl = Utils.CombUrlTxt("Index.aspx", "page={0}","__id__");
+            PageContent.InnerHtml = Utils.OutPageList(this.pageSize, this.page, this.totalCount, pageUrl, 8);
+        }
+
+        protected void btnDelete_Click(object sender, EventArgs e)
+        {
+            Repeater rptList = new Repeater();
+            rptList = this.rptList2;
+            for (int i = 0; i < rptList.Items.Count; i++)
+            {
+                int id = Convert.ToInt32(((HiddenField)rptList.Items[i].FindControl("hidId")).Value);
+                CheckBox cb = (CheckBox)rptList.Items[i].FindControl("chkId");
+                if (cb.Checked)
+                {
+                    if (bll.Delete(id))
+                    {
+                        JscriptMsg("添加信息成功！", "index.aspx?channel_id=20");
+                    }
+                }
+            }
+              
         }
     }
 }
