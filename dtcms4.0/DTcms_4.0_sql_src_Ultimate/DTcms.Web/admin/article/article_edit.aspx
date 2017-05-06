@@ -50,7 +50,7 @@
             //初始化上传控件
             $(".upload-img").InitUploader({ filesize: "<%=siteConfig.imgsize %>", sendurl: "../../tools/upload_ajax.ashx", swf: "../../scripts/webuploader/uploader.swf", filetypes: "<%=siteConfig.fileextension %>" });
         $(".upload-video").InitUploader({ filesize: "<%=siteConfig.videosize %>", sendurl: "../../tools/upload_ajax.ashx", swf: "../../scripts/webuploader/uploader.swf", filetypes: "<%=siteConfig.videoextension %>" });
-        $(".upload-album").InitUploader({ btntext: "批量上传", multiple: true, water: true, thumbnail: true, filesize: "<%=siteConfig.imgsize %>", sendurl: "../../tools/upload_ajax.ashx", swf: "../../scripts/webuploader/uploader.swf" });
+        $(".upload-album").InitUploader({ btntext: "批量上传", multiple: true, water: false, thumbnail: true, filesize: "<%=siteConfig.imgsize %>", sendurl: "../../tools/upload_ajax.ashx", swf: "../../scripts/webuploader/uploader.swf" });
 
         //设置封面图片的样式
         $(".photo-list ul li .img-box img").each(function () {
@@ -222,9 +222,9 @@
                     <div class="rule-multi-radio">
                         <asp:RadioButtonList ID="cblItem" runat="server" RepeatDirection="Horizontal" RepeatLayout="Flow">
                             <%-- <asp:ListItem Value="1">允许评论</asp:ListItem>--%>
-                            <asp:ListItem Value="0">置顶</asp:ListItem>
-                            <asp:ListItem Value="1">推荐</asp:ListItem>
-                            <asp:ListItem Value="2">热门</asp:ListItem>
+                            <asp:ListItem Value="0">首页左侧推荐</asp:ListItem>
+                            <asp:ListItem Value="1">首页右侧推荐</asp:ListItem>
+                              <asp:ListItem Value="2">热门</asp:ListItem>
                             <%--<asp:ListItem Value="1">幻灯片</asp:ListItem>--%>
                         </asp:RadioButtonList>
                     </div>
@@ -267,7 +267,7 @@
             </dl>
             <dl id="div_market_price" runat="server" visible="false">
                 <dt>
-                    <asp:Label ID="div_market_price_title" runat="server" Text="市场价格" /></dt>
+                    <asp:Label ID="div_market_price_title" runat="server" Text="方案下载价格" /></dt>
                 <dd>
                     <asp:TextBox ID="field_control_market_price" runat="server" CssClass="input small" datatype="/^(([1-9]{1}\d*)|([0]{1}))(\.(\d){1,2})?$/" sucmsg=" ">0</asp:TextBox>
                     元
@@ -276,7 +276,7 @@
             </dl>
             <dl id="div_sell_price" runat="server" visible="false">
                 <dt>
-                    <asp:Label ID="div_sell_price_title" runat="server" Text="销售价格" /></dt>
+                    <asp:Label ID="div_sell_price_title" runat="server" Text="资源联系价格" /></dt>
                 <dd>
                     <asp:TextBox ID="field_control_sell_price" runat="server" CssClass="input small" datatype="/^(([1-9]{1}\d*)|([0]{1}))(\.(\d){1,2})?$/" sucmsg=" ">0</asp:TextBox>
                     元

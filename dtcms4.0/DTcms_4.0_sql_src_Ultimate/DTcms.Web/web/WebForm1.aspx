@@ -97,9 +97,32 @@
             </div>
             <!--drighttext-->
         </div>
+
+
+         <div class="otherinfo">
+            <b>该主题其它资源</b>
+            <ul>
+                <li><a href="#">
+                    <img src="images/index_25.gif" /></a><p><a href="#">福记兄弟</a></p>
+                    <span>100m²-200m²    20-30万 </span></li>
+                <li><a href="#">
+                    <img src="images/index_25.gif" /></a><p><a href="#">福记兄弟</a></p>
+                    <span>100m²-200m²    20-30万 </span></li>
+                <li><a href="#">
+                    <img src="images/index_25.gif" /></a><p><a href="#">福记兄弟</a></p>
+                    <span>100m²-200m²    20-30万 </span></li>
+                <li><a href="#">
+                    <img src="images/index_25.gif" /></a><p><a href="#">福记兄弟</a></p>
+                    <span>100m²-200m²    20-30万 </span></li>
+            </ul>
+        </div>
+
+        <div class="ad"><a href="#">
+            <img src="images/index_19-21.gif" width="1200" height="140" /></a></div>
     </div>
+     <script src="scripts/jquery-3.1.1.min.js"></script>
     <script src="scripts/carousel.js"></script>
-    <script src="scripts/jquery-3.1.1.min.js"></script>
+   
     <script type="text/javascript">
         $(document).ready(function () {
             var array = $("#smallimg li")

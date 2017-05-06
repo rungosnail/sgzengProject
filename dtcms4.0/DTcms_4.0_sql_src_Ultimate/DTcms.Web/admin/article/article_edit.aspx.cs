@@ -386,7 +386,7 @@ namespace DTcms.Web.admin.article
             txtCompositionscheme.Text = model.composition_scheme;
             txtSiterequirements.Text = model.site_requirements;
             txtCostbudget.Text = model.cost_budget;
-            txtExhibitiontime.Text = model.exhibition_time.ToString();
+            txtExhibitiontime.Text = model.exhibition_time;
             txtResourcelinkage.Text = model.resource_linkage;
             txtResourcephone.Text = model.resource_phone;
 
@@ -636,7 +636,7 @@ namespace DTcms.Web.admin.article
             model.composition_scheme = txtCompositionscheme.Text.Trim();
             model.site_requirements = txtSiterequirements.Text.Trim();
             model.cost_budget = txtCostbudget.Text.Trim();
-            model.exhibition_time = string.IsNullOrEmpty(txtExhibitiontime.Text.Trim()) == true ? 0 : Convert.ToInt32(txtExhibitiontime.Text.Trim());
+            model.exhibition_time = txtExhibitiontime.Text.Trim();
             model.resource_linkage = txtResourcelinkage.Text.Trim();
             model.resource_phone = txtResourcephone.Text.Trim();
             //内容摘要提取内容前255个字符
@@ -838,7 +838,7 @@ namespace DTcms.Web.admin.article
             model.composition_scheme = txtCompositionscheme.Text.Trim();
             model.site_requirements = txtSiterequirements.Text.Trim();
             model.cost_budget = txtCostbudget.Text.Trim();
-            model.exhibition_time = string.IsNullOrEmpty(txtExhibitiontime.Text.Trim()) == true ? 0 : Convert.ToInt32(txtExhibitiontime.Text.Trim());
+            model.exhibition_time = txtExhibitiontime.Text.Trim();
             model.resource_linkage = txtResourcelinkage.Text.Trim();
             model.resource_phone = txtResourcephone.Text.Trim();
 

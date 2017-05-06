@@ -100,9 +100,9 @@ namespace DTcms.DAL
                                 new SqlParameter("@composition_scheme", SqlDbType.NVarChar,100),
                                 new SqlParameter("@site_requirements", SqlDbType.NVarChar,100),
                                 new SqlParameter("@cost_budget", SqlDbType.NVarChar,100),
-                                new SqlParameter("@exhibition_time", SqlDbType.Int,4),
+                                new SqlParameter("@exhibition_time", SqlDbType.NVarChar,100),
                                 new SqlParameter("@resource_linkage", SqlDbType.NVarChar,20),
-                                new SqlParameter("@resource_phone", SqlDbType.Int)
+                                new SqlParameter("@resource_phone", SqlDbType.NVarChar,100)
                                 };
                         parameters[0].Value = model.channel_id;
                         parameters[1].Value = model.category_id;
@@ -336,7 +336,7 @@ namespace DTcms.DAL
                         strSql.Append("cost_budget=@cost_budget,");
                         strSql.Append("exhibition_time=@exhibition_time,");
                         strSql.Append("resource_linkage=@resource_linkage,");
-                        strSql.Append("resource_phone@resource_phone");
+                        strSql.Append("resource_phone=@resource_phone");
                         strSql.Append(" where id=@id");
                         SqlParameter[] parameters = {
                                 new SqlParameter("@channel_id", SqlDbType.Int,4),
@@ -366,9 +366,9 @@ namespace DTcms.DAL
                                 new SqlParameter("@composition_scheme", SqlDbType.NVarChar,100),
                                 new SqlParameter("@site_requirements", SqlDbType.NVarChar,100),
                                 new SqlParameter("@cost_budget", SqlDbType.NVarChar,100),
-                                new SqlParameter("@exhibition_time", SqlDbType.Int,4),
+                                new SqlParameter("@exhibition_time", SqlDbType.NVarChar,100),
                                 new SqlParameter("@resource_linkage", SqlDbType.NVarChar,20),
-                                new SqlParameter("@resource_phone", SqlDbType.Int),
+                                new SqlParameter("@resource_phone", SqlDbType.NVarChar,100),
                                 new SqlParameter("@id", SqlDbType.Int,4)};
                         parameters[0].Value = model.channel_id;
                         parameters[1].Value = model.category_id;
@@ -394,7 +394,15 @@ namespace DTcms.DAL
                         parameters[21].Value = model.user_name;
                         parameters[22].Value = model.add_time;
                         parameters[23].Value = model.update_time;
-                        parameters[24].Value = model.id;
+
+                        parameters[24].Value = model.composition_scheme;
+                        parameters[25].Value = model.site_requirements;
+                        parameters[26].Value = model.cost_budget;
+                        parameters[27].Value = model.exhibition_time;
+                        parameters[28].Value = model.resource_linkage;
+                        parameters[29].Value = model.resource_phone;
+
+                        parameters[30].Value = model.id;
                         DbHelperSQL.ExecuteSql(conn, trans, strSql.ToString(), parameters);
                         #endregion
 
@@ -605,7 +613,7 @@ namespace DTcms.DAL
 
                         trans.Commit();
                     }
-                    catch
+                    catch (Exception ex)
                     {
                         trans.Rollback();
                         return false;
@@ -1065,7 +1073,7 @@ namespace DTcms.DAL
                 }
                 if (row["exhibition_time"] != null && row["exhibition_time"].ToString() != "")
                 {
-                    model.exhibition_time = int.Parse(row["exhibition_time"].ToString());
+                    model.exhibition_time = row["exhibition_time"].ToString();
                 }
                 if (row["resource_linkage"] != null)
                 {
@@ -1075,7 +1083,7 @@ namespace DTcms.DAL
                 {
                     model.resource_phone = row["resource_phone"].ToString();
                 }
-               
+
 
                 #endregion
 
@@ -1266,8 +1274,17 @@ namespace DTcms.DAL
             string strSql = @"SELECT ac.id as Viewid,ac.channel_id AS Viewchannel_id ,ac.title AS Viewtitle,ac2.id AS Viewid2, (ac2.parent_id) AS Viewchannel_id2, (ac2.title) AS Viewtitle2,atc.* FROM dt_article_category  AS ac
 		                        LEFT JOIN dt_article_category AS ac2 ON ac.id=ac2.parent_id 
 		                        LEFT JOIN dbo.dt_article AS atc ON ac2.id=atc.category_id
-		                        WHERE ac.parent_id=0 AND ac.channel_id!=18 ORDER BY ac.channel_id ASC";
+		                        WHERE ac.parent_id=0 AND ac.channel_id!=18 AND ISNULL(atc.status,0)=0  ORDER BY ac.channel_id ASC";
             return DbHelperSQL.Query(strSql.ToString());
+        }
+
+        public DataSet GetdtArticleDetail(int id)
+        {
+            string strSql = @"SELECT TOP 100 at.*,av.market_price,av.sell_price FROM dbo.dt_article AS at
+                                        LEFT JOIN dt_article_attribute_value AS av ON at.id=av.article_id
+                                         WHERE at.status=0 AND at.id=" + id + @";
+                                        SELECT * FROM  dt_article_albums WHERE article_id=" + id + ";";
+            return DbHelperSQL.Query(strSql);
         }
     }
 }

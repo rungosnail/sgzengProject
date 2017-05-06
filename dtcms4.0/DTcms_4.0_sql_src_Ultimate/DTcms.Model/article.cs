@@ -41,7 +41,7 @@ namespace DTcms.Model
         public string composition_scheme { get; set; }
         public string site_requirements { get; set; }
         public string cost_budget { get; set; }
-        public int exhibition_time { get; set; }
+        public string exhibition_time { get; set; }
         public string resource_linkage { get; set; }
         public string resource_phone { get; set; }
 

@@ -279,9 +279,7 @@
     <Content Include="aspx\mobile\video.aspx" />
     <Content Include="aspx\mobile\video_list.aspx" />
     <Content Include="aspx\mobile\video_show.aspx" />
-    <Content Include="aspx\plugin\feedback.aspx" />
     <Content Include="aspx\plugin\link.aspx" />
-    <Content Include="aspx\plugin\mfeedback.aspx" />
     <Content Include="crossdomain.xml" />
     <Content Include="css\image1.gif" />
     <Content Include="css\image2.gif" />
@@ -1473,6 +1471,20 @@
     <Compile Include="tools\verify_code.ashx.cs">
       <DependentUpon>verify_code.ashx</DependentUpon>
     </Compile>
+    <Compile Include="web\About.aspx.cs">
+      <DependentUpon>About.aspx</DependentUpon>
+      <SubType>ASPXCodeBehind</SubType>
+    </Compile>
+    <Compile Include="web\About.aspx.designer.cs">
+      <DependentUpon>About.aspx</DependentUpon>
+    </Compile>
+    <Compile Include="web\List.aspx.cs">
+      <DependentUpon>List.aspx</DependentUpon>
+      <SubType>ASPXCodeBehind</SubType>
+    </Compile>
+    <Compile Include="web\List.aspx.designer.cs">
+      <DependentUpon>List.aspx</DependentUpon>
+    </Compile>
     <Compile Include="web\master.Master.cs">
       <DependentUpon>master.Master</DependentUpon>
       <SubType>ASPXCodeBehind</SubType>
@@ -1493,6 +1505,27 @@
     </Compile>
     <Compile Include="web\Detail.aspx.designer.cs">
       <DependentUpon>Detail.aspx</DependentUpon>
+    </Compile>
+    <Compile Include="web\OrderPay.aspx.cs">
+      <DependentUpon>OrderPay.aspx</DependentUpon>
+      <SubType>ASPXCodeBehind</SubType>
+    </Compile>
+    <Compile Include="web\OrderPay.aspx.designer.cs">
+      <DependentUpon>OrderPay.aspx</DependentUpon>
+    </Compile>
+    <Compile Include="web\SearchResult.aspx.cs">
+      <DependentUpon>SearchResult.aspx</DependentUpon>
+      <SubType>ASPXCodeBehind</SubType>
+    </Compile>
+    <Compile Include="web\SearchResult.aspx.designer.cs">
+      <DependentUpon>SearchResult.aspx</DependentUpon>
+    </Compile>
+    <Compile Include="web\StarexpertList.aspx.cs">
+      <DependentUpon>StarexpertList.aspx</DependentUpon>
+      <SubType>ASPXCodeBehind</SubType>
+    </Compile>
+    <Compile Include="web\StarexpertList.aspx.designer.cs">
+      <DependentUpon>StarexpertList.aspx</DependentUpon>
     </Compile>
     <Compile Include="web\WebForm1.aspx.cs">
       <DependentUpon>WebForm1.aspx</DependentUpon>
@@ -1525,6 +1558,7 @@
     </ProjectReference>
   </ItemGroup>
   <ItemGroup>
+    <Content Include="web\About.aspx" />
     <Content Include="web\css\carousel-style.css" />
     <Content Include="web\css\common.css" />
     <Content Include="web\css\index.css" />
@@ -1622,8 +1656,14 @@
     <Content Include="web\images\wx.jpg" />
     <Content Include="web\Index.aspx" />
     <Content Include="web\Detail.aspx" />
+    <Content Include="web\List.aspx" />
+    <Content Include="web\OrderPay.aspx" />
     <Content Include="web\scripts\carousel.js" />
+    <Content Include="web\scripts\common.js" />
+    <Content Include="web\scripts\jquery-1.11.2.min.js" />
     <Content Include="web\scripts\jquery-3.1.1.min.js" />
+    <Content Include="web\SearchResult.aspx" />
+    <Content Include="web\StarexpertList.aspx" />
     <Content Include="web\WebForm1.aspx" />
     <Content Include="xmlconfig\site.config" />
     <Content Include="xmlconfig\urls.config" />
@@ -1664,6 +1704,8 @@
     <Content Include="xmlconfig\alipaypc.config" />
   </ItemGroup>
   <ItemGroup>
+    <None Include="Properties\PublishProfiles\FolderProfile.pubxml" />
+    <None Include="Properties\PublishProfiles\FolderProfile1.pubxml" />
     <None Include="templates\mobile\jqmobi\css\src\afui.less" />
     <None Include="templates\mobile\jqmobi\plugins\README.md" />
     <None Include="templates\mobile\jqmobi\ui\README.md" />

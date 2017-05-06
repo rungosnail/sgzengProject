@@ -8,6 +8,8 @@
     <title></title>
     <link href="css/common.css" rel="stylesheet" />
     <link href="css/list.css" rel="stylesheet" />
+    <script src="scripts/jquery-1.11.2.min.js"></script>
+    <script src="scripts/common.js"></script>
     <asp:ContentPlaceHolder ID="head" runat="server">
     </asp:ContentPlaceHolder>
 </head>
@@ -29,23 +31,38 @@
     <!--logo-->
     <div class="nav">
         <div class=" content">
-            <ul>
-                <li class="cur"><a href="#">首页</a></li>
+            <ul id="ulnavList">
+                <li id="linva_Index"><a href="index.aspx">首页</a></li>
                 <asp:Repeater ID="rptlist" runat="server">
                     <ItemTemplate>
-                        <li><a href="#"><%#Eval("title") %> </a></li>
+                        <li id="linav_<%#Eval("id") %>"><a href="List.aspx?nvaChannelid=<%#Eval("id") %>"><%#Eval("title") %> </a></li>
                     </ItemTemplate>
                 </asp:Repeater>
             </ul>
         </div>
     </div>
+     <input type="hidden" id="hdnavtitle" runat="server" name="hdnavtitle" />
+    <script type="text/javascript">
+        $(document).ready(function () {
+            $("#ulnavList li").removeClass("cur");
+            var nvaChannelid = getUrlParam("nvaChannelid");
+            if (nvaChannelid != null) {
+                $("#linav_" + nvaChannelid).addClass("cur");
+                $("#hdnavtitle").val($("#linav_" + nvaChannelid).find("a").html());
+            } else {
+                $("#linva_Index").addClass("cur");
+            }
+
+
+        });
+    </script>
     <!--nav-->
     <asp:ContentPlaceHolder ID="ContentPlaceHolder1" runat="server">
     </asp:ContentPlaceHolder>
     <div class="foot">
         <dl>
             <dt>
-                <p><a href="#">首页</a> | <a href="#">关于我们</a> | 联系电话:13666666666</p>
+                <p><a href="index.aspx">首页</a> | <a href="about.aspx">关于我们</a> | 联系电话:13666666666</p>
                 <p>广州市天河路xx号地址信息地址信息地址信息</p>
                 <p>©2016 广州吟羊文化传播有限公司 版权所有 粤ICP备16060652号</p>
             </dt>
@@ -58,7 +75,9 @@
             </dd>
         </dl>
     </div>
+   
     <!--foot-->
-    <script src="/scripts/jquery/jquery-1.11.2.min.js"></script>
+    
+    
 </body>
 </html>

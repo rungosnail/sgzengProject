@@ -101,6 +101,15 @@ namespace DTcms.BLL
         {
             return dal.GetChannel();
         }
+        /// <summary>
+        /// 获取新闻详细信息
+        /// </summary>
+        /// <param name="id"></param>
+        /// <returns></returns>
+        public DataSet GetdtArticleDetail(int id)
+        {
+            return dal.GetdtArticleDetail(id);
+        }
 
         #endregion
 

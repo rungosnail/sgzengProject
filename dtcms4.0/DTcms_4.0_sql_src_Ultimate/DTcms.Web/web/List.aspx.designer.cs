@@ -10,33 +10,24 @@
 namespace DTcms.Web.web {
     
     
-    public partial class Detail {
+    public partial class List {
         
         /// <summary>
-        /// divImg 控件。
+        /// rptlist 控件。
         /// </summary>
         /// <remarks>
         /// 自动生成的字段。
         /// 若要进行修改，请将字段声明从设计器文件移到代码隐藏文件。
         /// </remarks>
-        protected global::System.Web.UI.HtmlControls.HtmlGenericControl divImg;
+        protected global::System.Web.UI.WebControls.Repeater rptlist;
         
         /// <summary>
-        /// rptInfo 控件。
+        /// PageContent 控件。
         /// </summary>
         /// <remarks>
         /// 自动生成的字段。
         /// 若要进行修改，请将字段声明从设计器文件移到代码隐藏文件。
         /// </remarks>
-        protected global::System.Web.UI.WebControls.Repeater rptInfo;
-        
-        /// <summary>
-        /// rptOtherList 控件。
-        /// </summary>
-        /// <remarks>
-        /// 自动生成的字段。
-        /// 若要进行修改，请将字段声明从设计器文件移到代码隐藏文件。
-        /// </remarks>
-        protected global::System.Web.UI.WebControls.Repeater rptOtherList;
+        protected global::System.Web.UI.HtmlControls.HtmlGenericControl PageContent;
     }
 }

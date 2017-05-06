@@ -8,7 +8,8 @@ $imgBoxH = $maskH = $itemH * $perMask;  //遮罩高度 = 图片高度
 $maskOffW = $itemW * (1-$perMask) / 2;  //遮罩偏移宽度 
 $maskOffH = $imgBoxOffH = $itemH * (1-$perMask) / 2;  //遮罩偏移高度  即   图片居中的margintop
 
-var $itemNum = $('.item').length; // 图片数量可以随意更改
+
+var $itemNum = $(".item").length; // 图片数量可以随意更改
 
 $('#banner').css("height", $itemH + "px");
 
