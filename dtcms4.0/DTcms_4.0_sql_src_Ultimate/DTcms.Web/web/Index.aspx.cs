@@ -5,6 +5,7 @@ using System.Web;
 using System.Web.UI;
 using System.Web.UI.WebControls;
 using System.Text;
+using System.Data;
 
 namespace DTcms.Web.web
 {
@@ -20,6 +21,7 @@ namespace DTcms.Web.web
             {
                 GetProprietaryList();
                 GetChannelList();
+                GetAdList();
             }
         }
 
@@ -91,10 +93,10 @@ namespace DTcms.Web.web
                     foreach (var itemPd in item.ToList().FindAll(p => p.is_hot == 1))
                     {
                         sbHtml.Append("<li>");
-                        sbHtml.Append(" <a href=\"#\">");
+                        sbHtml.Append(" <a href=\"Detail.aspx?nvaChannelid="+ itemPd.channel_id+"&id="+ itemPd.id + "\">");
                         sbHtml.Append(" <img src=\"" + itemPd.img_url + "\" width=\"190\" height=\"140\" /></a>");
                         sbHtml.Append(" <b><a href=\"#\">" + (itemPd.title.Length > 12 ? (itemPd.title.Substring(0, 9) + "...") : itemPd.title) + "</a></b>");
-                        sbHtml.Append("<p><a href=\"#\" class=\"download\">资源下载</a><a href=\"#\" class=\"contact\">资源联系</a></p>");
+                        sbHtml.Append("<p><a href=\"Detail.aspx?nvaChannelid=" + itemPd.channel_id + "&id=" + itemPd.id + "\"class=\"download\">资源下载</a><a href=\"Detail.aspx?nvaChannelid=" + itemPd.channel_id + "&id=" + itemPd.id + "\" class=\"contact\">资源联系</a></p>");
                         sbHtml.Append("</li>");
                     }
                     sbHtml.Append("</ul>");
@@ -105,12 +107,12 @@ namespace DTcms.Web.web
 
                     var rightHtml = item.ToList().FindAll(p => p.is_red == 1);
 
-                    sbHtml.Append(rightHtml.Count > 0 ? "<a href=\"#\"><img src=\"" + rightHtml[0].img_url + "\" width=\"280\" height=\"140\" /></a>" : "");
+                    sbHtml.Append(rightHtml.Count > 0 ? "<a href=\"Detail.aspx?nvaChannelid=" + rightHtml[0].channel_id + "&id=" + rightHtml[0].id + "\"><img src=\"" + rightHtml[0].img_url + "\" width=\"280\" height=\"140\" /></a>" : "");
 
                     sbHtml.Append("<ul>");
                     foreach (var itemPd in item.ToList().FindAll(p => p.is_red == 1).Skip(1))
                     {
-                        sbHtml.Append("<li><a href=\"#\">" + itemPd.title + "</a></li>");
+                        sbHtml.Append("<li><a href=\"Detail.aspx?nvaChannelid=" + itemPd.channel_id + "&id=" + itemPd.id + "\">" + itemPd.title + "</a></li>");
                     }
                     sbHtml.Append("</ul>");
                     sbHtml.Append("</div>");
@@ -119,6 +121,47 @@ namespace DTcms.Web.web
 
                     sbHtml.Append("</div>");
                 }
+            }
+
+        }
+
+
+        public void GetAdList()
+        {
+            BLL.advertisementBll bll = new BLL.advertisementBll();
+            DataSet ds = new DataSet();
+            ds = bll.GetList("type=1 AND state=1");
+            if (ds.Tables[0].Rows.Count > 0)
+            {
+                StringBuilder sbheadHtml = new StringBuilder();
+                sbheadHtml.Append("<div class=\"banner-inner\">");
+
+                StringBuilder sbfootHtml = new StringBuilder();
+                sbfootHtml.Append("<ul class=\"pageCtrl\">");
+
+                for (int i = 0; i < ds.Tables[0].Rows.Count; i++)
+                {
+                    sbheadHtml.AppendFormat("<img src=\"{0}\" name=\"{1}\">", ds.Tables[0].Rows[i]["imgurl"], i);
+                    if (i==0)
+                    {
+                        sbfootHtml.Append("<li class=\"active\"></li>");
+                    }
+                    else
+                    {
+                        sbfootHtml.Append("<li></li>");
+                    }
+                }
+
+                
+                sbheadHtml.Append("</div>");
+                sbfootHtml.Append("	</ul>");
+
+                sbheadHtml.Append("<div class=\"ctrlbtn\">");
+                sbheadHtml.Append("<a href = \"javascript:;\" class=\"prev\" >></a>");
+                sbheadHtml.Append("<a href = \"javascript:;\" class=\"next\"><</a>");
+                sbheadHtml.Append("</div>");
+                divAdhtml.InnerHtml = sbheadHtml.ToString() + sbfootHtml.ToString();
+
             }
 
         }

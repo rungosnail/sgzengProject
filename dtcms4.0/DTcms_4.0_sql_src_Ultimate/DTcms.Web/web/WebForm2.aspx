@@ -1,20 +1,18 @@
-﻿<%@ Page Title="" Language="C#" MasterPageFile="~/web/master.Master" AutoEventWireup="true" CodeBehind="Index.aspx.cs" Inherits="DTcms.Web.web.Index" %>
-
+﻿<%@ Page Title="" Language="C#" MasterPageFile="~/web/master.Master" AutoEventWireup="true" CodeBehind="WebForm2.aspx.cs" Inherits="DTcms.Web.web.WebForm2" %>
 <asp:Content ID="Content1" ContentPlaceHolderID="head" runat="server">
 </asp:Content>
 <asp:Content ID="Content2" ContentPlaceHolderID="ContentPlaceHolder1" runat="server">
-        <link href="css/index.css" rel="stylesheet" />
-
-    <style type="text/css" media="screen">
+   <style type="text/css" media="screen">
 	/*li,ul li{
 			list-style: none;
 		}*/
 		.banner{
-			width: 1200px;
+			width: 800px;
 			height: 450px;
-            margin:0 auto;
+			margin:100px  auto;
 			position: relative;
 			overflow: hidden;
+            z-index:1001;
 		}
 		.banner-inner {
 			width: 3200px;
@@ -44,7 +42,7 @@
 			color: white;
 			background: rgba(100,100,100,.5);
 		}
-		.prev{ left: 97% !important; font-family: "宋体";}
+		.prev{ left: 760px !important; font-family: "宋体";}
 		.next{
 			left: 0;font-family: "宋体";
 		}
@@ -62,10 +60,8 @@
 		.banner .active{
 			background: rgba(255,255,255,1)
 		}
-	</style>
-
-  <div class="banner" id="divAdhtml" runat="server">
-		<%--<div class="banner-inner">
+	</style>    <div class="banner">
+		<div class="banner-inner">
 			<img src="images/index_11.gif" alt="" name="0">
 			<img src="images/index_11.gif" alt="" name="1">
 			<img src="images/index_11.gif" alt="" name="2">
@@ -80,8 +76,9 @@
 			<li></li>
 			<li></li>
 			<li></li>
-		</ul>--%>
+		</ul>
 	</div>
+	<script src="http://www.jq22.com/jquery/jquery-1.10.2.js"></script>
     <script src="scripts/lunbo.js"></script>
 
 	<script type="text/javascript">
@@ -95,50 +92,5 @@
 			leftBtn:$(".prev"),
 			rightBtn:$(".next")
 		})
-	</script>
-    <div class="content">
-
-        <div class="self">
-            <b class="selftitle">自营资源</b>
-            <dl>
-                <dt>
-                    
-                        <asp:Repeater ID="rptProprietary" runat="server">
-                            <HeaderTemplate>
-                                <ul>
-                            </HeaderTemplate>
-                            <ItemTemplate>
-                                <li><a href="#">
-                                    <img src="<%#Eval("img_url") %>" width="430" height="260" /></a>
-                                    <span><a href="#"><%#Eval("title") %></a></span>
-                                </li>
-                            </ItemTemplate>
-                            <FooterTemplate>
-                                </ul>
-                            </FooterTemplate>
-                        </asp:Repeater>
-                    
-                </dt>
-                <dd>
-                    <%=RightHtml %>
-
-                    <ul>
-                        <asp:Repeater ID="rptReadList" runat="server">
-                            <ItemTemplate>
-                                <li><a href="#"><%#Eval("title") %></a></li>
-                            </ItemTemplate>
-                        </asp:Repeater>
-                    </ul>
-                </dd>
-            </dl>
-        </div>
-        <!--self-->
-
-
-
-        <%=sbHtml.ToString() %>
-    </div>
-
-    
+	</script>
 </asp:Content>
-

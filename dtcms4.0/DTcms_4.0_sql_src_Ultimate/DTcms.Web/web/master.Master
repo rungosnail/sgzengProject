@@ -19,10 +19,12 @@
         <dl>
             <dt>
                 <p>
-                    <a href="#">搜索</a>
-                    <input type="text" placeholder="请输入演出，艺人，场馆名称..." />
+                    <a style="cursor:pointer;" onclick="btnSearch()">搜索</a>
+                    <input type="text"  placeholder="请输入标题，方案名称..." id="txtkeyword" />
                 </p>
-                <span>热门搜索：<a href="#">艺人</a><a href="#">场馆</a><a href="#">齐白石画展</a><a href="#">场馆</a><a href="#">场馆</a></span> </dt>
+                <%--<span>热门搜索：<a href="#">艺人</a><a href="#">场馆</a><a href="#">齐白石画展</a><a href="#">场馆</a><a href="#">场馆</a></span> --%>
+
+            </dt>
             <dd><span>HI，欢迎来到活动资源网</span>
                 <p><a href="#" class="login">登录</a><a href="#">注册</a></p>
             </dd>
@@ -77,7 +79,18 @@
     </div>
    
     <!--foot-->
-    
+      <script type="text/javascript">
+          function btnSearch()
+          {
+              var keyword = $("#txtkeyword").val();
+              if ($.trim(keyword).length > 0) {
+                  window.location.href = "SearchResult.aspx?keyword=" + keyword;
+              } else {
+                  alert("请输入要查询的关键字！");
+                  return;
+              }
+          }
+      </script>
     
 </body>
 </html>
