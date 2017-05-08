@@ -24,7 +24,7 @@
 			top: 0;
 		}
 		.banner img{
-			width: 800px;
+			width: 1200px;
 			height: 450px;
 			display: block;
 			vertical-align: middle;
@@ -65,22 +65,7 @@
 	</style>
 
   <div class="banner" id="divAdhtml" runat="server">
-		<%--<div class="banner-inner">
-			<img src="images/index_11.gif" alt="" name="0">
-			<img src="images/index_11.gif" alt="" name="1">
-			<img src="images/index_11.gif" alt="" name="2">
-			<img src="images/index_11.gif" alt="" name="3">
-		</div>
-		<div class="ctrlbtn">
-			<a href="javascript:;" class="prev" >></a>
-			<a href="javascript:;" class="next"><</a>
-		</div>
-		<ul class="pageCtrl">
-			<li class="active"></li>
-			<li></li>
-			<li></li>
-			<li></li>
-		</ul>--%>
+
 	</div>
     <script src="scripts/lunbo.js"></script>
 

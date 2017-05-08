@@ -150,6 +150,8 @@
     <Content Include="admin\skin\default\style.css" />
     <Content Include="admin\skin\default\valid_icons.png" />
     <Content Include="admin\skin\layout.css" />
+    <Content Include="admin\starexpert\Edit.aspx" />
+    <Content Include="admin\starexpert\Index.aspx" />
     <Content Include="admin\users\amount_log.aspx" />
     <Content Include="admin\users\group_edit.aspx" />
     <Content Include="admin\users\group_list.aspx" />
@@ -1112,6 +1114,20 @@
     </Compile>
     <Compile Include="admin\settings\url_rewrite_list.aspx.designer.cs">
       <DependentUpon>url_rewrite_list.aspx</DependentUpon>
+    </Compile>
+    <Compile Include="admin\starexpert\Edit.aspx.cs">
+      <DependentUpon>Edit.aspx</DependentUpon>
+      <SubType>ASPXCodeBehind</SubType>
+    </Compile>
+    <Compile Include="admin\starexpert\Edit.aspx.designer.cs">
+      <DependentUpon>Edit.aspx</DependentUpon>
+    </Compile>
+    <Compile Include="admin\starexpert\Index.aspx.cs">
+      <DependentUpon>Index.aspx</DependentUpon>
+      <SubType>ASPXCodeBehind</SubType>
+    </Compile>
+    <Compile Include="admin\starexpert\Index.aspx.designer.cs">
+      <DependentUpon>Index.aspx</DependentUpon>
     </Compile>
     <Compile Include="admin\users\amount_log.aspx.cs">
       <DependentUpon>amount_log.aspx</DependentUpon>

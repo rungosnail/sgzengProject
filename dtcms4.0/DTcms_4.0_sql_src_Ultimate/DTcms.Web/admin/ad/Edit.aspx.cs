@@ -59,22 +59,24 @@ namespace DTcms.Web.admin.ad
             model.state = rblStatus.SelectedValue == null ? 0 : Convert.ToInt32(rblStatus.SelectedValue);
             model.url = txtUrl.Text;
             model.type = txtState.Text;
+            model.createdate = DateTime.Now;
+            model.userId = GetAdminInfo().id;
             if (!string.IsNullOrEmpty(hdID.Value))
             {
                 //修改
                 model.id = Convert.ToInt32(hdID.Value);
                 bool b = bll.Update(model);
+                JscriptMsg("更新信息成功！", "index.aspx?channel_id=20");
 
             }
             else
             {
-                model.createdate = DateTime.Now;
-                model.userId = GetAdminInfo().id;
                 int b = bll.Add(model);
+                JscriptMsg("添加信息成功！", "index.aspx?channel_id=20");
 
             }
 
-            JscriptMsg("添加信息成功！", "index.aspx?channel_id=20");
+           
 
 
         }

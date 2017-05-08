@@ -71,7 +71,7 @@ namespace DTcms.DAL
                         strSql.Append("channel_id,category_id,call_index,title,link_url,img_url,seo_title,seo_keywords,seo_description,tags,zhaiyao,content,sort_id,click,status,is_msg,is_top,is_red,is_hot,is_slide,is_sys,user_name,add_time,update_time,composition_scheme ,site_requirements,cost_budget,exhibition_time,resource_linkage,resource_phone)");
                         strSql.Append(" values (");
                         strSql.Append("@channel_id,@category_id,@call_index,@title,@link_url,@img_url,@seo_title,@seo_keywords,@seo_description,@tags,@zhaiyao,@content,@sort_id,@click,@status,@is_msg,@is_top,@is_red,@is_hot,@is_slide,@is_sys,@user_name,@add_time,@update_time,@composition_scheme ,@site_requirements,@cost_budget,@exhibition_time,@resource_linkage,@resource_phone");
-                        strSql.Append(";select @@IDENTITY");
+                        strSql.Append(");select @@IDENTITY");
                         SqlParameter[] parameters = {
                                 new SqlParameter("@channel_id", SqlDbType.Int,4),
                                 new SqlParameter("@category_id", SqlDbType.Int,4),
@@ -282,11 +282,13 @@ namespace DTcms.DAL
 
                         trans.Commit();
                     }
-                    catch
+                    catch (Exception ex)
                     {
                         trans.Rollback();
                         return 0;
                     }
+
+                  
                 }
             }
             return model.id;

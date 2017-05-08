@@ -3,6 +3,8 @@ using System.Data;
 using System.Text;
 using System.Data.SqlClient;
 using DTcms.DBUtility;//Please add references
+using DTcms.Common;
+
 namespace DTcms.DAL
 {
     /// <summary>
@@ -37,9 +39,9 @@ namespace DTcms.DAL
         {
             StringBuilder strSql = new StringBuilder();
             strSql.Append("insert into dt_starexpert(");
-            strSql.Append("channel_id,category_id,name,img_url,job_occupation,linkphone,linkprice,aboutdesc,state,createdate,createuser)");
+            strSql.Append("channel_id,category_id,name,img_url,job_occupation,linkphone,linkprice,aboutdesc,status,createdate,createuser)");
             strSql.Append(" values (");
-            strSql.Append("@channel_id,@category_id,@name,@img_url,@job_occupation,@linkphone,@linkprice,@aboutdesc,@state,@createdate,@createuser)");
+            strSql.Append("@channel_id,@category_id,@name,@img_url,@job_occupation,@linkphone,@linkprice,@aboutdesc,@status,@createdate,@createuser)");
             strSql.Append(";select @@IDENTITY");
             SqlParameter[] parameters = {
                     new SqlParameter("@channel_id", SqlDbType.Int,4),
@@ -50,7 +52,7 @@ namespace DTcms.DAL
                     new SqlParameter("@linkphone", SqlDbType.VarChar,11),
                     new SqlParameter("@linkprice", SqlDbType.Decimal,9),
                     new SqlParameter("@aboutdesc", SqlDbType.NVarChar,500),
-                    new SqlParameter("@state", SqlDbType.Int,4),
+                    new SqlParameter("@status", SqlDbType.Int,4),
                     new SqlParameter("@createdate", SqlDbType.DateTime),
                     new SqlParameter("@createuser", SqlDbType.Int,4)};
             parameters[0].Value = model.channel_id;
@@ -61,7 +63,7 @@ namespace DTcms.DAL
             parameters[5].Value = model.linkphone;
             parameters[6].Value = model.linkprice;
             parameters[7].Value = model.aboutdesc;
-            parameters[8].Value = model.state;
+            parameters[8].Value = model.status;
             parameters[9].Value = model.createdate;
             parameters[10].Value = model.createuser;
 
@@ -90,7 +92,7 @@ namespace DTcms.DAL
             strSql.Append("linkphone=@linkphone,");
             strSql.Append("linkprice=@linkprice,");
             strSql.Append("aboutdesc=@aboutdesc,");
-            strSql.Append("state=@state,");
+            strSql.Append("status=@status,");
             strSql.Append("createdate=@createdate,");
             strSql.Append("createuser=@createuser");
             strSql.Append(" where id=@id");
@@ -103,7 +105,7 @@ namespace DTcms.DAL
                     new SqlParameter("@linkphone", SqlDbType.VarChar,11),
                     new SqlParameter("@linkprice", SqlDbType.Decimal,9),
                     new SqlParameter("@aboutdesc", SqlDbType.NVarChar,500),
-                    new SqlParameter("@state", SqlDbType.Int,4),
+                    new SqlParameter("@status", SqlDbType.Int,4),
                     new SqlParameter("@createdate", SqlDbType.DateTime),
                     new SqlParameter("@createuser", SqlDbType.Int,4),
                     new SqlParameter("@id", SqlDbType.Int,4)};
@@ -115,7 +117,7 @@ namespace DTcms.DAL
             parameters[5].Value = model.linkphone;
             parameters[6].Value = model.linkprice;
             parameters[7].Value = model.aboutdesc;
-            parameters[8].Value = model.state;
+            parameters[8].Value = model.status;
             parameters[9].Value = model.createdate;
             parameters[10].Value = model.createuser;
             parameters[11].Value = model.id;
@@ -182,7 +184,7 @@ namespace DTcms.DAL
         {
 
             StringBuilder strSql = new StringBuilder();
-            strSql.Append("select  top 1 id,channel_id,category_id,name,img_url,job_occupation,linkphone,linkprice,aboutdesc,state,createdate,createuser from dt_starexpert ");
+            strSql.Append("select  top 1 id,channel_id,category_id,name,img_url,job_occupation,linkphone,linkprice,aboutdesc,status,createdate,createuser from dt_starexpert ");
             strSql.Append(" where id=@id");
             SqlParameter[] parameters = {
                     new SqlParameter("@id", SqlDbType.Int,4)
@@ -246,9 +248,9 @@ namespace DTcms.DAL
                 {
                     model.aboutdesc = row["aboutdesc"].ToString();
                 }
-                if (row["state"] != null && row["state"].ToString() != "")
+                if (row["status"] != null && row["status"].ToString() != "")
                 {
-                    model.state = int.Parse(row["state"].ToString());
+                    model.status = int.Parse(row["status"].ToString());
                 }
                 if (row["createdate"] != null && row["createdate"].ToString() != "")
                 {
@@ -268,7 +270,7 @@ namespace DTcms.DAL
         public DataSet GetList(string strWhere)
         {
             StringBuilder strSql = new StringBuilder();
-            strSql.Append("select id,channel_id,category_id,name,img_url,job_occupation,linkphone,linkprice,aboutdesc,state,createdate,createuser ");
+            strSql.Append("select id,channel_id,category_id,name,img_url,job_occupation,linkphone,linkprice,aboutdesc,status,createdate,createuser ");
             strSql.Append(" FROM dt_starexpert ");
             if (strWhere.Trim() != "")
             {
@@ -288,7 +290,7 @@ namespace DTcms.DAL
             {
                 strSql.Append(" top " + Top.ToString());
             }
-            strSql.Append(" id,channel_id,category_id,name,img_url,job_occupation,linkphone,linkprice,aboutdesc,state,createdate,createuser ");
+            strSql.Append(" id,channel_id,category_id,name,img_url,job_occupation,linkphone,linkprice,aboutdesc,status,createdate,createuser ");
             strSql.Append(" FROM dt_starexpert ");
             if (strWhere.Trim() != "")
             {
@@ -343,6 +345,22 @@ namespace DTcms.DAL
             strSql.Append(" ) TT");
             strSql.AppendFormat(" WHERE TT.Row between {0} and {1}", startIndex, endIndex);
             return DbHelperSQL.Query(strSql.ToString());
+        }
+
+        /// <summary>
+        /// 获得查询分页数据
+        /// </summary>
+        public DataSet GetList(int pageSize, int pageIndex, string strWhere, string filedOrder, out int recordCount)
+        {
+            StringBuilder strSql = new StringBuilder();
+            strSql.Append("select * FROM .dbo.dt_starexpert ");
+
+            if (strWhere.Trim() != "")
+            {
+                strSql.Append(" where " + strWhere);
+            }
+            recordCount = Convert.ToInt32(DbHelperSQL.GetSingle(PagingHelper.CreateCountingSql(strSql.ToString())));
+            return DbHelperSQL.Query(PagingHelper.CreatePagingSql(recordCount, pageSize, pageIndex, strSql.ToString(), filedOrder));
         }
 
         /*

@@ -131,6 +131,11 @@ namespace DTcms.BLL
         {
             return dal.GetListByPage(strWhere, orderby, startIndex, endIndex);
         }
+
+        public DataSet GetList(int pageSize, int pageIndex, string strWhere, string filedOrder, out int recordCount)
+        {
+            return dal.GetList(pageSize,pageIndex,strWhere,filedOrder,out recordCount);
+        }
         /// <summary>
         /// 分页获取数据列表
         /// </summary>

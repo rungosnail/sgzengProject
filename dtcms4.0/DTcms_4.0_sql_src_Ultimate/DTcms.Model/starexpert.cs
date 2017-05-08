@@ -22,7 +22,7 @@ namespace DTcms.Model
         private string _linkphone;
         private decimal? _linkprice;
         private string _aboutdesc;
-        private int? _state;
+        private int? _status;
         private DateTime? _createdate;
         private int? _createuser;
         /// <summary>
@@ -100,10 +100,10 @@ namespace DTcms.Model
         /// <summary>
         /// 
         /// </summary>
-        public int? state
+        public int? status
         {
-            set { _state = value; }
-            get { return _state; }
+            set { _status = value; }
+            get { return _status; }
         }
         /// <summary>
         /// 

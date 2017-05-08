@@ -12,65 +12,7 @@
             <div class="detail">
 
                 <div class="dleftshow" id="divImg" runat="server">
-                    <%--<div id="banner">
-                    <div class="bannerCon">
-                        <div class="before"><img src="images/pre.png" /></div>
-                        <div class="after"><img src="images/next.png" /></div>
-                        <div class="scroll">
-                            <div class="item">
-                                <div class="img-box">
-                                    <img src='images/native6.png' alt="" />
-                                </div>
-                            </div>
-                            <div class="item">
-                                <div class="img-box">
-                                    <img src='images/native6.png' alt="" />
-                                </div>
-                            </div>
-
-                            <div class="item">
-                                <div class="img-box" style="transform: scale(1.1);">
-                                    <img src='images/native2.png' alt="" />
-                                </div>
-                            </div>
-                            <div class="item">
-                                <div class="img-box">
-                                    <img src='images/native1.png' alt="" />
-                                </div>
-                            </div>
-
-                            <div class="item">
-                                <div class="img-box">
-                                    <img src='images/native3.png' alt="" />
-                                </div>
-                            </div>
-                             <div class="item">
-                                <div class="img-box">
-                                    <img src='images/native3.png' alt="" />
-                                </div>
-                            </div>
-                        </div>
-                    </div>
-                </div>
-
-                <div class="smallimg" style="z-index: 1001">
-                    <div style="cursor: pointer;" class="prevbut"></div>
-                    <div style="cursor: pointer;" class="nextbut"></div>
-
-                    <div class="small_list">
-                        <ul id="smallimg">
-                            <li><img src="images/index_15.gif"></li>
-                            <li>
-                                <img src="images/index_15.gif"></li>
-                            <li>
-                                <img src="images/index_15.gif"></li>
-                            <li>
-                                <img src="images/index_15.gif"></li>
-
-                        </ul>
-                    </div>
-                </div>--%>
-                    <!--smallimg-->
+                  
                 </div>
 
 
