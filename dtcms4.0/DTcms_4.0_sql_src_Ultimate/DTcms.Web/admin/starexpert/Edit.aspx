@@ -76,6 +76,18 @@
                     </div>
                 </dd>
             </dl>
+             <dl>
+                <dt>推荐类型</dt>
+                <dd>
+                    <div class="rule-multi-radio">
+                        <asp:RadioButtonList ID="cblItem" runat="server" RepeatDirection="Horizontal" RepeatLayout="Flow">
+                            <asp:ListItem Value="0">首页左侧推荐</asp:ListItem>
+                            <asp:ListItem Value="1">首页右侧推荐</asp:ListItem>
+                              <asp:ListItem Value="2" Selected="True">热门</asp:ListItem>
+                        </asp:RadioButtonList>
+                    </div>
+                </dd>
+            </dl>
             <dl>
                 <dt>名字</dt>
                 <dd>
@@ -114,9 +126,7 @@
             <dl>
                 <dt>明星介绍</dt>
                 <dd>
-                    <textarea id="txtaboutdesc" runat="server" class="input" rows="2" cols="20">
-
-                    </textarea>
+                    <textarea id="txtaboutdesc" runat="server" class="input" cols="20"></textarea>
                      <span class="Validform_checktip">*</span>
                 </dd>
             </dl>

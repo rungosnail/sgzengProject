@@ -19,7 +19,7 @@ namespace DTcms.Web.admin.starexpert
             {
                 TreeBind(); //绑定类别
                 Bindinfo(DTRequest.GetQueryInt("id", 0));
-                
+
             }
         }
 
@@ -68,6 +68,7 @@ namespace DTcms.Web.admin.starexpert
             model.createdate = DateTime.Now;
             model.createuser = GetAdminInfo().id;
             model.channel_id = _channel_id;
+            model.type = Convert.ToInt32(cblItem.SelectedValue);
             if (!string.IsNullOrEmpty(hdID.Value))
             {
                 model.id = Convert.ToInt32(hdID.Value);
@@ -101,6 +102,7 @@ namespace DTcms.Web.admin.starexpert
                 txtaboutdesc.InnerText = model.aboutdesc;
                 rblStatus.SelectedValue = model.status == null ? "" : model.status.ToString();
                 hdID.Value = model.id.ToString();
+                cblItem.SelectedValue = model.type == null ? "" : model.type.ToString();
             }
         }
     }

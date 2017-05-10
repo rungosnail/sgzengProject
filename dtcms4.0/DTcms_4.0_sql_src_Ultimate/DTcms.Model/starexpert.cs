@@ -25,6 +25,8 @@ namespace DTcms.Model
         private int? _status;
         private DateTime? _createdate;
         private int? _createuser;
+        private int? _type;
+
         /// <summary>
         /// 
         /// </summary>
@@ -120,6 +122,12 @@ namespace DTcms.Model
         {
             set { _createuser = value; }
             get { return _createuser; }
+        }
+
+        public int? type
+        {
+            set { _type = value; }
+            get { return _type; }
         }
         #endregion Model
 

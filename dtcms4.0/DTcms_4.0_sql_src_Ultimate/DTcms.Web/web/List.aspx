@@ -15,10 +15,12 @@
                 </HeaderTemplate>
                 <ItemTemplate>
                     <li>
-                        <a href="Detail.aspx?nvaChannelid=<%#Eval("channel_id") %>&id=<%#Eval("id") %>">
+                        <a href='<%#Eval("channel_id").ToString()=="10"?("StarexpertList.aspx?nvaChannelid="+Eval("channel_id")+"&id="+Eval("id")):("Detail.aspx?nvaChannelid="+Eval("channel_id")+"&id="+Eval("id"))%>'>
                             <img src="<%#Eval("img_url") %>" /></a>
-                        <p><a href="Detail.aspx?nvaChannelid=<%#Eval("channel_id") %>&id=<%#Eval("id") %>"><%#Eval("title") %></a></p>
-                        <span><%#Eval("site_requirements") %> &nbsp;&nbsp;<%#Eval("cost_budget") %></span>
+                        <p><a href=' <%# Eval("channel_id").ToString()=="10"?("StarexpertList.aspx?nvaChannelid="+Eval("channel_id")+"&id="+Eval("id")):("Detail.aspx?nvaChannelid="+Eval("channel_id")+"&id="+Eval("id"))%>'><%#(Eval("channel_id").ToString()=="10"?Eval("name"):Eval("title")) %></a></p>
+                        
+                        <span><%# Eval("channel_id").ToString()=="10"?Eval("name"):Eval("site_requirements") %> &nbsp;&nbsp;<%#Eval("channel_id").ToString()=="10"?Eval("job_occupation"):Eval("cost_budget") %></span>
+                        
                     </li>
                 </ItemTemplate>
                 <FooterTemplate>
@@ -26,7 +28,7 @@
                 </FooterTemplate>
             </asp:Repeater>
         </div>
-
+           
 
         <div id="PageContent" runat="server" class="paging">
         </div>

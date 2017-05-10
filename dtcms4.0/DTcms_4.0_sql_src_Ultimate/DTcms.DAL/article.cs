@@ -811,10 +811,20 @@ namespace DTcms.DAL
         public DataSet GetList(int channel_id, int category_id, int pageSize, int pageIndex, string strWhere, string filedOrder, out int recordCount)
         {
             StringBuilder strSql = new StringBuilder();
-            strSql.Append("select * FROM " + databaseprefix + "article");
+
+            string strTable = "select * FROM " + databaseprefix + "article";
             if (channel_id > 0)
             {
-                strSql.Append(" where channel_id=" + channel_id);
+                if (channel_id==10)
+                {
+                    strTable="select * FROM " + databaseprefix + "starexpert";
+                }
+                strSql.Append(strTable);
+                strSql.Append("  where channel_id=" + channel_id);
+            }
+            else
+            {
+                strSql.Append(strTable);
             }
             if (category_id > 0)
             {
@@ -1276,7 +1286,7 @@ namespace DTcms.DAL
             string strSql = @"SELECT ac.id as Viewid,ac.channel_id AS Viewchannel_id ,ac.title AS Viewtitle,ac2.id AS Viewid2, (ac2.parent_id) AS Viewchannel_id2, (ac2.title) AS Viewtitle2,atc.* FROM dt_article_category  AS ac
 		                        LEFT JOIN dt_article_category AS ac2 ON ac.id=ac2.parent_id 
 		                        LEFT JOIN dbo.dt_article AS atc ON ac2.id=atc.category_id
-		                        WHERE ac.parent_id=0 AND ac.channel_id!=18 AND ISNULL(atc.status,0)=0  ORDER BY ac.channel_id ASC";
+		                        WHERE ac.parent_id=0 AND ac.channel_id!=18 AND  ISNULL(atc.status,0)=0  ORDER BY ac.channel_id ASC";
             return DbHelperSQL.Query(strSql.ToString());
         }
 
