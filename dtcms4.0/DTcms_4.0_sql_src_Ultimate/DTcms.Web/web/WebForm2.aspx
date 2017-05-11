@@ -7,7 +7,7 @@
 			list-style: none;
 		}*/
 		.banner{
-			width: 800px;
+			width: 1200px;
 			height: 450px;
 			margin:100px  auto;
 			position: relative;
@@ -22,7 +22,7 @@
 			top: 0;
 		}
 		.banner img{
-			width: 800px;
+			width: 1200px;
 			height: 450px;
 			display: block;
 			vertical-align: middle;

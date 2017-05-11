@@ -1,0 +1,59 @@
+
+.reg{ background:url(../images/regbg.jpg) no-repeat; height:769px; margin-top:30px; padding-top:110px;}
+.regbox { background:#ffffff; width:800px; border-radius:10px; overflow:hidden; margin:0 auto; height:720px; }
+.regbox h2{ background:url(../images/regtitle.jpg) no-repeat; height:59px; font:bold 30px/59px "Microsoft Yahei"; color:#fff; text-align:center; display:block; }
+.regbox dl{ zoom:1; padding:0 80px; overflow:hidden; margin-top:30px;}
+.regbox dl:after{display:block;clear:both;content:"";visibility:hidden;height:0;}
+.regbox dl dt{ float:left; width:120px; padding-right:10px;text-align:right; font:16px/50px  "Microsoft Yahei"; color:#666; margin-right:10px;}
+.regbox dl dd{ float:left; width:480px;}
+.regbox dl dd input{ height:48px; border:1px solid #eee; width:250px; margin-right:10px; padding-left:10px;} 
+/*.regbox dl dd span{ color:#ff0000; line-height:50px;}*/
+.regbox dl dd.code input{ width:310px; float:left; margin-right:10px;}
+.regbox dl dd.code p{ float:left; text-align:center; display:block; width:120px; margin-right:10px;}
+.regbox dl dd.code p b { display:block;}
+.regbox dl dd.code p a{ font:12px/20px "Microsoft Yahei"; color:#999; display:block; margin-top:5px;}
+.regbox dl dd.hqcode input{ width:310px; float:left;margin-right:10px;}
+    .regbox dl dd.hqcode span {
+        margin-top:10px !important;
+    }
+.regbox dl dd.hqcode a{ float:left; text-align:center; display:block; width:118px; border-radius:5px; height:48px; border:1px solid #eee; text-align:center; line-height:48px; margin-right:10px;}
+.tips{ margin-left:220px; margin-top:10px; font:12px/24px  "Microsoft Yahei"; height:30px; line-height:30px; }
+.tips input{ float:left; vertical-align:middle; margin:8px 10px 0 0;}
+.tips a{ color:#ff7c35;}
+.btnReg {
+    display: block;
+    background: #ff7c35;
+    width: 460px;
+    height: 50px;
+    text-align: center;
+    font: bold 16px/50px "Microsoft Yahei";
+    color: #fff;
+    border-radius: 10px;
+    display: block;
+    margin: 30px 0 0 220px;
+}
+.note{ margin:20px 0 0 220px; width:460px; font:14px/30px "Microsoft Yahei"; }
+.nleft { float:left; width:320px; color:#999;}
+.nright{ text-align:right; width:120px; float:right;}
+.nleft a.qqlogin{ background:url(../images/qq.jpg) no-repeat left center; padding-left:25px; margin-right:20px;}
+.nleft a.wxlogin{ background:url(../images/wxlogin.jpg) no-repeat left center; padding-left:25px; }
+.nright a{ color:#ff7c35;}
+
+
+.clogin{ background:url(../images/loginbg.jpg) no-repeat; height:560px; margin-top:30px; padding-top:60px;}
+.lbox{ width:500px; border-radius:10px; background:#fff; height:500px; margin:0 0 0 80px; }
+.lbox h2{ display:block; font-size:24px; text-align:center; color:#333; font-weight:normal; padding-top:40px; text-align:center;}
+.lbox ul li{ border:1px solid #ddd; width:380px; margin:20px auto 0; height:46px; padding-left:20px;}
+.lbox ul li input{ background:url(../images/loginicon.gif) no-repeat 0 -106px; padding-left:25px; line-height:46px; width:320px;}
+.lbox ul li.password input{ background:url(../images/loginicon.gif) no-repeat 0 -166px;}
+.loginbut a{ display:block; margin:20px auto;  background:#ff7c35; width:400px; height:50px; text-align:center; font:bold 16px/50px "Microsoft Yahei"; color:#fff; border-radius:10px; display:block; } 
+.forget{ width:400px; margin:0 auto 20px; font:14px/30px  "Microsoft Yahei"; color:#666;}
+.forget span{ float:right;}
+.forget a{color:#ff7c35;}
+.other{ border-top:1px solid #eee; width:400px; margin:20px auto 0; }
+.other b{ text-align:center; color:#999; font-size:16px; display:block; font-weight:normal; padding-top:20px;}
+.other p{ zoom:1; margin:20px 0 0 40px;}
+.other p:after{display:block;clear:both;content:"";visibility:hidden;height:0;}
+.other p a{ border:1px solid #eee; height:45px; line-height:45px; text-align:center; display:block; float:left; width:150px; border-radius:10px; margin-right:20px; }
+.other p a.qqfl span{ background:url(../images/loginicon.gif) no-repeat 25px 6px; padding-left:30px; display:block;}
+.other p a.wxfl span{ background:url(../images/loginicon.gif) no-repeat 25px -54px; padding-left:30px; display:block;}

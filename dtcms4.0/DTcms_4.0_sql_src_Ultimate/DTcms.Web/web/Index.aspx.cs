@@ -196,10 +196,10 @@ namespace DTcms.Web.web
                 foreach (var itemPd in list.FindAll(p => p.type == 2))
                 {
                     sbStar.Append("<li>");
-                    sbStar.Append(" <a href=\"Detail.aspx?nvaChannelid=" + itemPd.channel_id + "&id=" + itemPd.id + "\">");
+                    sbStar.Append(" <a href=\"StarexpertList.aspx?nvaChannelid=" + itemPd.channel_id + "&id=" + itemPd.id + "\">");
                     sbStar.Append(" <img src=\"" + itemPd.img_url + "\" width=\"190\" height=\"140\" /></a>");
                     sbStar.Append(" <b><a href=\"#\">" + (itemPd.name.Length > 12 ? (itemPd.name.Substring(0, 9) + "...") : itemPd.name) + "</a></b>");
-                    sbStar.Append("<p style=\"text-align:center\"><a href=\"Detail.aspx?nvaChannelid=" + itemPd.channel_id + "&id=" + itemPd.id + "\" class=\"contact\">资源联系</a></p>");
+                    sbStar.Append("<p style=\"text-align:center\"><a href=\"StarexpertList.aspx?nvaChannelid=" + itemPd.channel_id + "&id=" + itemPd.id + "\" class=\"contact\">资源联系</a></p>");
                     sbStar.Append("</li>");
                 }
                 sbStar.Append("</ul>");
@@ -210,12 +210,12 @@ namespace DTcms.Web.web
 
                 var rightHtml = list.FindAll(p => p.type == 1);
 
-                sbStar.Append(rightHtml.Count > 0 ? "<a href=\"Detail.aspx?nvaChannelid=" + rightHtml[0].channel_id + "&id=" + rightHtml[0].id + "\"><img src=\"" + rightHtml[0].img_url + "\" width=\"280\" height=\"140\" /></a>" : "");
+                sbStar.Append(rightHtml.Count > 0 ? "<a href=\"StarexpertList.aspx?nvaChannelid=" + rightHtml[0].channel_id + "&id=" + rightHtml[0].id + "\"><img src=\"" + rightHtml[0].img_url + "\" width=\"280\" height=\"140\" /></a>" : "");
 
                 sbStar.Append("<ul>");
                 foreach (var itemPd in list.FindAll(p => p.type == 1).Skip(1))
                 {
-                    sbStar.Append("<li><a href=\"Detail.aspx?nvaChannelid=" + itemPd.channel_id + "&id=" + itemPd.id + "\">" + itemPd.name+"-"+itemPd.job_occupation + "</a></li>");
+                    sbStar.Append("<li><a href=\"StarexpertList.aspx?nvaChannelid=" + itemPd.channel_id + "&id=" + itemPd.id + "\">" + itemPd.name+"-"+itemPd.job_occupation + "</a></li>");
                 }
                 sbStar.Append("</ul>");
                 sbStar.Append("</div>");

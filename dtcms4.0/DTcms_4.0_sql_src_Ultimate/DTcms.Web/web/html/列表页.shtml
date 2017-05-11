@@ -40,8 +40,11 @@
 </div>
 <!--nav-->
 
+
 <div class="content">
  <div class="crumb">您的位置：<a href="#">活动资源网</a> > <span>动漫IP</span></div><!--crumb-->
+ 
+ <div class="catlist"><dl><dt>活动分类</dt><dd><ul><li class="catcur"><a href="#" target="_blank">全部</a></li><li><a href="#" target="_blank">创业</a></li><li><a href="#" target="_blank">金融 & 投资</a></li><li><a href="#" target="_blank">时尚</a></li><li><a href="#" target="_blank">营销</a></li><li><a href="#" target="_blank">互联网+</a></li><li><a href="#" target="_blank">休闲 & 户外</a></li><li><a href="#" target="_blank">公益展览</a></li></ul></dd></dl></div>
  
  <div class="list">
  <div class="subtitle"><b>最新主题</b></div>

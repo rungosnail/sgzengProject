@@ -15,6 +15,7 @@
             margin:0 auto;
 			position: relative;
 			overflow: hidden;
+            z-index:1001;
 		}
 		.banner-inner {
 			width: 3200px;
@@ -67,7 +68,7 @@
   <div class="banner" id="divAdhtml" runat="server">
 
 	</div>
-    <script src="scripts/lunbo.js"></script>
+    <script src="scripts/lunbo.js?v=2010"></script>
 
 	<script type="text/javascript">
 		$(".banner").changePic({

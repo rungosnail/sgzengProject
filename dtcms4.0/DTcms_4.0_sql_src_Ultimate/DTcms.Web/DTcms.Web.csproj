@@ -1509,6 +1509,13 @@
     <Compile Include="web\List.aspx.designer.cs">
       <DependentUpon>List.aspx</DependentUpon>
     </Compile>
+    <Compile Include="web\Login.aspx.cs">
+      <DependentUpon>Login.aspx</DependentUpon>
+      <SubType>ASPXCodeBehind</SubType>
+    </Compile>
+    <Compile Include="web\Login.aspx.designer.cs">
+      <DependentUpon>Login.aspx</DependentUpon>
+    </Compile>
     <Compile Include="web\master.Master.cs">
       <DependentUpon>master.Master</DependentUpon>
       <SubType>ASPXCodeBehind</SubType>
@@ -1536,6 +1543,13 @@
     </Compile>
     <Compile Include="web\OrderPay.aspx.designer.cs">
       <DependentUpon>OrderPay.aspx</DependentUpon>
+    </Compile>
+    <Compile Include="web\Register.aspx.cs">
+      <DependentUpon>Register.aspx</DependentUpon>
+      <SubType>ASPXCodeBehind</SubType>
+    </Compile>
+    <Compile Include="web\Register.aspx.designer.cs">
+      <DependentUpon>Register.aspx</DependentUpon>
     </Compile>
     <Compile Include="web\Right.ascx.cs">
       <DependentUpon>Right.ascx</DependentUpon>
@@ -1603,6 +1617,7 @@
     <Content Include="web\css\layer.css" />
     <Content Include="web\css\list.css" />
     <Content Include="web\css\personal.css" />
+    <Content Include="web\css\reg.css" />
     <Content Include="web\html\carousel-mask\css\carousel-style.css" />
     <Content Include="web\html\carousel-mask\img\native1.png" />
     <Content Include="web\html\carousel-mask\img\native2.png" />
@@ -1623,6 +1638,7 @@
     <Content Include="web\html\css\personal.css" />
     <Content Include="web\html\css\reg.css" />
     <Content Include="web\html\images\arrow.png" />
+    <Content Include="web\html\images\codeimg.jpg" />
     <Content Include="web\html\images\humanbg.png" />
     <Content Include="web\html\images\icon.gif" />
     <Content Include="web\html\images\index_07.gif" />
@@ -1641,6 +1657,8 @@
     <Content Include="web\html\images\li_left.png" />
     <Content Include="web\html\images\li_right.png" />
     <Content Include="web\html\images\li_right.png.jpg" />
+    <Content Include="web\html\images\loginbg.jpg" />
+    <Content Include="web\html\images\loginicon.gif" />
     <Content Include="web\html\images\member.png" />
     <Content Include="web\html\images\native1.png" />
     <Content Include="web\html\images\native2.png" />
@@ -1653,10 +1671,14 @@
     <Content Include="web\html\images\pay.png" />
     <Content Include="web\html\images\perbg.jpg" />
     <Content Include="web\html\images\pre.png" />
+    <Content Include="web\html\images\qq.jpg" />
+    <Content Include="web\html\images\regbg.jpg" />
+    <Content Include="web\html\images\regtitle.jpg" />
     <Content Include="web\html\images\shape01.png" />
     <Content Include="web\html\images\shape02.png" />
     <Content Include="web\html\images\starbg.jpg" />
     <Content Include="web\html\images\wx.jpg" />
+    <Content Include="web\html\images\wxlogin.jpg" />
     <Content Include="web\images\arrow.png" />
     <Content Include="web\images\humanbg.png" />
     <Content Include="web\images\icon.gif" />
@@ -1695,13 +1717,21 @@
     <Content Include="web\Index.aspx" />
     <Content Include="web\Detail.aspx" />
     <Content Include="web\List.aspx" />
+    <Content Include="web\Login.aspx" />
     <Content Include="web\OrderPay.aspx" />
+    <Content Include="web\Register.aspx" />
     <Content Include="web\Right.ascx" />
+    <Content Include="web\scripts\artdialog\dialog-min.js" />
+    <Content Include="web\scripts\artdialog\dialog-plus-min.js" />
+    <Content Include="web\scripts\artdialog\ui-dialog.css" />
     <Content Include="web\scripts\carousel.js" />
     <Content Include="web\scripts\common.js" />
     <Content Include="web\scripts\jquery-1.11.2.min.js" />
     <Content Include="web\scripts\jquery-3.1.1.min.js" />
+    <Content Include="web\scripts\jquery.form.min.js" />
     <Content Include="web\scripts\lunbo.js" />
+    <Content Include="web\scripts\register-validate.js" />
+    <Content Include="web\scripts\Validform_v5.3.2_min.js" />
     <Content Include="web\SearchResult.aspx" />
     <Content Include="web\StarexpertList.aspx" />
     <Content Include="web\WebForm1.aspx" />

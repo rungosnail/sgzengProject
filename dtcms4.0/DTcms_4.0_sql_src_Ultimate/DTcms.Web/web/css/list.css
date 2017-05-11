@@ -1,166 +1,949 @@
 
-.list{ margin-top:20px;}
-.subtitle{ border-bottom:2px solid #dddddd; font-size:24px;}
-.subtitle b{ color:#ec6a00; border-bottom:2px solid #ec6a00; padding:0 5px;}
+.list {
+    margin-top: 20px;
+}
 
-.list ul{ margin-top:20px; width:1235px; zoom:1;}
-.list ul:after{display:block;clear:both;content:"";visibility:hidden;height:0;}
-.list ul li{ float:left; width:210px; border:1px solid #eee; margin:0 35px 35px 0; background:#fff; text-align:center; padding-bottom:5px;}
-.list ul li:hover{border:1px solid #ec6a00;}
-.list ul li a img{ display:block; width:210px; height:155px;}
-.list ul li p a{ display:block; height:32px; line-height:32px; overflow:hidden;}
-.list ul li span{ color:#999;display:block; height:22px; line-height:22px;}
+.subtitle {
+    border-bottom: 2px solid #dddddd;
+    font-size: 24px;
+}
+
+    .subtitle b {
+        color: #ec6a00;
+        border-bottom: 2px solid #ec6a00;
+        padding: 0 5px;
+    }
+
+.list ul {
+    margin-top: 20px;
+    width: 1235px;
+    zoom: 1;
+}
+
+    .list ul:after {
+        display: block;
+        clear: both;
+        content: "";
+        visibility: hidden;
+        height: 0;
+    }
+
+    .list ul li {
+        float: left;
+        width: 210px;
+        border: 1px solid #eee;
+        margin: 0 35px 35px 0;
+        background: #fff;
+        text-align: center;
+        padding-bottom: 5px;
+    }
+
+        .list ul li:hover {
+            border: 1px solid #ec6a00;
+        }
+
+        .list ul li a img {
+            display: block;
+            width: 210px;
+            height: 155px;
+        }
+
+        .list ul li p a {
+            display: block;
+            height: 32px;
+            line-height: 32px;
+            overflow: hidden;
+        }
+
+        .list ul li span {
+            color: #999;
+            display: block;
+            height: 22px;
+            line-height: 22px;
+        }
+
+
+/**/
+.catlist {
+    border: 1px solid #ddd;
+    padding: 5px 15px;
+    margin-top: 15px;
+    border-radius: 5px;
+}
+
+    .catlist dl {
+        font: 14px/26px "Microsoft Yahei";
+        zoom: 1;
+    }
+
+        .catlist dl:after {
+            display: block;
+            clear: both;
+            content: "";
+            visibility: hidden;
+            height: 0;
+        }
+
+        .catlist dl dt {
+            float: left;
+            width: 80px;
+        }
+
+        .catlist dl dd {
+            float: left;
+            width: 1000px;
+        }
+
+            .catlist dl dd ul li {
+                float: left;
+            }
+
+                .catlist dl dd ul li a {
+                    display: inline-block;
+                    padding: 0 20px;
+                }
+
+                    .catlist dl dd ul li.catcur a, .catlist dl dd ul li a:hover {
+                        background: #ec6a00;
+                        color: #ffffff;
+                        border-radius: 5px;
+                    }
+
 
 /*搜索页*/
-.search{ margin-top:20px; zoom:1;}
-.search:after{display:block;clear:both;content:"";visibility:hidden;height:0;}
-.sleft{ float:left; width:890px; margin-right:30px;}
-.sright{ float:left; width:280px;}
+.search {
+    margin-top: 20px;
+    zoom: 1;
+}
 
-.result{ background:#f5f5f5; height:38px; line-height:38px; padding-left:20px;}
-.result span{ color:#e71427;}
-.rlist ul li{ border-bottom:1px solid #eee; zoom:1; padding:25px 0;}
-.rlist ul li:after{display:block;clear:both;content:"";visibility:hidden;height:0;}
-.rlist ul li a.dicon{ float:right;  background:#ff7c35; height:40px; line-height:40px; text-align:center; color:#fff; width:180px; font-size:16px; margin:20px 40px 0 0; border-radius:5px;}
-.rlist ul li dl{ float:left; border-right:1px solid #eee; width:620px;}
-.rlist ul li dl dt{ float:left; width:190px; height:80px; margin-right:20px;}
-.rlist ul li dl dd{ float:left; width:410px;}
-.rlist ul li dl dd span{ display:block; font-size:18px; line-height:36px;}
-.rlist ul li dl dd p{ display:block; color:#666; font-size:15px; margin-top:10px;} 
+    .search:after {
+        display: block;
+        clear: both;
+        content: "";
+        visibility: hidden;
+        height: 0;
+    }
 
-.sright ul{ margin-top:5px;}
-.sright ul li a{ background:url(../images/icon.gif) no-repeat 0 -540px; padding-left:10px; font-size:14px; line-height:26px;}
-.rad{ width:280px; margin-top:20px;}
+.sleft {
+    float: left;
+    width: 890px;
+    margin-right: 30px;
+}
 
-.noresult{ text-align:center; margin:80px auto;}
-.noresult p{background:url(../images/noresult.gif) no-repeat 0 center; padding-left:190px; font:24px/110px "Microsoft Yahei"; display:inline-block;}
-.noresult p span{color:#e71427;}
+.sright {
+    float: left;
+    width: 280px;
+}
+
+.result {
+    background: #f5f5f5;
+    height: 38px;
+    line-height: 38px;
+    padding-left: 20px;
+}
+
+    .result span {
+        color: #e71427;
+    }
+
+.rlist ul li {
+    border-bottom: 1px solid #eee;
+    zoom: 1;
+    padding: 25px 0;
+}
+
+    .rlist ul li:after {
+        display: block;
+        clear: both;
+        content: "";
+        visibility: hidden;
+        height: 0;
+    }
+
+    .rlist ul li a.dicon {
+        float: right;
+        background: #ff7c35;
+        height: 40px;
+        line-height: 40px;
+        text-align: center;
+        color: #fff;
+        width: 180px;
+        font-size: 16px;
+        margin: 20px 40px 0 0;
+        border-radius: 5px;
+    }
+
+    .rlist ul li dl {
+        float: left;
+        border-right: 1px solid #eee;
+        width: 620px;
+    }
+
+        .rlist ul li dl dt {
+            float: left;
+            width: 190px;
+            height: 80px;
+            margin-right: 20px;
+        }
+
+        .rlist ul li dl dd {
+            float: left;
+            width: 410px;
+        }
+
+            .rlist ul li dl dd span {
+                display: block;
+                font-size: 18px;
+                line-height: 36px;
+            }
+
+            .rlist ul li dl dd p {
+                display: block;
+                color: #666;
+                font-size: 15px;
+                margin-top: 10px;
+            }
+
+.sright ul {
+    margin-top: 5px;
+}
+
+    .sright ul li a {
+        background: url(../images/icon.gif) no-repeat 0 -540px;
+        padding-left: 10px;
+        font-size: 14px;
+        line-height: 26px;
+    }
+
+.rad {
+    width: 280px;
+    margin-top: 20px;
+}
+
+.noresult {
+    text-align: center;
+    margin: 80px auto;
+}
+
+    .noresult p {
+        background: url(../images/noresult.gif) no-repeat 0 center;
+        padding-left: 190px;
+        font: 24px/110px "Microsoft Yahei";
+        display: inline-block;
+    }
+
+        .noresult p span {
+            color: #e71427;
+        }
 
 
 
 
 /*详细页*/
 
-.detail{overflow: hidden;padding:20px ;background: #fff; border: 1px #e6e6e6 solid; margin-top:20px; border-radius:5px;}
-.dleftshow{width: 720px;height:450px;margin-right:38px;position:relative;zoom:1;overflow:hidden; float:left;}
-.bigshow{position:relative;margin:auto;width:520px;height:350px;}
-.bigshow ul{width:520px;height:350px; position:absolute;overflow:visible;}
-.bigshow ul li{ position:absolute;top:0;left:0;z-index:1;width:520px;height:350px;overflow:hidden;}
-.bigshow ul li img {width:520px;height:350px;}
-.page_btn{ position:absolute;z-index:50; width:90px; height:350px; text-align:center; background-color: rgba(0,0,0,0.4);}
-.page_btn img{  display: inline-block;  margin-top: 150px;}
-.prev{left:-100px;}
-.next{right:-100px;}
+.detail {
+    overflow: hidden;
+    padding: 20px;
+    background: #fff;
+    border: 1px #e6e6e6 solid;
+    margin-top: 20px;
+    border-radius: 5px;
+}
 
-.smallimg{ margin-top:20px; position:relative;}
-.smallimg .prevbut{ float:left;background: url(../images/arrow.png) no-repeat 0 -60px; width:20px;height:60px; margin-top:9px;}
-.smallimg .nextbut{ float:right; background: url(../images/arrow.png) no-repeat right -60px; width:20px;height:60px;  margin-top:9px;}
-.small_list{ margin:0 15px; width:650px; height:62px; float:left; overflow:hidden;}
-.small_list ul{ width:672px;}
-.small_list li{ float:left;margin-right:22px; }
-.small_list li  img{ display:block; border:2px solid #fff; width:86px;height:58px}
-.small_list li.oncur  img{ border:2px solid #ec6a00; width:86px;height:58px;}
+.dleftshow {
+    width: 720px;
+    height: 450px;
+    margin-right: 38px;
+    position: relative;
+    zoom: 1;
+    overflow: hidden;
+    float: left;
+}
+
+.bigshow {
+    position: relative;
+    margin: auto;
+    width: 520px;
+    height: 350px;
+}
+
+    .bigshow ul {
+        width: 520px;
+        height: 350px;
+        position: absolute;
+        overflow: visible;
+    }
+
+        .bigshow ul li {
+            position: absolute;
+            top: 0;
+            left: 0;
+            z-index: 1;
+            width: 520px;
+            height: 350px;
+            overflow: hidden;
+        }
+
+            .bigshow ul li img {
+                width: 520px;
+                height: 350px;
+            }
+
+.page_btn {
+    position: absolute;
+    z-index: 50;
+    width: 90px;
+    height: 350px;
+    text-align: center;
+    background-color: rgba(0,0,0,0.4);
+}
+
+    .page_btn img {
+        display: inline-block;
+        margin-top: 150px;
+    }
+
+.prev {
+    left: -100px;
+}
+
+.next {
+    right: -100px;
+}
+
+.smallimg {
+    margin-top: 20px;
+    position: relative;
+}
+
+    .smallimg a.prevbut {
+        float: left;
+        background: url(../images/arrow.png) no-repeat 0 -60px;
+        width: 20px;
+        height: 60px;
+        margin-top: 9px;
+    }
+
+    .smallimg a.nextbut {
+        float: right;
+        background: url(../images/arrow.png) no-repeat right -60px;
+        width: 20px;
+        height: 60px;
+        margin-top: 9px;
+    }
+
+.small_list {
+    margin: 0 15px;
+    width: 650px;
+    height: 62px;
+    float: left;
+    overflow: hidden;
+}
+
+    .small_list ul {
+        width: 672px;
+    }
+
+    .small_list li {
+        float: left;
+        margin-right: 22px;
+    }
+
+        .small_list li a img {
+            display: block;
+            border: 2px solid #fff;
+            width: 86px;
+            height: 58px
+        }
+
+        .small_list li.oncur a img {
+            border: 2px solid #ec6a00;
+            width: 86px;
+            height: 58px;
+        }
 
 
-.drighttext{ width:400px; float:left;}
-.drighttext h3{font-size: 18px;}
-.drighttext p{font-size:14px; margin-top:10px;}
-.drighttext p a{ color:#ec6a00; text-decoration:underline;}
-.drighttext ul{ margin-top:20px; border:1px solid #eee; padding:8px 15px 0;}
-.drighttext ul li{ height:32px; line-height:32px;}
-.drighttext ul li input{ vertical-align:middle; margin-right:5px;}
-.drighttext ul li s ,.drighttext ul li span{ color:#ff0000;}
-.drighttext ul li s{ margin-right:5px;}
-.drighttext ul li a.reg{ background:#035589; color:#fff; border-radius:5px; padding:0 5px;}
-.drighttext ul li a.go{ background:url(../images/icon.gif) no-repeat right -640px; display:block; border-top:1px solid #eee;}
-.drighttext dl{ width:400px; margin-top:20px; line-height:32px;}
-.drighttext dl dt{ float:left; width:300px; font-size:16px; }
-.drighttext dl dt b{ color:#ff0000; font-size:20px;}
-.drighttext dl dd{ float:right; width:100px;}
-.drighttext dl dd a{ display:block; background:#ff7c35; height:32px; line-height:32px; text-align:center; color:#fff; width:100px; font-size:16px; border-radius:5px;}
+.drighttext {
+    width: 400px;
+    float: left;
+}
 
-.otherinfo{ margin-top:20px;}
-.otherinfo b{ font-size:24px;}
-.otherinfo ul{ width:1224px; zoom:1; margin-top:20px;}
-.otherinfo ul:after{display:block;clear:both;content:"";visibility:hidden;height:0;}
-.otherinfo ul li{ float:left; width:280px; border-radius:5px; border:1px solid #eee; margin-right:24px; background:#ffffff; text-align:center; padding-bottom:10px;}
-.otherinfo ul li a img{ display:block; width:250px; height:185px; margin:15px auto 0;}
-.otherinfo ul li p a{ display:block; font-size:16px; margin-top:10px; line-height:30px;}
-.otherinfo ul li span{ display:block; color:#999;}
+    .drighttext h3 {
+        font-size: 18px;
+    }
+
+    .drighttext p {
+        font-size: 14px;
+        margin-top: 10px;
+    }
+
+        .drighttext p a {
+            color: #ec6a00;
+            text-decoration: underline;
+        }
+
+    .drighttext ul {
+        margin-top: 20px;
+        border: 1px solid #eee;
+        padding: 8px 15px 0;
+    }
+
+        .drighttext ul li {
+            height: 32px;
+            line-height: 32px;
+        }
+
+            .drighttext ul li input {
+                vertical-align: middle;
+                margin-right: 5px;
+            }
+
+            .drighttext ul li s, .drighttext ul li span {
+                color: #ff0000;
+            }
+
+            .drighttext ul li s {
+                margin-right: 5px;
+            }
+
+            .drighttext ul li a.reg {
+                background: #035589;
+                color: #fff;
+                border-radius: 5px;
+                padding: 0 5px;
+            }
+
+            .drighttext ul li a.go {
+                background: url(../images/icon.gif) no-repeat right -640px;
+                display: block;
+                border-top: 1px solid #eee;
+            }
+
+    .drighttext dl {
+        width: 400px;
+        margin-top: 20px;
+        line-height: 32px;
+    }
+
+        .drighttext dl dt {
+            float: left;
+            width: 300px;
+            font-size: 16px;
+        }
+
+            .drighttext dl dt b {
+                color: #ff0000;
+                font-size: 20px;
+            }
+
+        .drighttext dl dd {
+            float: right;
+            width: 100px;
+        }
+
+            .drighttext dl dd a {
+                display: block;
+                background: #ff7c35;
+                height: 32px;
+                line-height: 32px;
+                text-align: center;
+                color: #fff;
+                width: 100px;
+                font-size: 16px;
+                border-radius: 5px;
+            }
+
+.otherinfo {
+    margin-top: 20px;
+}
+
+    .otherinfo b {
+        font-size: 24px;
+    }
+
+    .otherinfo ul {
+        width: 1224px;
+        zoom: 1;
+        margin-top: 20px;
+    }
+
+        .otherinfo ul:after {
+            display: block;
+            clear: both;
+            content: "";
+            visibility: hidden;
+            height: 0;
+        }
+
+        .otherinfo ul li {
+            float: left;
+            width: 280px;
+            border-radius: 5px;
+            border: 1px solid #eee;
+            margin-right: 24px;
+            background: #ffffff;
+            text-align: center;
+            padding-bottom: 10px;
+        }
+
+            .otherinfo ul li a img {
+                display: block;
+                width: 250px;
+                height: 185px;
+                margin: 15px auto 0;
+            }
+
+            .otherinfo ul li p a {
+                display: block;
+                font-size: 16px;
+                margin-top: 10px;
+                line-height: 30px;
+            }
+
+            .otherinfo ul li span {
+                display: block;
+                color: #999;
+            }
 
 
-.otherinfo .otitle dl{ zoom:1; height:24px; }
-.otherinfo .otitle dl:after{display:block;clear:both;content:"";visibility:hidden;height:0;}
-.otherinfo .otitle dl dt{ float:left; width:220px; color:#e14f00; font-size:24px; font-weight:bold; display:block; height:24px; line-height:24px;}
-.otitle dl dd{ float:right; width:980px;}
-.otherinfo .otitle dl dd ul{ float:right; width:980px;  margin-top:0; display:inline-block; text-align:right; } 
-.otherinfo .otitle dl dd ul li{ display:inline-block; width:auto; float:none; border:0; border-radius:0; margin:0; background:none; padding-bottom:0;}
-.otherinfo .otitle dl dd ul li a{ font-size:14px; height:18px; line-height:18px; border-right:1px solid #eee; padding-right:10px; margin-right:10px; overflow:hidden; display:inline-block; margin-top:3px;}
-.otherinfo .otitle dl dd ul li.more a{border:1px solid #eee; height:18px; border-radius:5px; padding:0 10px; }
-.otherinfo .otitle dl dd ul li.more a em{background:#fff url(../images/icon.gif) no-repeat right -578px;  padding-right:15px; font-size:14px; line-height:18px; font-style:normal;}
+    .otherinfo .otitle dl {
+        zoom: 1;
+        height: 24px;
+    }
+
+        .otherinfo .otitle dl:after {
+            display: block;
+            clear: both;
+            content: "";
+            visibility: hidden;
+            height: 0;
+        }
+
+        .otherinfo .otitle dl dt {
+            float: left;
+            width: 220px;
+            color: #e14f00;
+            font-size: 24px;
+            font-weight: bold;
+            display: block;
+            height: 24px;
+            line-height: 24px;
+        }
+
+.otitle dl dd {
+    float: right;
+    width: 980px;
+}
+
+.otherinfo .otitle dl dd ul {
+    float: right;
+    width: 980px;
+    margin-top: 0;
+    display: inline-block;
+    text-align: right;
+}
+
+    .otherinfo .otitle dl dd ul li {
+        display: inline-block;
+        width: auto;
+        float: none;
+        border: 0;
+        border-radius: 0;
+        margin: 0;
+        background: none;
+        padding-bottom: 0;
+    }
+
+        .otherinfo .otitle dl dd ul li a {
+            font-size: 14px;
+            height: 18px;
+            line-height: 18px;
+            border-right: 1px solid #eee;
+            padding-right: 10px;
+            margin-right: 10px;
+            overflow: hidden;
+            display: inline-block;
+            margin-top: 3px;
+        }
+
+        .otherinfo .otitle dl dd ul li.more a {
+            border: 1px solid #eee;
+            height: 18px;
+            border-radius: 5px;
+            padding: 0 10px;
+        }
+
+            .otherinfo .otitle dl dd ul li.more a em {
+                background: #fff url(../images/icon.gif) no-repeat right -578px;
+                padding-right: 15px;
+                font-size: 14px;
+                line-height: 18px;
+                font-style: normal;
+            }
 
 
 /*pay*/
-.paybox{overflow: hidden;padding:20px ;background: #fff; border: 1px #e6e6e6 solid; margin-top:20px; border-radius:5px;}
-.tips{ background:url(../images/pay.png) no-repeat 0 -320px; padding-left:30px; height:24px; line-height:24px; color:#a93a13; border-bottom:1px solid #eee; padding-bottom:15px;}
-.confirm{ margin-top:20px;}
-.confirm b{ display:block; font-size:20px; }
-.confirm table{ background:#eee; margin-top:10px; width:100%; text-align:center; font:14px/40px "Microsoft Yahei";}
-.confirm table tr th{ color:#a55500; font-weight:normal;}
-.confirm table tr td{ background:#ffffff;}
-.confirm table tr th.name ,.confirm table tr td.name{ width:450px;}
-.confirm ul{ margin-top:10px;}
-.confirm ul li{ border-bottom:1px solid #eee; height:60px; line-height:60px; font-size:14px;}
-.confirm ul li input{ vertical-align:middle; margin-right:15px;}
-.confirm ul li span.balance{ background:url(../images/pay.png) no-repeat 0 12px; padding-left:50px; display:inline-block; font-size:18px; margin-right:20px;}
-.confirm ul li span.alipay{ background:url(../images/pay.png) no-repeat 0 -65px; padding-left:50px; display:inline-block; font-size:18px; margin-right:20px;}
-.confirm ul li span.wx{ background:url(../images/pay.png) no-repeat 0 -142px; padding-left:50px; display:inline-block; font-size:18px; margin-right:20px;}
-.confirm ul li span.bankcard{ background:url(../images/pay.png) no-repeat 0 -220px; padding-left:50px; display:inline-block; font-size:18px; margin-right:20px;}
+.paybox {
+    overflow: hidden;
+    padding: 20px;
+    background: #fff;
+    border: 1px #e6e6e6 solid;
+    margin-top: 20px;
+    border-radius: 5px;
+}
+
+.tips {
+    background: url(../images/pay.png) no-repeat 0 -320px;
+    padding-left: 30px;
+    height: 24px;
+    line-height: 24px;
+    color: #a93a13;
+    border-bottom: 1px solid #eee;
+    padding-bottom: 15px;
+}
+
+.confirm {
+    margin-top: 20px;
+}
+
+    .confirm b {
+        display: block;
+        font-size: 20px;
+    }
+
+    .confirm table {
+        background: #eee;
+        margin-top: 10px;
+        width: 100%;
+        text-align: center;
+        font: 14px/40px "Microsoft Yahei";
+    }
+
+        .confirm table tr th {
+            color: #a55500;
+            font-weight: normal;
+        }
+
+        .confirm table tr td {
+            background: #ffffff;
+        }
+
+            .confirm table tr th.name, .confirm table tr td.name {
+                width: 450px;
+            }
+
+    .confirm ul {
+        margin-top: 10px;
+    }
+
+        .confirm ul li {
+            border-bottom: 1px solid #eee;
+            height: 60px;
+            line-height: 60px;
+            font-size: 14px;
+        }
+
+            .confirm ul li input {
+                vertical-align: middle;
+                margin-right: 15px;
+            }
+
+            .confirm ul li span.balance {
+                background: url(../images/pay.png) no-repeat 0 12px;
+                padding-left: 50px;
+                display: inline-block;
+                font-size: 18px;
+                margin-right: 20px;
+            }
+
+            .confirm ul li span.alipay {
+                background: url(../images/pay.png) no-repeat 0 -65px;
+                padding-left: 50px;
+                display: inline-block;
+                font-size: 18px;
+                margin-right: 20px;
+            }
+
+            .confirm ul li span.wx {
+                background: url(../images/pay.png) no-repeat 0 -142px;
+                padding-left: 50px;
+                display: inline-block;
+                font-size: 18px;
+                margin-right: 20px;
+            }
+
+            .confirm ul li span.bankcard {
+                background: url(../images/pay.png) no-repeat 0 -220px;
+                padding-left: 50px;
+                display: inline-block;
+                font-size: 18px;
+                margin-right: 20px;
+            }
 
 
-.confirm ul li span strong{ font-weight:normal; color:#ff0000;}
-.confirm ul li span a{ text-decoration:underline; color:#035589; padding:0 10px;}
-.confirm ul li a.money{ background:#035589; color:#fff; text-align:center; border-radius:5px; padding:0 5px; display:inline-block; height:24px; line-height:24px; margin-top:6px;}
-.confirm ul li span.red{ color:#ff0000; padding-left:20px;}
+            .confirm ul li span strong {
+                font-weight: normal;
+                color: #ff0000;
+            }
 
-.paybox dl{ zoom:1; margin-top:20px;}
-.paybox dl:after{display:block;clear:both;content:"";visibility:hidden;height:0;}
-.paybox dl dt{ font-size:14px; width:930px; float:left;}
-.paybox dl dt span{ color:#ff0000; padding:0 10px;}
-.paybox dl dt a{ text-decoration:underline; color:#035589; padding:0 10px;}
-.paybox dl dd{ text-align:right; width:220px; float:right;}
-.paybox dl dd span{ font-size:16px; display:block;}
-.paybox dl dd span strong{ color:#ff0000; font-size:26px;}
-.paybox dl dd a{ display:block;  background:#ff7c35; height:36px; line-height:36px; text-align:center; color:#fff; width:120px; font-size:16px; border-radius:5px; float:right; margin-top:10px;}
+            .confirm ul li span a {
+                text-decoration: underline;
+                color: #035589;
+                padding: 0 10px;
+            }
 
-.process{border-bottom:1px #e6e6e6 solid; zoom:1; padding-bottom:20px;}
-.process:after{display:block;clear:both;content:"";visibility:hidden;height:0;}
+            .confirm ul li a.money {
+                background: #035589;
+                color: #fff;
+                text-align: center;
+                border-radius: 5px;
+                padding: 0 5px;
+                display: inline-block;
+                height: 24px;
+                line-height: 24px;
+                margin-top: 6px;
+            }
 
-.process ul{ float:right;}
-.process ul li{ float:left; margin-right:15px; font-size:16px; color:#666;}
-.process ul li em{float:left; display:block; width:40px; height:40px; border-radius:40px; overflow:hidden;  margin-right:10px; }
-.process ul li span{ float:left; line-height:40px;}
-.process ul li.oncur span{ color:#ff7d3d;}
-.process ul li.buyicon span{ line-height:20px; font-size:15px;}
-.process ul li.cart em{ background:#f2f2f2 url(../images/pay.png) no-repeat 10px -390px; }
-.process ul li.confirmpay em{ background:#f2f2f2 url(../images/pay.png) no-repeat 12px -512px; }
-.process ul li.subicon em{ background:#f2f2f2 url(../images/pay.png) no-repeat 10px -632px;}
-.process ul li.buyicon em{ background:#f2f2f2 url(../images/pay.png) no-repeat 10px -761px; }
-.process ul li.cart em.on{ background:#ff7d3d url(../images/pay.png) no-repeat 10px -453px ; }
-.process ul li.confirmpay em.on{ background:#ff7d3d url(../images/pay.png) no-repeat 12px -573px; }
-.process ul li.subicon em.on{ background:#ff7d3d url(../images/pay.png) no-repeat 10px -694px; }
-.process ul li.buyicon em.on{ background:#ff7d3d url(../images/pay.png) no-repeat 10px -835px;}
-.process ul li.carrow{ background:url(../images/pay.png) no-repeat 0 -900px; width:13px; height:25px; margin-top:12px; display:block; float:left;}
+            .confirm ul li span.red {
+                color: #ff0000;
+                padding-left: 20px;
+            }
 
-.stardetail{ background:url(../images/starbg.jpg) no-repeat; height:315px; margin-top:20px;}
-.stardetail dl{ width:920px; margin:0 auto;}
-.stardetail dl dt { float:left; background:url(../images/humanbg.png) no-repeat; width:340px; height:270px; overflow:hidden; margin:20px 20px 0 50px;}
-.stardetail dl dt p{ width:224px; height:224px; border-radius:224px; overflow:hidden; margin:20px 0 0 54px;}
-.stardetail dl dd{ float:left; width:500px; color:#fff; padding-top:50px;}
-.stardetail dl dd b{ font-size:48px; display:block;}
-.stardetail dl dd span{ font-size:23px; display:block; margin-top:10px; font-weight:bold;}
-.stardetail dl dd p{ display:block; background:#e6e6e6; height:70px; width:340px; border-radius:10px; margin-top:20px; line-height:70px;}
-.stardetail dl dd p a{ background:#ff5f09; display:inline-block; width:190px; text-align:center; font-size:30px; font-weight:bold; color:#fff; float:right; border-top-right-radius:10px; border-bottom-right-radius:10px;}
-.stardetail dl dd p strong{ width:150px; text-align:center; display:inline-block; font-size:30px; color:#ab1901;}
-.starindu{ background:#f5f5f5; padding:20px; }
-.starindu p{font:15px/26px "Microsoft Yahei"; text-indent:2em; margin-bottom:10px;}
+.paybox dl {
+    zoom: 1;
+    margin-top: 20px;
+}
+
+    .paybox dl:after {
+        display: block;
+        clear: both;
+        content: "";
+        visibility: hidden;
+        height: 0;
+    }
+
+    .paybox dl dt {
+        font-size: 14px;
+        width: 930px;
+        float: left;
+    }
+
+        .paybox dl dt span {
+            color: #ff0000;
+            padding: 0 10px;
+        }
+
+        .paybox dl dt a {
+            text-decoration: underline;
+            color: #035589;
+            padding: 0 10px;
+        }
+
+    .paybox dl dd {
+        text-align: right;
+        width: 220px;
+        float: right;
+    }
+
+        .paybox dl dd span {
+            font-size: 16px;
+            display: block;
+        }
+
+            .paybox dl dd span strong {
+                color: #ff0000;
+                font-size: 26px;
+            }
+
+        .paybox dl dd a {
+            display: block;
+            background: #ff7c35;
+            height: 36px;
+            line-height: 36px;
+            text-align: center;
+            color: #fff;
+            width: 120px;
+            font-size: 16px;
+            border-radius: 5px;
+            float: right;
+            margin-top: 10px;
+        }
+
+.process {
+    border-bottom: 1px #e6e6e6 solid;
+    zoom: 1;
+    padding-bottom: 20px;
+}
+
+    .process:after {
+        display: block;
+        clear: both;
+        content: "";
+        visibility: hidden;
+        height: 0;
+    }
+
+    .process ul {
+        float: right;
+    }
+
+        .process ul li {
+            float: left;
+            margin-right: 15px;
+            font-size: 16px;
+            color: #666;
+        }
+
+            .process ul li em {
+                float: left;
+                display: block;
+                width: 40px;
+                height: 40px;
+                border-radius: 40px;
+                overflow: hidden;
+                margin-right: 10px;
+            }
+
+            .process ul li span {
+                float: left;
+                line-height: 40px;
+            }
+
+            .process ul li.oncur span {
+                color: #ff7d3d;
+            }
+
+            .process ul li.buyicon span {
+                line-height: 20px;
+                font-size: 15px;
+            }
+
+            .process ul li.cart em {
+                background: #f2f2f2 url(../images/pay.png) no-repeat 10px -390px;
+            }
+
+            .process ul li.confirmpay em {
+                background: #f2f2f2 url(../images/pay.png) no-repeat 12px -512px;
+            }
+
+            .process ul li.subicon em {
+                background: #f2f2f2 url(../images/pay.png) no-repeat 10px -632px;
+            }
+
+            .process ul li.buyicon em {
+                background: #f2f2f2 url(../images/pay.png) no-repeat 10px -761px;
+            }
+
+            .process ul li.cart em.on {
+                background: #ff7d3d url(../images/pay.png) no-repeat 10px -453px;
+            }
+
+            .process ul li.confirmpay em.on {
+                background: #ff7d3d url(../images/pay.png) no-repeat 12px -573px;
+            }
+
+            .process ul li.subicon em.on {
+                background: #ff7d3d url(../images/pay.png) no-repeat 10px -694px;
+            }
+
+            .process ul li.buyicon em.on {
+                background: #ff7d3d url(../images/pay.png) no-repeat 10px -835px;
+            }
+
+            .process ul li.carrow {
+                background: url(../images/pay.png) no-repeat 0 -900px;
+                width: 13px;
+                height: 25px;
+                margin-top: 12px;
+                display: block;
+                float: left;
+            }
+
+.stardetail {
+    background: url(../images/starbg.jpg) no-repeat;
+    height: 315px;
+    margin-top: 20px;
+}
+
+    .stardetail dl {
+        width: 920px;
+        margin: 0 auto;
+    }
+
+        .stardetail dl dt {
+            float: left;
+            background: url(../images/humanbg.png) no-repeat;
+            width: 340px;
+            height: 270px;
+            overflow: hidden;
+            margin: 20px 20px 0 50px;
+        }
+
+            .stardetail dl dt p {
+                width: 224px;
+                height: 224px;
+                border-radius: 224px;
+                overflow: hidden;
+                margin: 20px 0 0 54px;
+            }
+
+        .stardetail dl dd {
+            float: left;
+            width: 500px;
+            color: #fff;
+            padding-top: 50px;
+        }
+
+            .stardetail dl dd b {
+                font-size: 48px;
+                display: block;
+            }
+
+            .stardetail dl dd span {
+                font-size: 23px;
+                display: block;
+                margin-top: 10px;
+                font-weight: bold;
+            }
+
+            .stardetail dl dd p {
+                display: block;
+                background: #e6e6e6;
+                height: 70px;
+                width: 340px;
+                border-radius: 10px;
+                margin-top: 20px;
+                line-height: 70px;
+            }
+
+                .stardetail dl dd p a {
+                    background: #ff5f09;
+                    display: inline-block;
+                    width: 190px;
+                    text-align: center;
+                    font-size: 30px;
+                    font-weight: bold;
+                    color: #fff;
+                    float: right;
+                    border-top-right-radius: 10px;
+                    border-bottom-right-radius: 10px;
+                }
+
+                .stardetail dl dd p strong {
+                    width: 150px;
+                    text-align: center;
+                    display: inline-block;
+                    font-size: 30px;
+                    color: #ab1901;
+                }
+
+.starindu {
+    background: #f5f5f5;
+    padding: 20px;
+}
+
+    .starindu p {
+        font: 15px/26px "Microsoft Yahei";
+        text-indent: 2em;
+        margin-bottom: 10px;
+    }

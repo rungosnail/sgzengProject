@@ -11,6 +11,18 @@
 .list ul li p a{ display:block; height:32px; line-height:32px; overflow:hidden;}
 .list ul li span{ color:#999;display:block; height:22px; line-height:22px;}
 
+
+/**/
+.catlist{ border:1px solid #ddd; padding:5px 15px; margin-top:15px; border-radius:5px;}
+.catlist dl{ font:14px/26px "Microsoft Yahei"; zoom:1; }
+.catlist dl:after{display:block;clear:both;content:"";visibility:hidden;height:0;}
+.catlist dl dt{ float:left; width:80px;}
+.catlist dl dd{ float:left; width:1000px;}
+.catlist dl dd ul li{ float:left;}
+.catlist dl dd ul li a{ display:inline-block; padding:0 20px; }
+.catlist dl dd ul li.catcur a ,.catlist dl dd ul li a:hover{ background:#ec6a00; color:#ffffff; border-radius:5px;}
+
+
 /*搜索页*/
 .search{ margin-top:20px; zoom:1;}
 .search:after{display:block;clear:both;content:"";visibility:hidden;height:0;}

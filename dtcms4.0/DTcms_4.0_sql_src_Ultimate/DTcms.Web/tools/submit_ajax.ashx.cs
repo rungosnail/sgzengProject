@@ -832,8 +832,7 @@ namespace DTcms.Web.tools
                 Utils.WriteCookie(DTKeys.COOKIE_USER_PWD_REMEMBER, "DTcms", model.password);
                 //写入登录日志
                 new BLL.user_login_log().Add(model.id, model.user_name, "会员登录");
-                context.Response.Write("{\"status\":1, \"msg\":\"注册成功，欢迎成为本站会员！\", \"url\":\""
-                    + new Web.UI.BasePage().getlink(site, new Web.UI.BasePage().linkurl("usercenter", "index")) + "\"}");
+                context.Response.Write("{\"status\":1, \"msg\":\"注册成功，欢迎成为本站会员！\", \"url\":\"login.aspx\"}");
             }
             return;
         }

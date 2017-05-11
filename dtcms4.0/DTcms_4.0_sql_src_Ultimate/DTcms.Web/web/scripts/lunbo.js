@@ -8,7 +8,7 @@
             switcHover: true,        //开关
             clickNode: $(".page-ctrl li"),//点击的节点
             loopNode: $(".banner-pic"),//运动的层
-            loopCircle: "-1200px", //运动的范围
+            loopCircle: "-2400px", //运动的范围
             loopTime: 1000, //运动切换的时间
             sameNode: $(".same-pic-lop"), //相同层
             attrData: "statics", //自定义属性
