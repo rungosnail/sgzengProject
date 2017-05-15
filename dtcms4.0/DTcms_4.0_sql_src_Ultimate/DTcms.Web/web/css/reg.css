@@ -46,7 +46,7 @@
 .lbox ul li{ border:1px solid #ddd; width:380px; margin:20px auto 0; height:46px; padding-left:20px;}
 .lbox ul li input{ background:url(../images/loginicon.gif) no-repeat 0 -106px; padding-left:25px; line-height:46px; width:320px;}
 .lbox ul li.password input{ background:url(../images/loginicon.gif) no-repeat 0 -166px;}
-.loginbut a{ display:block; margin:20px auto;  background:#ff7c35; width:400px; height:50px; text-align:center; font:bold 16px/50px "Microsoft Yahei"; color:#fff; border-radius:10px; display:block; } 
+.loginbutbutton{ display:block; margin:20px auto;  background:#ff7c35; width:400px; height:50px; text-align:center; font:bold 16px/50px "Microsoft Yahei"; color:#fff; border-radius:10px; display:block; } 
 .forget{ width:400px; margin:0 auto 20px; font:14px/30px  "Microsoft Yahei"; color:#666;}
 .forget span{ float:right;}
 .forget a{color:#ff7c35;}

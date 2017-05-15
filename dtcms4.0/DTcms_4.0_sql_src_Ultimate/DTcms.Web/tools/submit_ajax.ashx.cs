@@ -24,6 +24,9 @@ namespace DTcms.Web.tools
 
             switch (action)
             {
+                case "ExitLogin":
+                    ExitLogin(context);
+                    break;
                 case "comment_add": //提交评论
                     comment_add(context);
                     break;
@@ -362,7 +365,7 @@ namespace DTcms.Web.tools
             //写入登录日志
             new BLL.user_login_log().Add(model.id, model.user_name, "会员登录");
             //返回URL
-            context.Response.Write("{\"status\":1, \"msg\":\"会员登录成功！\"}");
+            context.Response.Write("{\"status\":1, \"msg\":\"会员登录成功！\",\"url\":\"Usercenter.aspx\"}");
             return;
         }
         #endregion
@@ -783,7 +786,7 @@ namespace DTcms.Web.tools
                     mailContent = mailContent.Replace("{webtel}", siteConfig.webtel);
                     mailContent = mailContent.Replace("{username}", model.user_name);
                     //发送邮件
-                    DTMail.sendMail(siteConfig.emailsmtp,siteConfig.emailssl, siteConfig.emailusername, siteConfig.emailpassword, siteConfig.emailnickname,
+                    DTMail.sendMail(siteConfig.emailsmtp, siteConfig.emailssl, siteConfig.emailusername, siteConfig.emailpassword, siteConfig.emailnickname,
                         siteConfig.emailfrom, model.email, mailTitle, mailContent);
                 }
             }
@@ -1873,7 +1876,7 @@ namespace DTcms.Web.tools
                 context.Response.Write("{\"status\":0, \"msg\":\"购买数量不能小于1！\"}");
                 return;
             }
-            Model.cart_keys model=Web.UI.ShopCart.Update(article_id, goods_id, quantity);
+            Model.cart_keys model = Web.UI.ShopCart.Update(article_id, goods_id, quantity);
             if (model != null)
             {
                 context.Response.Write("{\"status\":1, \"msg\":\"商品数量修改成功！\", \"article_id\":" + model.article_id + ", \"goods_id\":" + model.goods_id + ", \"quantity\":" + model.quantity + "}");
@@ -2004,8 +2007,8 @@ namespace DTcms.Web.tools
                 if (book_id == 0)
                 {
                     Model.user_addr_book addrModel = new Model.user_addr_book();
-                    addrModel.user_id=userModel.id;
-                    addrModel.user_name=userModel.user_name;
+                    addrModel.user_id = userModel.id;
+                    addrModel.user_name = userModel.user_name;
                     addrModel.accept_name = accept_name;
                     addrModel.area = province + "," + city + "," + area;
                     addrModel.address = address;
@@ -2085,8 +2088,19 @@ namespace DTcms.Web.tools
             List<Model.order_goods> gls = new List<Model.order_goods>();
             foreach (Model.cart_items item in goodsList)
             {
-                gls.Add(new Model.order_goods { article_id = item.article_id, goods_id = item.goods_id, goods_no = item.goods_no, goods_title = item.title, 
-                    img_url = item.img_url, spec_text = item.spec_text, goods_price = item.sell_price, real_price = item.user_price, quantity = item.quantity, point = item.point });
+                gls.Add(new Model.order_goods
+                {
+                    article_id = item.article_id,
+                    goods_id = item.goods_id,
+                    goods_no = item.goods_no,
+                    goods_title = item.title,
+                    img_url = item.img_url,
+                    spec_text = item.spec_text,
+                    goods_price = item.sell_price,
+                    real_price = item.user_price,
+                    quantity = item.quantity,
+                    point = item.point
+                });
             }
             model.order_goods = gls;
             int result = new BLL.orders().Add(model);
@@ -2297,7 +2311,7 @@ namespace DTcms.Web.tools
         #endregion
 
         #region 发送手机短信验证码===========================
-        private string send_verify_sms_code(HttpContext context,string mobile)
+        private string send_verify_sms_code(HttpContext context, string mobile)
         {
             //检查手机
             if (string.IsNullOrEmpty(mobile))
@@ -2391,6 +2405,17 @@ namespace DTcms.Web.tools
                 return "{\"status\":0, \"msg\":\"邮件发送失败，请联系本站管理员！\"}";
             }
             return "success";
+        }
+        #endregion
+
+        #region 退出登录
+        public void ExitLogin(HttpContext context)
+        {
+            context.Session[DTKeys.SESSION_USER_INFO] = null;
+            //退出
+            Utils.WriteCookie(DTKeys.COOKIE_USER_NAME_REMEMBER, "DTcms", "");
+            Utils.WriteCookie(DTKeys.COOKIE_USER_PWD_REMEMBER, "DTcms", "");
+            context.Response.Write("{\"status\":1, \"msg\":\"退出成功！\", \"url\":\"login.aspx\"}");
         }
         #endregion
 

@@ -19,14 +19,17 @@
         <dl>
             <dt>
                 <p>
-                    <a style="cursor:pointer;" onclick="btnSearch()">搜索</a>
-                    <input type="text"  placeholder="请输入标题，方案名称..." id="txtkeyword" />
+                    <a style="cursor: pointer;" onclick="btnSearch()">搜索</a>
+                    <input type="text" placeholder="请输入标题，方案名称..." id="txtkeyword" />
                 </p>
                 <%--<span>热门搜索：<a href="#">艺人</a><a href="#">场馆</a><a href="#">齐白石画展</a><a href="#">场馆</a><a href="#">场馆</a></span> --%>
 
             </dt>
             <dd><span>HI，欢迎来到活动资源网</span>
-                <p><a href="#" class="login">登录</a><a href="#">注册</a></p>
+                <p id="pLoginInfo">
+                    <a href="#" class="login">登录</a>
+                    <a href="#" class="login">注册</a>
+                </p>
             </dd>
         </dl>
     </div>
@@ -43,7 +46,7 @@
             </ul>
         </div>
     </div>
-     <input type="hidden" id="hdnavtitle" runat="server" name="hdnavtitle" />
+    <input type="hidden" id="hdnavtitle" runat="server" name="hdnavtitle" />
     <script type="text/javascript">
         $(document).ready(function () {
             $("#ulnavList li").removeClass("cur");
@@ -77,20 +80,34 @@
             </dd>
         </dl>
     </div>
-   
+
     <!--foot-->
-      <script type="text/javascript">
-          function btnSearch()
-          {
-              var keyword = $("#txtkeyword").val();
-              if ($.trim(keyword).length > 0) {
-                  window.location.href = "SearchResult.aspx?keyword=" + keyword;
-              } else {
-                  alert("请输入要查询的关键字！");
-                  return;
-              }
-          }
-      </script>
-    
+    <script type="text/javascript">
+        function btnSearch() {
+            var keyword = $("#txtkeyword").val();
+            if ($.trim(keyword).length > 0) {
+                window.location.href = "SearchResult.aspx?keyword=" + keyword;
+            } else {
+                alert("请输入要查询的关键字！");
+                return;
+            }
+        }
+        $.ajax({
+            type: "POST",
+            url: "/tools/submit_ajax.ashx?action=user_check_login",
+            dataType: "json",
+            timeout: 20000,
+            success: function (data, textStatus) {
+                if (data.status == 1) {
+                    $("#pLoginInfo").html('<a class="login" onclick="ExitInfo()">退出</a>');
+                    $("#pLoginInfo").prepend('<a class="login" href="Usercenter.aspx">会员中心</a>');
+                } else {
+                    $("#pLoginInfo").html('  <a href="Login.aspx" class="login">登录</a>');
+                    $("#pLoginInfo").prepend('  <a href="Register.aspx" class="login">注册</a>');
+                }
+            }
+        });
+    </script>
+
 </body>
 </html>

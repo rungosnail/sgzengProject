@@ -1572,6 +1572,48 @@
     <Compile Include="web\StarexpertList.aspx.designer.cs">
       <DependentUpon>StarexpertList.aspx</DependentUpon>
     </Compile>
+    <Compile Include="web\UserBuys.aspx.cs">
+      <DependentUpon>UserBuys.aspx</DependentUpon>
+      <SubType>ASPXCodeBehind</SubType>
+    </Compile>
+    <Compile Include="web\UserBuys.aspx.designer.cs">
+      <DependentUpon>UserBuys.aspx</DependentUpon>
+    </Compile>
+    <Compile Include="web\Usercenter.aspx.cs">
+      <DependentUpon>Usercenter.aspx</DependentUpon>
+      <SubType>ASPXCodeBehind</SubType>
+    </Compile>
+    <Compile Include="web\Usercenter.aspx.designer.cs">
+      <DependentUpon>Usercenter.aspx</DependentUpon>
+    </Compile>
+    <Compile Include="web\UserInfo.aspx.cs">
+      <DependentUpon>UserInfo.aspx</DependentUpon>
+      <SubType>ASPXCodeBehind</SubType>
+    </Compile>
+    <Compile Include="web\UserInfo.aspx.designer.cs">
+      <DependentUpon>UserInfo.aspx</DependentUpon>
+    </Compile>
+    <Compile Include="web\UserLeft.ascx.cs">
+      <DependentUpon>UserLeft.ascx</DependentUpon>
+      <SubType>ASPXCodeBehind</SubType>
+    </Compile>
+    <Compile Include="web\UserLeft.ascx.designer.cs">
+      <DependentUpon>UserLeft.ascx</DependentUpon>
+    </Compile>
+    <Compile Include="web\UserPwd.aspx.cs">
+      <DependentUpon>UserPwd.aspx</DependentUpon>
+      <SubType>ASPXCodeBehind</SubType>
+    </Compile>
+    <Compile Include="web\UserPwd.aspx.designer.cs">
+      <DependentUpon>UserPwd.aspx</DependentUpon>
+    </Compile>
+    <Compile Include="web\UserRecords.aspx.cs">
+      <DependentUpon>UserRecords.aspx</DependentUpon>
+      <SubType>ASPXCodeBehind</SubType>
+    </Compile>
+    <Compile Include="web\UserRecords.aspx.designer.cs">
+      <DependentUpon>UserRecords.aspx</DependentUpon>
+    </Compile>
     <Compile Include="web\WebForm1.aspx.cs">
       <DependentUpon>WebForm1.aspx</DependentUpon>
       <SubType>ASPXCodeBehind</SubType>
@@ -1729,11 +1771,18 @@
     <Content Include="web\scripts\jquery-1.11.2.min.js" />
     <Content Include="web\scripts\jquery-3.1.1.min.js" />
     <Content Include="web\scripts\jquery.form.min.js" />
+    <Content Include="web\scripts\login-validate.js" />
     <Content Include="web\scripts\lunbo.js" />
     <Content Include="web\scripts\register-validate.js" />
     <Content Include="web\scripts\Validform_v5.3.2_min.js" />
     <Content Include="web\SearchResult.aspx" />
     <Content Include="web\StarexpertList.aspx" />
+    <Content Include="web\UserBuys.aspx" />
+    <Content Include="web\Usercenter.aspx" />
+    <Content Include="web\UserInfo.aspx" />
+    <Content Include="web\UserLeft.ascx" />
+    <Content Include="web\UserPwd.aspx" />
+    <Content Include="web\UserRecords.aspx" />
     <Content Include="web\WebForm1.aspx" />
     <Content Include="web\WebForm2.aspx" />
     <Content Include="xmlconfig\site.config" />

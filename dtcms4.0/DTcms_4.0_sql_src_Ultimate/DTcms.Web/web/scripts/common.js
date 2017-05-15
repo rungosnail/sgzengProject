@@ -527,3 +527,29 @@ function getUrlParam(name) {
     if (r != null) return unescape(r[2]); return null; //返回参数值
 }
 
+function ExitInfo()
+{
+    $.ajax({
+        type: "POST",
+        url: "/tools/submit_ajax.ashx?action=ExitLogin&site=mainSSSSS",
+        dataType: "json",
+        data: {},
+        timeout: 20000,
+        success: function (data, textStatus) {
+            if (data.status == 1) {
+                if (typeof (data.url) == "undefined") {
+                    location.href = $("#turl").val();
+                } else {
+                    location.href = data.url;
+                }
+            } else {
+                $("#btnSubmit").attr("disabled", false);
+                $("#msgtips").text(data.msg);
+            }
+        },
+        error: function (XMLHttpRequest, textStatus, errorThrown) {
+            $("#msgtips").text("状态：" + textStatus + "；出错提示：" + errorThrown);
+        }
+    });
+}
+
