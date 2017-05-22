@@ -450,7 +450,7 @@
              <dl>
                 <dt>联系人电话</dt>
                 <dd>
-                    <asp:TextBox ID="txtResourcephone" runat="server" MaxLength="11" datatype="*11" CssClass="input normal" />
+                    <asp:TextBox ID="txtResourcephone" runat="server" MaxLength="11"  datatype="*0-11"   CssClass="input normal" />
                     <span class="Validform_checktip">*手机号为11位</span>
                 </dd>
             </dl>

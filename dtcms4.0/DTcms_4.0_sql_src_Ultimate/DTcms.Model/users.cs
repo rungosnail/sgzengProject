@@ -32,7 +32,14 @@ namespace DTcms.Model
         private int _status = 0;
         private DateTime _reg_time = DateTime.Now;
         private string _reg_ip;
+        public string _company;
 
+
+        public string company
+        {
+            set { _company = value; }
+            get { return _company; }
+        }
         /// <summary>
         /// 自增ID
         /// </summary>

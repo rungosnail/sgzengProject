@@ -929,12 +929,13 @@ namespace DTcms.Web.tools
             string city = Utils.ToHtml(DTRequest.GetFormString("txtCity"));
             string area = Utils.ToHtml(DTRequest.GetFormString("txtArea"));
             string address = Utils.ToHtml(context.Request.Form["txtAddress"]);
-            //检查昵称
-            if (string.IsNullOrEmpty(nick_name))
-            {
-                context.Response.Write("{\"status\":0, \"msg\":\"对不起，请输入您的姓名昵称！\"}");
-                return;
-            }
+            string company= Utils.ToHtml(context.Request.Form["txtcompany"]);
+            ////检查昵称
+            //if (string.IsNullOrEmpty(nick_name))
+            //{
+            //    context.Response.Write("{\"status\":0, \"msg\":\"对不起，请输入您的姓名昵称！\"}");
+            //    return;
+            //}
             //检查省市区
             if (string.IsNullOrEmpty(province) || string.IsNullOrEmpty(city) || string.IsNullOrEmpty(area))
             {
@@ -986,6 +987,7 @@ namespace DTcms.Web.tools
             model.msn = msn;
             model.area = province + "," + city + "," + area;
             model.address = address;
+            model.company = company;
 
             bll.Update(model);
             context.Response.Write("{\"status\":1, \"msg\":\"账户资料已修改成功！\"}");

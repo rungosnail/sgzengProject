@@ -158,7 +158,8 @@ namespace DTcms.DAL
             strSql.Append("exp=@exp,");
             strSql.Append("status=@status,");
             strSql.Append("reg_time=@reg_time,");
-            strSql.Append("reg_ip=@reg_ip");
+            strSql.Append("reg_ip=@reg_ip,");
+            strSql.Append("company=@company");
             strSql.Append(" where id=@id");
             SqlParameter[] parameters = {
 					new SqlParameter("@group_id", SqlDbType.Int,4),
@@ -182,7 +183,8 @@ namespace DTcms.DAL
 					new SqlParameter("@status", SqlDbType.TinyInt,1),
 					new SqlParameter("@reg_time", SqlDbType.DateTime),
 					new SqlParameter("@reg_ip", SqlDbType.NVarChar,20),
-					new SqlParameter("@id", SqlDbType.Int,4)};
+                    new SqlParameter("@company", SqlDbType.NVarChar,50),
+                    new SqlParameter("@id", SqlDbType.Int,4)};
             parameters[0].Value = model.group_id;
             parameters[1].Value = model.user_name;
             parameters[2].Value = model.salt;
@@ -204,7 +206,8 @@ namespace DTcms.DAL
             parameters[18].Value = model.status;
             parameters[19].Value = model.reg_time;
             parameters[20].Value = model.reg_ip;
-            parameters[21].Value = model.id;
+            parameters[21].Value = model.company;
+            parameters[22].Value = model.id;
 
             int rows = DbHelperSQL.ExecuteSql(strSql.ToString(), parameters);
             if (rows > 0)
@@ -349,7 +352,7 @@ namespace DTcms.DAL
         public Model.users GetModel(int id)
         {
             StringBuilder strSql = new StringBuilder();
-            strSql.Append("select top 1 id,group_id,user_name,salt,password,mobile,email,avatar,nick_name,sex,birthday,telphone,area,address,qq,msn,amount,point,exp,status,reg_time,reg_ip");
+            strSql.Append("select top 1 id,group_id,user_name,salt,password,mobile,email,avatar,nick_name,sex,birthday,telphone,area,address,qq,msn,amount,point,exp,status,reg_time,reg_ip,company");
             strSql.Append(" from " + databaseprefix + "users");
             strSql.Append(" where id=@id");
             SqlParameter[] parameters = {
@@ -373,7 +376,7 @@ namespace DTcms.DAL
         public Model.users GetModel(string user_name, string password, int emaillogin, int mobilelogin)
         {
             StringBuilder strSql = new StringBuilder();
-            strSql.Append("select top 1 id,group_id,user_name,salt,password,mobile,email,avatar,nick_name,sex,birthday,telphone,area,address,qq,msn,amount,point,exp,status,reg_time,reg_ip");
+            strSql.Append("select top 1 id,group_id,user_name,salt,password,mobile,email,avatar,nick_name,sex,birthday,telphone,area,address,qq,msn,amount,point,exp,status,reg_time,reg_ip,company");
             strSql.Append(" from " + databaseprefix + "users");
             strSql.Append(" where (user_name=@user_name");
             if (emaillogin == 1)
@@ -409,7 +412,7 @@ namespace DTcms.DAL
         public Model.users GetModel(string user_name)
         {
             StringBuilder strSql = new StringBuilder();
-            strSql.Append("select top 1 id,group_id,user_name,salt,password,mobile,email,avatar,nick_name,sex,birthday,telphone,area,address,qq,msn,amount,point,exp,status,reg_time,reg_ip");
+            strSql.Append("select top 1 id,group_id,user_name,salt,password,mobile,email,avatar,nick_name,sex,birthday,telphone,area,address,qq,msn,amount,point,exp,status,reg_time,reg_ip,company");
             strSql.Append(" from " + databaseprefix + "users");
             strSql.Append(" where user_name=@user_name and status<3");
             SqlParameter[] parameters = {
@@ -438,7 +441,7 @@ namespace DTcms.DAL
             {
                 strSql.Append(" top " + Top.ToString());
             }
-            strSql.Append(" id,group_id,user_name,salt,password,mobile,email,avatar,nick_name,sex,birthday,telphone,area,address,qq,msn,amount,point,exp,status,reg_time,reg_ip");
+            strSql.Append(" id,group_id,user_name,salt,password,mobile,email,avatar,nick_name,sex,birthday,telphone,area,address,qq,msn,amount,point,exp,status,reg_time,reg_ip,company");
             strSql.Append(" FROM " + databaseprefix + "users ");
             if (strWhere.Trim() != "")
             {
@@ -644,6 +647,10 @@ namespace DTcms.DAL
                 if (row["reg_ip"] != null)
                 {
                     model.reg_ip = row["reg_ip"].ToString();
+                }
+                if (row["company"] != null)
+                {
+                    model.company = row["company"].ToString();
                 }
             }
             return model;

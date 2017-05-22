@@ -84,8 +84,19 @@
 .data dl dt{ float:left; width:90px; text-align:right; line-height:26px;}
 .data dl dt span{ color:#ff0000; margin-right:5px;}
 .data dl dd input{ border:1px solid #ddd; height:26px; width:312px; padding-left:5px; line-height:26px;}
-.data dl dd  select{ border:1px solid #ddd; height:26px; width:155px; margin-right:10px;} 
-.but a{ background:#ff7c35;  border-radius:5px;  color:#fff; text-decoration:none; height:36px; line-height:36px; margin:15px 0 0 90px; display:block; width:120px; text-align:center;}
+.data dl dd  select{ border:1px solid #ddd; height:26px; width:155px; margin-right:10px;}
+.but .btnsave {
+    background: #ff7c35;
+    border-radius: 5px;
+    color: #fff;
+    text-decoration: none;
+    height: 36px;
+    line-height: 36px;
+    margin: 15px 0 0 90px;
+    display: block;
+    width: 120px;
+    text-align: center;
+}
 .data dl dd span.error { background:url(../images/icon.gif) no-repeat 0 -698px; padding-left:20px; color:#ff0000; margin-left:10px;}
 
 /*’“ªÿ√‹¬Î*/
