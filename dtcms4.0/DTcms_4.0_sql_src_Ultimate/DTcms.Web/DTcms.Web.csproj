@@ -105,6 +105,8 @@
     <Content Include="admin\dialog\dialog_rewrite.aspx" />
     <Content Include="admin\dialog\dialog_spec.aspx" />
     <Content Include="admin\dialog\dialog_spec_item.aspx" />
+    <Content Include="admin\hotsearch\Edit.aspx" />
+    <Content Include="admin\hotsearch\Index.aspx" />
     <Content Include="admin\ie6update.html" />
     <Content Include="admin\index.aspx" />
     <Content Include="admin\js\common.js" />
@@ -932,6 +934,20 @@
     </Compile>
     <Compile Include="admin\dialog\dialog_spec_item.aspx.designer.cs">
       <DependentUpon>dialog_spec_item.aspx</DependentUpon>
+    </Compile>
+    <Compile Include="admin\hotsearch\Edit.aspx.cs">
+      <DependentUpon>Edit.aspx</DependentUpon>
+      <SubType>ASPXCodeBehind</SubType>
+    </Compile>
+    <Compile Include="admin\hotsearch\Edit.aspx.designer.cs">
+      <DependentUpon>Edit.aspx</DependentUpon>
+    </Compile>
+    <Compile Include="admin\hotsearch\Index.aspx.cs">
+      <DependentUpon>Index.aspx</DependentUpon>
+      <SubType>ASPXCodeBehind</SubType>
+    </Compile>
+    <Compile Include="admin\hotsearch\Index.aspx.designer.cs">
+      <DependentUpon>Index.aspx</DependentUpon>
     </Compile>
     <Compile Include="admin\index.aspx.cs">
       <DependentUpon>index.aspx</DependentUpon>

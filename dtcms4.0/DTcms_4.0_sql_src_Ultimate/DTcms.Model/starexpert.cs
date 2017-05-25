@@ -26,6 +26,7 @@ namespace DTcms.Model
         private DateTime? _createdate;
         private int? _createuser;
         private int? _type;
+        private int? _sortid;
 
         /// <summary>
         /// 
@@ -128,6 +129,12 @@ namespace DTcms.Model
         {
             set { _type = value; }
             get { return _type; }
+        }
+
+        public int? sortid
+        {
+            set { _sortid = value; }
+            get { return _sortid; }
         }
         #endregion Model
 

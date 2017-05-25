@@ -7,7 +7,7 @@
 // </自动生成>
 //------------------------------------------------------------------------------
 
-namespace DTcms.Web.admin.starexpert {
+namespace DTcms.Web.admin.hotsearch {
     
     
     public partial class Edit {
@@ -22,24 +22,6 @@ namespace DTcms.Web.admin.starexpert {
         protected global::System.Web.UI.HtmlControls.HtmlForm form1;
         
         /// <summary>
-        /// ddlCategoryId 控件。
-        /// </summary>
-        /// <remarks>
-        /// 自动生成的字段。
-        /// 若要进行修改，请将字段声明从设计器文件移到代码隐藏文件。
-        /// </remarks>
-        protected global::System.Web.UI.WebControls.DropDownList ddlCategoryId;
-        
-        /// <summary>
-        /// cblItem 控件。
-        /// </summary>
-        /// <remarks>
-        /// 自动生成的字段。
-        /// 若要进行修改，请将字段声明从设计器文件移到代码隐藏文件。
-        /// </remarks>
-        protected global::System.Web.UI.WebControls.RadioButtonList cblItem;
-        
-        /// <summary>
         /// txtName 控件。
         /// </summary>
         /// <remarks>
@@ -49,49 +31,13 @@ namespace DTcms.Web.admin.starexpert {
         protected global::System.Web.UI.WebControls.TextBox txtName;
         
         /// <summary>
-        /// txtjob_occupation 控件。
+        /// txtUrl 控件。
         /// </summary>
         /// <remarks>
         /// 自动生成的字段。
         /// 若要进行修改，请将字段声明从设计器文件移到代码隐藏文件。
         /// </remarks>
-        protected global::System.Web.UI.WebControls.TextBox txtjob_occupation;
-        
-        /// <summary>
-        /// txtImgUrl 控件。
-        /// </summary>
-        /// <remarks>
-        /// 自动生成的字段。
-        /// 若要进行修改，请将字段声明从设计器文件移到代码隐藏文件。
-        /// </remarks>
-        protected global::System.Web.UI.WebControls.TextBox txtImgUrl;
-        
-        /// <summary>
-        /// txtlinkphone 控件。
-        /// </summary>
-        /// <remarks>
-        /// 自动生成的字段。
-        /// 若要进行修改，请将字段声明从设计器文件移到代码隐藏文件。
-        /// </remarks>
-        protected global::System.Web.UI.WebControls.TextBox txtlinkphone;
-        
-        /// <summary>
-        /// txtlinkprice 控件。
-        /// </summary>
-        /// <remarks>
-        /// 自动生成的字段。
-        /// 若要进行修改，请将字段声明从设计器文件移到代码隐藏文件。
-        /// </remarks>
-        protected global::System.Web.UI.WebControls.TextBox txtlinkprice;
-        
-        /// <summary>
-        /// txtaboutdesc 控件。
-        /// </summary>
-        /// <remarks>
-        /// 自动生成的字段。
-        /// 若要进行修改，请将字段声明从设计器文件移到代码隐藏文件。
-        /// </remarks>
-        protected global::System.Web.UI.HtmlControls.HtmlTextArea txtaboutdesc;
+        protected global::System.Web.UI.WebControls.TextBox txtUrl;
         
         /// <summary>
         /// rblStatus 控件。
@@ -103,13 +49,13 @@ namespace DTcms.Web.admin.starexpert {
         protected global::System.Web.UI.WebControls.RadioButtonList rblStatus;
         
         /// <summary>
-        /// txtSortId 控件。
+        /// txtSort 控件。
         /// </summary>
         /// <remarks>
         /// 自动生成的字段。
         /// 若要进行修改，请将字段声明从设计器文件移到代码隐藏文件。
         /// </remarks>
-        protected global::System.Web.UI.WebControls.TextBox txtSortId;
+        protected global::System.Web.UI.WebControls.TextBox txtSort;
         
         /// <summary>
         /// field_tab_content 控件。

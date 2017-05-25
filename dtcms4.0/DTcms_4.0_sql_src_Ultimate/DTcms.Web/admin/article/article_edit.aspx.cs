@@ -365,7 +365,7 @@ namespace DTcms.Web.admin.article
             ddlCategoryId.SelectedValue = model.category_id.ToString();
             //txtCallIndex.Text = model.call_index;
             txtTitle.Text = model.title;
-            //txtTags.Text = model.tags;
+            txtTags.Text = model.tags;
             // txtLinkUrl.Text = model.link_url;
             //不是相册图片就绑定
             string filename = model.img_url.Substring(model.img_url.LastIndexOf("/") + 1);
@@ -632,6 +632,7 @@ namespace DTcms.Web.admin.article
             model.seo_title = txtSeoTitle.Text.Trim();
             model.seo_keywords = txtSeoKeywords.Text.Trim();
             model.seo_description = txtSeoDescription.Text.Trim();
+            model.tags = txtTags.Text.Trim();
 
             model.composition_scheme = txtCompositionscheme.Text.Trim();
             model.site_requirements = txtSiterequirements.Text.Trim();
@@ -828,7 +829,7 @@ namespace DTcms.Web.admin.article
             model.category_id = Utils.StrToInt(ddlCategoryId.SelectedValue, 0);
             // model.call_index = txtCallIndex.Text.Trim();
             model.title = txtTitle.Text.Trim();
-
+            model.tags = txtTags.Text.Trim();
             //  model.link_url = txtLinkUrl.Text.Trim();
             model.img_url = txtImgUrl.Text;
             model.seo_title = txtSeoTitle.Text.Trim();

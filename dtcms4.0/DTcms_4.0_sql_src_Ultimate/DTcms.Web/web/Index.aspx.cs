@@ -53,14 +53,26 @@ namespace DTcms.Web.web
         {
             var list = common.DataSetToIList<Model.ChannelView>(bll.GetChannel(), 0);
 
+            BLL.advertisementBll adbll = new BLL.advertisementBll();
+
+            var adlist = common.DataSetToIList<Model.advertisementModel>(adbll.GetList("type>1 AND state=1"), 0);
+
             if (list.Count > 0)
             {
+                string itype = "2";
                 foreach (var item in list.GroupBy(p => p.Viewchannel_id).ToList())
                 {
                     //广告图片
                     sbHtml.Append(" <div class=\"ad\">");
-                    sbHtml.Append(" <a href=\"#\">");
-                    sbHtml.Append("<img src=\"images/index_19-21.gif\" width=\"1200\" height=\"140\" /></a>");
+
+                    var adinfo = adlist.Find(p => p.type == itype);
+                    if (adinfo != null)
+                    {
+                        sbHtml.Append(" <a href=\"" + adinfo.url + "\">");
+                        sbHtml.Append("<img src=\"" + adinfo.imgurl + "\" width=\"1200\" height=\"140\" /></a>");
+                    }
+                    itype = (Convert.ToInt32(itype) + 1).ToString();
+
                     sbHtml.Append("</div>");
 
 
@@ -75,11 +87,16 @@ namespace DTcms.Web.web
 
 
                     sbHtml.Append(" <ul>");
-                    var channel2 = item.ToList().GroupBy(p => p.Viewid2).ToList();
-                    foreach (var itemPd in channel2)
+                    var tags = item.ToList().OrderByDescending(p => p.click).ToList();
+                    foreach (var itemPd in tags)
                     {
-                        sbHtml.Append("<li><a href=\"#\">" + itemPd.ToList()[0].Viewtitle2 + "</a></li>");
+                        if (!string.IsNullOrEmpty(itemPd.tags))
+                        {
+                            sbHtml.Append("<li><a href=\"Detail.aspx?nvaChannelid=" + itemPd.channel_id + "&id=" + itemPd.id + "\">" + itemPd.tags + "</a></li>");
+                        }
+                        
                     }
+                    sbHtml.Append("<li class=\"more\"><a href=\"List.aspx?nvaChannelid="+ item.ToList()[0].channel_id+ "\"><em>更多</em></a></li>");
                     sbHtml.Append(" </ul>");
                     sbHtml.Append("</dd>");
                     sbHtml.Append(" </dl>");
@@ -215,7 +232,7 @@ namespace DTcms.Web.web
                 sbStar.Append("<ul>");
                 foreach (var itemPd in list.FindAll(p => p.type == 1).Skip(1))
                 {
-                    sbStar.Append("<li><a href=\"StarexpertList.aspx?nvaChannelid=" + itemPd.channel_id + "&id=" + itemPd.id + "\">" + itemPd.name+"-"+itemPd.job_occupation + "</a></li>");
+                    sbStar.Append("<li><a href=\"StarexpertList.aspx?nvaChannelid=" + itemPd.channel_id + "&id=" + itemPd.id + "\">" + itemPd.name + "-" + itemPd.job_occupation + "</a></li>");
                 }
                 sbStar.Append("</ul>");
                 sbStar.Append("</div>");

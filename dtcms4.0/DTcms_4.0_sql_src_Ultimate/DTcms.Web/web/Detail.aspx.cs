@@ -15,13 +15,17 @@ namespace DTcms.Web.web
     public partial class Detail : System.Web.UI.Page
     {
         public BLL.article bll = new BLL.article();
-
+        public string adHtml = "";
+        public string title = "";
+        public string schannel = "";
+        public int ChannelId = 0;
         protected void Page_Load(object sender, EventArgs e)
         {
             if (!Page.IsPostBack)
             {
                 Bindinfo(DTRequest.GetQueryInt("id", 0));
                 BindOtherInfo();
+                adBind();
             }
         }
 
@@ -37,6 +41,9 @@ namespace DTcms.Web.web
                 ds = bll.GetdtArticleDetail(id);
                 if (ds.Tables[0].Rows.Count > 0)
                 {
+                    title = ds.Tables[0].Rows[0]["title"].ToString();
+                    schannel = ds.Tables[0].Rows[0]["chtitle"].ToString();
+                    ChannelId = Convert.ToInt32(ds.Tables[0].Rows[0]["channel_id"]);
                     rptInfo.DataSource = ds.Tables[0];
                     rptInfo.DataBind();
                 }
@@ -109,10 +116,22 @@ namespace DTcms.Web.web
             int id = DTRequest.GetQueryInt("id", 0);
             if (ChannelId > 0 && id > 0)
             {
-                rptOtherList.DataSource = bll.GetList(4, " status=0  and id!=" + id + " and  channel_id=" + ChannelId, "id desc");
+                rptOtherList.DataSource = bll.GetList(4, " status=0 and  is_top!=1  and id!=" + id + " and  channel_id=" + ChannelId, "id desc");
                 rptOtherList.DataBind();
             }
 
+        }
+
+        public void adBind()
+        {
+            advertisementBll bll = new advertisementBll();
+            var data = bll.GetModelList(" type=8");
+            if (data != null)
+            {
+                adHtml += "<a href=\"" + data[0].url + "\">";
+                adHtml += "  <img src=\"" + data[0].imgurl + "\" width=\"1200\" height=\"140\"/>";
+                adHtml += "</a>";
+            }
         }
     }
 }

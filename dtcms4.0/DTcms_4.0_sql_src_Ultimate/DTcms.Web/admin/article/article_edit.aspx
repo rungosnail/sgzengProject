@@ -251,13 +251,13 @@
       <asp:Label ID="div_sub_title_tip" runat="server" CssClass="Validform_checktip" />
     </dd>
   </dl>--%>
-            <%-- <dl>
-    <dt>Tags标签</dt>
+             <dl>
+    <dt>关键字</dt>
     <dd>
-      <asp:TextBox ID="txtTags" runat="server" CssClass="input normal" datatype="*0-500" sucmsg=" " />
-      <span class="Validform_checktip">多个可用英文逗号分隔开，如：a,b</span>
+      <asp:TextBox ID="txtTags" runat="server" CssClass="input normal" datatype="*1-10" sucmsg=" " />
+      <span class="Validform_checktip">请填写关键字</span>
     </dd>
-  </dl>--%>
+  </dl>
             <dl>
                 <dt>封面图片</dt>
                 <dd>

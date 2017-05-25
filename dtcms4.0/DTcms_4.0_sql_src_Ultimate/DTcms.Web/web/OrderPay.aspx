@@ -12,7 +12,7 @@
 </head>
 <body>
     <form id="form1" runat="server">
-        <<div class="content">
+        <div class="content">
             <div class="crumb">您的位置：<a href="#">活动资源网</a> > <a href="#">动漫IP </a>> <span><%=strnavtitle %></span></div>
             <!--crumb-->
 

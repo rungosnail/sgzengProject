@@ -1,18 +1,19 @@
 ﻿using System;
-using System.Data;
+using System.Collections.Generic;
+using System.Linq;
 using System.Text;
+using System.Data;
 using System.Data.SqlClient;
-using DTcms.DBUtility;//Please add references
+using DTcms.DBUtility;
 using DTcms.Common;
-
 namespace DTcms.DAL
 {
     /// <summary>
-    /// 数据访问类:starexpert
+    /// 数据访问类:hotsearch
     /// </summary>
-    public partial class starexpert
+    public partial class hotsearch
     {
-        public starexpert()
+        public hotsearch()
         { }
         #region  BasicMethod
         /// <summary>
@@ -21,7 +22,7 @@ namespace DTcms.DAL
         public bool Exists(int id)
         {
             StringBuilder strSql = new StringBuilder();
-            strSql.Append("select count(1) from dt_starexpert");
+            strSql.Append("select count(1) from dt_hotsearch");
             strSql.Append(" where id=@id");
             SqlParameter[] parameters = {
                     new SqlParameter("@id", SqlDbType.Int,4)
@@ -35,40 +36,27 @@ namespace DTcms.DAL
         /// <summary>
         /// 增加一条数据
         /// </summary>
-        public int Add(DTcms.Model.starexpert model)
+        public int Add(DTcms.Model.hotsearch model)
         {
             StringBuilder strSql = new StringBuilder();
-            strSql.Append("insert into dt_starexpert(");
-            strSql.Append("channel_id,category_id,name,img_url,job_occupation,linkphone,linkprice,aboutdesc,status,createdate,createuser,type,sortid)");
+            strSql.Append("insert into dt_hotsearch(");
+            strSql.Append("title,url,state,sortid,createdate,createuser)");
             strSql.Append(" values (");
-            strSql.Append("@channel_id,@category_id,@name,@img_url,@job_occupation,@linkphone,@linkprice,@aboutdesc,@status,@createdate,@createuser,@type,sortid)");
+            strSql.Append("@title,@url,@state,@sortid,@createdate,@createuser)");
             strSql.Append(";select @@IDENTITY");
             SqlParameter[] parameters = {
-                    new SqlParameter("@channel_id", SqlDbType.Int,4),
-                    new SqlParameter("@category_id", SqlDbType.Int,4),
-                    new SqlParameter("@name", SqlDbType.NVarChar,10),
-                    new SqlParameter("@img_url", SqlDbType.NVarChar,50),
-                    new SqlParameter("@job_occupation", SqlDbType.NVarChar,50),
-                    new SqlParameter("@linkphone", SqlDbType.VarChar,11),
-                    new SqlParameter("@linkprice", SqlDbType.Decimal,9),
-                    new SqlParameter("@aboutdesc", SqlDbType.NVarChar,500),
-                    new SqlParameter("@status", SqlDbType.Int,4),
-                    new SqlParameter("@createdate", SqlDbType.DateTime),
-                    new SqlParameter("@createuser", SqlDbType.Int,4),
-                    new SqlParameter("@type", SqlDbType.Int,4),new SqlParameter("@sortid", SqlDbType.Int,4)};
-            parameters[0].Value = model.channel_id;
-            parameters[1].Value = model.category_id;
-            parameters[2].Value = model.name;
-            parameters[3].Value = model.img_url;
-            parameters[4].Value = model.job_occupation;
-            parameters[5].Value = model.linkphone;
-            parameters[6].Value = model.linkprice;
-            parameters[7].Value = model.aboutdesc;
-            parameters[8].Value = model.status;
-            parameters[9].Value = model.createdate;
-            parameters[10].Value = model.createuser;
-            parameters[11].Value = model.type;
-            parameters[12].Value = model.sortid;
+                    new SqlParameter("@title", SqlDbType.VarChar,10),
+                    new SqlParameter("@url", SqlDbType.NVarChar,50),
+                    new SqlParameter("@state", SqlDbType.Int,4),
+                    new SqlParameter("@sortid", SqlDbType.Int,4),
+                    new SqlParameter("@createdate", SqlDbType.Date,3),
+                    new SqlParameter("@createuser", SqlDbType.Int,4)};
+            parameters[0].Value = model.title;
+            parameters[1].Value = model.url;
+            parameters[2].Value = model.state;
+            parameters[3].Value = model.sortid;
+            parameters[4].Value = model.createdate;
+            parameters[5].Value = model.createuser;
 
             object obj = DbHelperSQL.GetSingle(strSql.ToString(), parameters);
             if (obj == null)
@@ -83,52 +71,32 @@ namespace DTcms.DAL
         /// <summary>
         /// 更新一条数据
         /// </summary>
-        public bool Update(DTcms.Model.starexpert model)
+        public bool Update(DTcms.Model.hotsearch model)
         {
             StringBuilder strSql = new StringBuilder();
-            strSql.Append("update dt_starexpert set ");
-            strSql.Append("channel_id=@channel_id,");
-            strSql.Append("category_id=@category_id,");
-            strSql.Append("name=@name,");
-            strSql.Append("img_url=@img_url,");
-            strSql.Append("job_occupation=@job_occupation,");
-            strSql.Append("linkphone=@linkphone,");
-            strSql.Append("linkprice=@linkprice,");
-            strSql.Append("aboutdesc=@aboutdesc,");
-            strSql.Append("status=@status,");
+            strSql.Append("update dt_hotsearch set ");
+            strSql.Append("title=@title,");
+            strSql.Append("url=@url,");
+            strSql.Append("state=@state,");
+            strSql.Append("sortid=@sortid,");
             strSql.Append("createdate=@createdate,");
-            strSql.Append("createuser=@createuser,");
-            strSql.Append("type=@type,sortid=@sortid");
+            strSql.Append("createuser=@createuser");
             strSql.Append(" where id=@id");
             SqlParameter[] parameters = {
-                    new SqlParameter("@channel_id", SqlDbType.Int,4),
-                    new SqlParameter("@category_id", SqlDbType.Int,4),
-                    new SqlParameter("@name", SqlDbType.NVarChar,10),
-                    new SqlParameter("@img_url", SqlDbType.NVarChar,50),
-                    new SqlParameter("@job_occupation", SqlDbType.NVarChar,50),
-                    new SqlParameter("@linkphone", SqlDbType.VarChar,11),
-                    new SqlParameter("@linkprice", SqlDbType.Decimal,9),
-                    new SqlParameter("@aboutdesc", SqlDbType.NVarChar,500),
-                    new SqlParameter("@status", SqlDbType.Int,4),
-                    new SqlParameter("@createdate", SqlDbType.DateTime),
+                    new SqlParameter("@title", SqlDbType.VarChar,10),
+                    new SqlParameter("@url", SqlDbType.NVarChar,50),
+                    new SqlParameter("@state", SqlDbType.Int,4),
+                    new SqlParameter("@sortid", SqlDbType.Int,4),
+                    new SqlParameter("@createdate", SqlDbType.Date,3),
                     new SqlParameter("@createuser", SqlDbType.Int,4),
-                     new SqlParameter("@type", SqlDbType.Int,4),
-                      new SqlParameter("@sortid", SqlDbType.Int,4),
                     new SqlParameter("@id", SqlDbType.Int,4)};
-            parameters[0].Value = model.channel_id;
-            parameters[1].Value = model.category_id;
-            parameters[2].Value = model.name;
-            parameters[3].Value = model.img_url;
-            parameters[4].Value = model.job_occupation;
-            parameters[5].Value = model.linkphone;
-            parameters[6].Value = model.linkprice;
-            parameters[7].Value = model.aboutdesc;
-            parameters[8].Value = model.status;
-            parameters[9].Value = model.createdate;
-            parameters[10].Value = model.createuser;
-            parameters[11].Value = model.type;
-            parameters[12].Value = model.sortid;
-            parameters[13].Value = model.id;
+            parameters[0].Value = model.title;
+            parameters[1].Value = model.url;
+            parameters[2].Value = model.state;
+            parameters[3].Value = model.sortid;
+            parameters[4].Value = model.createdate;
+            parameters[5].Value = model.createuser;
+            parameters[6].Value = model.id;
 
             int rows = DbHelperSQL.ExecuteSql(strSql.ToString(), parameters);
             if (rows > 0)
@@ -148,7 +116,7 @@ namespace DTcms.DAL
         {
 
             StringBuilder strSql = new StringBuilder();
-            strSql.Append("delete from dt_starexpert ");
+            strSql.Append("delete from dt_hotsearch ");
             strSql.Append(" where id=@id");
             SqlParameter[] parameters = {
                     new SqlParameter("@id", SqlDbType.Int,4)
@@ -171,7 +139,7 @@ namespace DTcms.DAL
         public bool DeleteList(string idlist)
         {
             StringBuilder strSql = new StringBuilder();
-            strSql.Append("delete from dt_starexpert ");
+            strSql.Append("delete from dt_hotsearch ");
             strSql.Append(" where id in (" + idlist + ")  ");
             int rows = DbHelperSQL.ExecuteSql(strSql.ToString());
             if (rows > 0)
@@ -188,18 +156,18 @@ namespace DTcms.DAL
         /// <summary>
         /// 得到一个对象实体
         /// </summary>
-        public DTcms.Model.starexpert GetModel(int id)
+        public DTcms.Model.hotsearch GetModel(int id)
         {
 
             StringBuilder strSql = new StringBuilder();
-            strSql.Append("select  top 1 id,channel_id,category_id,name,img_url,job_occupation,linkphone,linkprice,aboutdesc,status,createdate,createuser,type,sortid from dt_starexpert ");
+            strSql.Append("select  top 1 id,title,url,state,sortid,createdate,createuser from dt_hotsearch ");
             strSql.Append(" where id=@id");
             SqlParameter[] parameters = {
                     new SqlParameter("@id", SqlDbType.Int,4)
             };
             parameters[0].Value = id;
 
-            DTcms.Model.starexpert model = new DTcms.Model.starexpert();
+            DTcms.Model.hotsearch model = new DTcms.Model.hotsearch();
             DataSet ds = DbHelperSQL.Query(strSql.ToString(), parameters);
             if (ds.Tables[0].Rows.Count > 0)
             {
@@ -215,50 +183,30 @@ namespace DTcms.DAL
         /// <summary>
         /// 得到一个对象实体
         /// </summary>
-        public DTcms.Model.starexpert DataRowToModel(DataRow row)
+        public DTcms.Model.hotsearch DataRowToModel(DataRow row)
         {
-            DTcms.Model.starexpert model = new DTcms.Model.starexpert();
+            DTcms.Model.hotsearch model = new DTcms.Model.hotsearch();
             if (row != null)
             {
                 if (row["id"] != null && row["id"].ToString() != "")
                 {
                     model.id = int.Parse(row["id"].ToString());
                 }
-                if (row["channel_id"] != null && row["channel_id"].ToString() != "")
+                if (row["title"] != null)
                 {
-                    model.channel_id = int.Parse(row["channel_id"].ToString());
+                    model.title = row["title"].ToString();
                 }
-                if (row["category_id"] != null && row["category_id"].ToString() != "")
+                if (row["url"] != null)
                 {
-                    model.category_id = int.Parse(row["category_id"].ToString());
+                    model.url = row["url"].ToString();
                 }
-                if (row["name"] != null)
+                if (row["state"] != null && row["state"].ToString() != "")
                 {
-                    model.name = row["name"].ToString();
+                    model.state = int.Parse(row["state"].ToString());
                 }
-                if (row["img_url"] != null)
+                if (row["sortid"] != null && row["sortid"].ToString() != "")
                 {
-                    model.img_url = row["img_url"].ToString();
-                }
-                if (row["job_occupation"] != null)
-                {
-                    model.job_occupation = row["job_occupation"].ToString();
-                }
-                if (row["linkphone"] != null)
-                {
-                    model.linkphone = row["linkphone"].ToString();
-                }
-                if (row["linkprice"] != null && row["linkprice"].ToString() != "")
-                {
-                    model.linkprice = decimal.Parse(row["linkprice"].ToString());
-                }
-                if (row["aboutdesc"] != null)
-                {
-                    model.aboutdesc = row["aboutdesc"].ToString();
-                }
-                if (row["status"] != null && row["status"].ToString() != "")
-                {
-                    model.status = int.Parse(row["status"].ToString());
+                    model.sortid = int.Parse(row["sortid"].ToString());
                 }
                 if (row["createdate"] != null && row["createdate"].ToString() != "")
                 {
@@ -267,15 +215,6 @@ namespace DTcms.DAL
                 if (row["createuser"] != null && row["createuser"].ToString() != "")
                 {
                     model.createuser = int.Parse(row["createuser"].ToString());
-                }
-                
-                if (row["type"] != null && row["type"].ToString() != "")
-                {
-                    model.type = int.Parse(row["type"].ToString());
-                }
-                if (row["sortid"] != null && row["sortid"].ToString() != "")
-                {
-                    model.sortid = int.Parse(row["sortid"].ToString());
                 }
             }
             return model;
@@ -287,8 +226,8 @@ namespace DTcms.DAL
         public DataSet GetList(string strWhere)
         {
             StringBuilder strSql = new StringBuilder();
-            strSql.Append("select id,channel_id,category_id,name,img_url,job_occupation,linkphone,linkprice,aboutdesc,status,createdate,createuser,type,sortid ");
-            strSql.Append(" FROM dt_starexpert ");
+            strSql.Append("select id,title,url,state,sortid,createdate,createuser ");
+            strSql.Append(" FROM dt_hotsearch ");
             if (strWhere.Trim() != "")
             {
                 strSql.Append(" where " + strWhere);
@@ -307,8 +246,8 @@ namespace DTcms.DAL
             {
                 strSql.Append(" top " + Top.ToString());
             }
-            strSql.Append(" id,channel_id,category_id,name,img_url,job_occupation,linkphone,linkprice,aboutdesc,status,createdate,createuser,type,sortid ");
-            strSql.Append(" FROM dt_starexpert ");
+            strSql.Append(" id,title,url,state,sortid,createdate,createuser ");
+            strSql.Append(" FROM dt_hotsearch ");
             if (strWhere.Trim() != "")
             {
                 strSql.Append(" where " + strWhere);
@@ -323,7 +262,7 @@ namespace DTcms.DAL
         public int GetRecordCount(string strWhere)
         {
             StringBuilder strSql = new StringBuilder();
-            strSql.Append("select count(1) FROM dt_starexpert ");
+            strSql.Append("select count(1) FROM dt_hotsearch ");
             if (strWhere.Trim() != "")
             {
                 strSql.Append(" where " + strWhere);
@@ -354,7 +293,7 @@ namespace DTcms.DAL
             {
                 strSql.Append("order by T.id desc");
             }
-            strSql.Append(")AS Row, T.*  from dt_starexpert T ");
+            strSql.Append(")AS Row, T.*  from dt_hotsearch T ");
             if (!string.IsNullOrEmpty(strWhere.Trim()))
             {
                 strSql.Append(" WHERE " + strWhere);
@@ -363,14 +302,13 @@ namespace DTcms.DAL
             strSql.AppendFormat(" WHERE TT.Row between {0} and {1}", startIndex, endIndex);
             return DbHelperSQL.Query(strSql.ToString());
         }
-
         /// <summary>
         /// 获得查询分页数据
         /// </summary>
         public DataSet GetList(int pageSize, int pageIndex, string strWhere, string filedOrder, out int recordCount)
         {
             StringBuilder strSql = new StringBuilder();
-            strSql.Append("select * FROM .dbo.dt_starexpert ");
+            strSql.Append("select * FROM .dbo.dt_hotsearch ");
 
             if (strWhere.Trim() != "")
             {
@@ -395,7 +333,7 @@ namespace DTcms.DAL
 					new SqlParameter("@OrderType", SqlDbType.Bit),
 					new SqlParameter("@strWhere", SqlDbType.VarChar,1000),
 					};
-			parameters[0].Value = "dt_starexpert";
+			parameters[0].Value = "dt_hotsearch";
 			parameters[1].Value = "id";
 			parameters[2].Value = PageSize;
 			parameters[3].Value = PageIndex;

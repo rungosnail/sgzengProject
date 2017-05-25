@@ -62,6 +62,7 @@
     <Compile Include="channel.cs" />
     <Compile Include="channel_site.cs" />
     <Compile Include="express.cs" />
+    <Compile Include="hotsearch.cs" />
     <Compile Include="mail_template.cs" />
     <Compile Include="manager.cs" />
     <Compile Include="manager_log.cs" />

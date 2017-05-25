@@ -5,7 +5,6 @@
 <html>
 <head runat="server">
     <meta http-equiv="Content-Type" content="text/html; charset=utf-8" />
-    <title></title>
     <link href="css/common.css" rel="stylesheet" />
     <link href="css/list.css" rel="stylesheet" />
     <script src="scripts/jquery-1.11.2.min.js"></script>
@@ -22,7 +21,13 @@
                     <a style="cursor: pointer;" onclick="btnSearch()">搜索</a>
                     <input type="text" placeholder="请输入标题，方案名称..." id="txtkeyword" />
                 </p>
-                <%--<span>热门搜索：<a href="#">艺人</a><a href="#">场馆</a><a href="#">齐白石画展</a><a href="#">场馆</a><a href="#">场馆</a></span> --%>
+                <span>热门搜索：
+                    <asp:Repeater ID="rptHotsearch" runat="server">
+                        <ItemTemplate>
+                    <a href="<%#Eval("url") %>"><%#Eval("title") %></a>
+                        </ItemTemplate>
+                    </asp:Repeater>                   
+                </span> 
 
             </dt>
             <dd><span>HI，欢迎来到活动资源网</span>
@@ -86,7 +91,7 @@
         function btnSearch() {
             var keyword = $("#txtkeyword").val();
             if ($.trim(keyword).length > 0) {
-                window.location.href = "SearchResult.aspx?keyword=" + keyword;
+                window.location.href = "SearchResult.aspx?keyword=" + escape(keyword);
             } else {
                 alert("请输入要查询的关键字！");
                 return;

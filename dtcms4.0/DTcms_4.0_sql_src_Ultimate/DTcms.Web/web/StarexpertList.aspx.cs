@@ -56,7 +56,7 @@ namespace DTcms.Web.web
             int ChannelId = DTRequest.GetQueryInt("nvaChannelid", 10);
             if (ChannelId > 0 && id > 0)
             {
-                rptOtherList.DataSource = bll.GetList(4, " status=0  and id!=" + id + " and  channel_id=" + ChannelId, "id desc");
+                rptOtherList.DataSource = bll.GetList(4, " status=0 and  type!=0 and id!=" + id + " and  channel_id=" + ChannelId, " sortid  asc");
                 rptOtherList.DataBind();
             }
 

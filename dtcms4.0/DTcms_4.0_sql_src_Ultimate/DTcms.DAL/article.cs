@@ -1292,8 +1292,9 @@ namespace DTcms.DAL
 
         public DataSet GetdtArticleDetail(int id)
         {
-            string strSql = @"SELECT TOP 100 at.*,av.market_price,av.sell_price FROM dbo.dt_article AS at
+            string strSql = @"SELECT TOP 100 at.*,ch.title AS chtitle,av.market_price,av.sell_price FROM dbo.dt_article AS at
                                         LEFT JOIN dt_article_attribute_value AS av ON at.id=av.article_id
+                                        LEFT JOIN dbo.dt_channel AS ch ON at.channel_id=ch.id
                                          WHERE at.status=0 AND at.id=" + id + @";
                                         SELECT * FROM  dt_article_albums WHERE article_id=" + id + ";";
             return DbHelperSQL.Query(strSql);

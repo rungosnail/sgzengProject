@@ -8,7 +8,7 @@
         <script src="html/carousel-mask/js/carousel.js"></script>
         <link href="css/carousel-style.css" rel="stylesheet" />
         <div class="content">
-            <div class="crumb">您的位置：<a href="#">活动资源网</a> > <a href="#">动漫IP </a>> <span>福吉兄弟</span></div>
+            <div class="crumb">您的位置：<a href="Index.aspx">活动资源网</a> > <a href="List.aspx?nvaChannelid=<%=ChannelId %>"><%=schannel %> </a>> <span><%=title %></span></div>
             <div class="detail">
 
                 <div class="dleftshow" id="divImg" runat="server">
@@ -61,8 +61,7 @@
             </div>
 
             <div class="ad">
-                <a href="#">
-                    <img src="images/index_19-21.gif" width="1200" height="140" /></a>
+                <%=adHtml %>
             </div>
         </div>
         <script src="scripts/jquery-3.1.1.min.js"></script>

@@ -106,6 +106,15 @@ namespace DTcms.BLL
         {
             return dal.GetList(parent_id, channel_id);
         }
+        /// <summary>
+        /// 取得指定类别下的列表
+        /// </summary>
+        /// <param name="channel_id"></param>
+        /// <returns></returns>
+        public DataTable GetChildList(int channel_id)
+        {
+            return dal.GetChildList(channel_id);
+        }
 
         /// <summary>
         /// 取得该频道下所有类别列表

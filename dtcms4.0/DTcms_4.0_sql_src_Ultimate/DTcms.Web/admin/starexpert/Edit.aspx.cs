@@ -69,6 +69,7 @@ namespace DTcms.Web.admin.starexpert
             model.createuser = GetAdminInfo().id;
             model.channel_id = _channel_id;
             model.type = Convert.ToInt32(cblItem.SelectedValue);
+            model.sortid = txtSortId.Text.Trim() == "" ? 0 : Convert.ToInt32(txtSortId.Text);
             if (!string.IsNullOrEmpty(hdID.Value))
             {
                 model.id = Convert.ToInt32(hdID.Value);
@@ -101,6 +102,7 @@ namespace DTcms.Web.admin.starexpert
                 txtlinkprice.Text = model.linkprice.ToString();
                 txtaboutdesc.InnerText = model.aboutdesc;
                 rblStatus.SelectedValue = model.status == null ? "" : model.status.ToString();
+                txtSortId.Text = model.sortid.ToString();
                 hdID.Value = model.id.ToString();
                 cblItem.SelectedValue = model.type == null ? "" : model.type.ToString();
             }

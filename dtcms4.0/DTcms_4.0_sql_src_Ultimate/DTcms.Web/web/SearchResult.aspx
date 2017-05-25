@@ -10,7 +10,15 @@
 
         <div class="search">
             <div class="sleft">
-                <div class="result">搜索关键字<span> "福吉兄弟"</span>, 共 <span>18</span> 个结果</div>
+                <div class="result">搜索关键字<span id="spkeyword"> </span>, 共 <span><%=totalCount %></span> 个结果</div>
+                <%if (totalCount == 0)
+                    {  %>
+                <div class="noresult">
+                    <p>诶呀！暂时没有找到与<span id="spNokeyword"></span>相关的资源</p>
+                </div>
+                <%}
+                else
+                { %>
                 <div class="rlist">
                     <asp:Repeater ID="rptlist" runat="server">
                         <HeaderTemplate>
@@ -32,6 +40,7 @@
                         </FooterTemplate>
                     </asp:Repeater>
                 </div>
+                <%} %>
 
                 <div id="PageContent" runat="server" class="paging">
                 </div>
@@ -39,7 +48,7 @@
             </div>
             <!--sleft-->
 
-            <uc1:righuc id="myuc" runat="server"></uc1:righuc>
+            <uc1:righuc ID="myuc" runat="server"></uc1:righuc>
             <!--sright-->
 
         </div>
@@ -51,4 +60,24 @@
 
     </div>
     <!--content-->
+    <script type="text/javascript">
+        //获取url中的参数
+        function getUrlParam(name) {
+            var reg = new RegExp("(^|&)" + name + "=([^&]*)(&|$)"); //构造一个含有目标参数的正则表达式对象
+            var r = window.location.search.substr(1).match(reg);  //匹配目标参数
+            if (r != null) return unescape(r[2]); return null; //返回参数值
+        }
+
+        $(document).ready(function () {
+            var skey = getUrlParam("keyword");
+            if ($("#spNokeyword").val() != undefined) {
+                $("#spNokeyword").html("\"" + skey + "\"");
+            } else {
+                $("#spkeyword").html("\"" + skey + "\"");
+            }
+            $("#txtkeyword").val(skey);
+            
+           
+        });
+    </script>
 </asp:Content>

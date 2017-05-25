@@ -23,8 +23,8 @@
             //初始化表单验证
             $("#form1").initValidform();
             //初始化上传控件
-            $(".upload-img").InitUploader({ filesize: "10240", sendurl: "../../tools/upload_ajax.ashx", swf: "../../scripts/webuploader/uploader.swf", filetypes: "gif,jpg,png,bmp,rar,zip,doc,xls,txt" });
-            $(".upload-video").InitUploader({ filesize: "102400", sendurl: "../../tools/upload_ajax.ashx", swf: "../../scripts/webuploader/uploader.swf", filetypes: "gif,jpg,png,bmp,rar,zip,doc,xls,txt" });
+            $(".upload-img").InitUploader({ filesize: "10240", sendurl: "../../tools/upload_ajax.ashx", swf: "../../scripts/webuploader/uploader.swf", filetypes: "gif,jpg,png,bmp,rar,zip,doc,xls,txt,pdf,ppt" });
+            $(".upload-video").InitUploader({ filesize: "102400", sendurl: "../../tools/upload_ajax.ashx", swf: "../../scripts/webuploader/uploader.swf", filetypes: "gif,jpg,png,bmp,rar,zip,doc,xls,txt,pdf,ppt" });
             $(".upload-album").InitUploader({ btntext: "批量上传", multiple: true, water: false, thumbnail: true, filesize: "10240", sendurl: "../../tools/upload_ajax.ashx", swf: "../../scripts/webuploader/uploader.swf" });
 
             //设置封面图片的样式
@@ -141,7 +141,13 @@
                     </div>
                 </dd>
             </dl>       
-           
+              <dl>
+                <dt>排序数字</dt>
+                <dd>
+                    <asp:TextBox ID="txtSortId" runat="server" CssClass="input small" datatype="n" sucmsg=" ">99</asp:TextBox>
+                    <span class="Validform_checktip">*数字，越小越向前</span>
+                </dd>
+            </dl>
            
         </div>
 

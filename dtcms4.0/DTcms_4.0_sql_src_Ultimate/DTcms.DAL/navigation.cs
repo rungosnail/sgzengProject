@@ -242,7 +242,7 @@ namespace DTcms.DAL
             StringBuilder strSql = new StringBuilder();
             strSql.Append("select id,parent_id,channel_id,nav_type,name,title,sub_title,icon_url,link_url,sort_id,is_lock,remark,action_type,is_sys");
             strSql.Append(" FROM " + databaseprefix + "navigation");
-            strSql.Append(" where nav_type='" + nav_type + "' and is_block=0");
+            strSql.Append(" where nav_type='" + nav_type + "' and (is_block=0 OR ISNULL(is_lock,0)=0)");
             strSql.Append(" order by sort_id asc,id desc");
             DataSet ds = DbHelperSQL.Query(strSql.ToString());
             //重组列表
