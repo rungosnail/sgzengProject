@@ -13,7 +13,7 @@
 <body>
     <form id="form1" runat="server">
         <div class="content">
-            <div class="crumb">您的位置：<a href="#">活动资源网</a> > <a href="#">动漫IP </a>> <span><%=strnavtitle %></span></div>
+            <div class="crumb">您的位置：<a href="Index.aspx">活动资源网</a> > <a href="List.aspx?nvaChannelid=<%=ChannelId %>"><%=strChannelTitle %> </a>> <span><%=strnavtitle %></span></div>
             <!--crumb-->
 
             <div class="paybox">

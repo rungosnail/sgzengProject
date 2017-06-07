@@ -91,6 +91,10 @@ namespace DTcms.Web.admin.users
             txtExp.Text = model.exp.ToString();
             lblRegTime.Text = model.reg_time.ToString();
             lblRegIP.Text = model.reg_ip.ToString();
+            lbFreeDownNumber.Text = model.FreeDownNumber.ToString();
+            lbMemberStartDate.Text = model.MemberStartDate == null ? "" : model.MemberStartDate.ToString();
+            lbMemberEndDate.Text = model.MemberEndDate == null ? "" : model.MemberEndDate.ToString();
+            lbFreeLinkNumber.Text = model.FreeLinkNumber.ToString();
             //查找最近登录信息
             Model.user_login_log logModel = new BLL.user_login_log().GetLastModel(model.user_name);
             if (logModel != null)
@@ -139,7 +143,8 @@ namespace DTcms.Web.admin.users
             model.exp = int.Parse(txtExp.Text.Trim());
             model.reg_time = DateTime.Now;
             model.reg_ip = DTRequest.GetIP();
-
+            model.FreeDownNumber = 5;
+            model.FreeLinkNumber = 30;
             if (bll.Add(model) > 0)
             {
                 AddAdminLog(DTEnums.ActionEnum.Add.ToString(), "添加用户:" + model.user_name); //记录日志
@@ -181,7 +186,6 @@ namespace DTcms.Web.admin.users
             model.amount = Utils.StrToDecimal(txtAmount.Text.Trim(), 0);
             model.point = Utils.StrToInt(txtPoint.Text.Trim(), 0);
             model.exp = Utils.StrToInt(txtExp.Text.Trim(), 0);
-
             if (bll.Update(model))
             {
                 AddAdminLog(DTEnums.ActionEnum.Edit.ToString(), "修改用户信息:" + model.user_name); //记录日志

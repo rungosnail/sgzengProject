@@ -20,7 +20,7 @@
                 <dd>
                     <b><%=Name %></b>
                     <span><%=job_occupation %></span>
-                    <p><strong>￥ <%=linkprice %></strong><a href="#">联系资源</a></p>
+                    <p><strong>￥ <%=linkprice %></strong><a href="OrderPay.aspx?type=Star&id=<%=id %>">联系资源</a></p>
                 </dd>
             </dl>
         </div>

@@ -48,7 +48,12 @@
   <div class="ftitle"><span>找回密码</span></div>
  
     <div class="forbox">
-    <dl><dt>邮箱：</dt><dd><input type="text" placeholder="请输入注册时的邮箱"/><span class="error">请输入邮箱</span></dd></dl>
+    <dl><dt>邮箱：</dt>
+        <dd>
+        <input type="text" placeholder="请输入注册时的邮箱"/>
+        <span class="error">请输入邮箱</span>
+            </dd>
+        </dl>
     <dl><dt>新密码：</dt><dd><p><a href="#">获取邮箱验证码</a><input type="text" placeholder="请输入验证码"/></p></dd></dl>
     <dl><dt>新登录密码：</dt><dd><input type="text"  placeholder="密码"/></dd></dl>
     <dl><dt>确认新登录密码：</dt><dd><input type="text"  placeholder="确认密码"/></dd></dl>

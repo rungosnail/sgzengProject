@@ -114,7 +114,12 @@
 .forbox dl dd span.error { background:url(../images/icon.gif) no-repeat 0 -698px; padding-left:20px; color:#ff0000; margin-left:10px;}
 .back a{ background:#ff7c35;  border-radius:5px;  color:#fff; text-decoration:none; height:36px; line-height:36px; margin:15px 0 0 120px; display:block; width:120px; text-align:center;}
 .forbox dl dd  p{ border:1px solid #ddd; height:26px;  width:316px; line-height:28px;}
-.forbox dl dd a { float:right; color:#ff7c35; padding-right:5px;}
+.codebutton {
+    float: right;
+    color: #ff7c35;
+    padding-right: 5px;
+    width: 120px !important;
+}
 .forbox dl dd  p input{ width:200px; border:0; line-height:26px; height:26px;}
 
 .service{ padding:20px 40px;}

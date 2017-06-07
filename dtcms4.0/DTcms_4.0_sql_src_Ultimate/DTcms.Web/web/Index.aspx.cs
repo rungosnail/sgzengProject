@@ -82,7 +82,29 @@ namespace DTcms.Web.web
 
                     sbHtml.Append("<div class=\"otitle\">");
                     sbHtml.Append("<dl>");
-                    sbHtml.Append("<dt class=\"dm\">" + item.ToList()[0].Viewtitle + "</dt>");
+                    string strChlass = "dm";
+                    switch (item.ToList()[0].Viewtitle)
+                    {
+                        case "文化展览":
+                            strChlass = "wh";
+                            break;
+                        case "创意道具":
+                            strChlass = "dj";
+                            break;
+                        case "文艺演出":
+                            strChlass = "wy";
+                            break;
+                        case "明星专家":
+                            strChlass = "mx";
+                            break;
+                        case "主题活动":
+                            strChlass = "zt";
+                            break;
+                        default:
+                            break;
+                    }
+
+                    sbHtml.Append("<dt class=\"" + strChlass + "\">" + item.ToList()[0].Viewtitle + "</dt>");
                     sbHtml.Append("  <dd>");
 
 
@@ -94,9 +116,9 @@ namespace DTcms.Web.web
                         {
                             sbHtml.Append("<li><a href=\"Detail.aspx?nvaChannelid=" + itemPd.channel_id + "&id=" + itemPd.id + "\">" + itemPd.tags + "</a></li>");
                         }
-                        
+
                     }
-                    sbHtml.Append("<li class=\"more\"><a href=\"List.aspx?nvaChannelid="+ item.ToList()[0].channel_id+ "\"><em>更多</em></a></li>");
+                    sbHtml.Append("<li class=\"more\"><a href=\"List.aspx?nvaChannelid=" + item.ToList()[0].channel_id + "\"><em>更多</em></a></li>");
                     sbHtml.Append(" </ul>");
                     sbHtml.Append("</dd>");
                     sbHtml.Append(" </dl>");

@@ -13,9 +13,9 @@
     </asp:ContentPlaceHolder>
 </head>
 <body>
-    <div class="logo">
-        <h1><a href="#"></a></h1>
-        <dl>
+    <div class="logo" style="margin-bottom:1px;">
+            <img  src="images/logoweb.png" style="width:200px;height:141px;margin-top:-15px;" align="left"/>
+        <dl style="margin-top:25px;">
             <dt>
                 <p>
                     <a style="cursor: pointer;" onclick="btnSearch()">搜索</a>
@@ -72,9 +72,9 @@
     <div class="foot">
         <dl>
             <dt>
-                <p><a href="index.aspx">首页</a> | <a href="about.aspx">关于我们</a> | 联系电话:13666666666</p>
-                <p>广州市天河路xx号地址信息地址信息地址信息</p>
-                <p>©2016 广州吟羊文化传播有限公司 版权所有 粤ICP备16060652号</p>
+                <p><a href="index.aspx">首页</a> | <a href="about.aspx">关于我们</a> | 联系电话:18826470210</p>
+                <p>广州市番禺区南浦沿沙路天朗商务大厦412</p>
+                <p> ©2016 广州吟羊文化传播有限公司<a href="http://www.miitbeian.gov.cn/" target="_blank"> 版权所有 粤ICP备16060652号</a></p>
             </dt>
             <dd>
                 <span>活动资源网<br />

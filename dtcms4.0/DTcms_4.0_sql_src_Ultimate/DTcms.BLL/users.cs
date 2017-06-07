@@ -73,6 +73,10 @@ namespace DTcms.BLL
         {
             return dal.GetModel(id);
         }
+        public Model.users GetModelEmail(string Email)
+        {
+            return dal.GetModelEmail(Email);
+        }
 
         /// <summary>
         /// 根据用户名密码返回一个实体

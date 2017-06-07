@@ -12,7 +12,6 @@
             <div class="detail">
 
                 <div class="dleftshow" id="divImg" runat="server">
-                  
                 </div>
 
 
@@ -92,33 +91,7 @@
                     });
                 });
 
-                //$("#ckul li ").find("input").removeAttr("checked");
-
                 $("#ckul li").click(function () {
-
-                    //var id = $(this).find("input").attr("id");
-                    //var ckmarketprice = $("#ckmarketprice").is(':checked');
-                    //var cksellprice = $("#cksellprice").is(':checked');
-                    //alert(id);
-                    //alert(ckmarketprice);
-                    //if (id == "ckmarketprice" && cksellprice == true) {
-                    //    $("#cksellprice").removeAttr("checked");
-                    //    $("#ckmarketprice").attr("checked","checked");
-                    //} else if (id == "cksellprice" && ckmarketprice == true) {
-                    //    alert(332);
-                    //    $("#ckmarketprice").removeAttr("checked");
-                    //    $("#cksellprice").attr("checked", "checked");
-                    //}
-
-
-
-
-
-                    //if (ckmarketprice == true && cksellprice == false) {
-                    //    $("#cksellprice").removeAttr("checked");
-                    //} else  {
-                    //    $("#ckmarketprice").removeAttr("checked");
-                    //}
 
                     var countPrice = 0.00;
                     $("input[name='ckPrice']").each(function () {
@@ -133,9 +106,22 @@
 
 
             function btninfo(id) {
-                var icase = $("#ckmarketprice").is(':checked');
-                var iphone = $("#cksellprice").is(':checked');
-                window.location.href = "OrderPay.aspx?id=" + id + "&icase=" + (icase == true ? "1" : "0") + "&iphone=" + (iphone == true ? "1" : "0");
+                $.ajax({
+                    type: "POST",
+                    url: "/tools/submit_ajax.ashx?action=user_check_login",
+                    dataType: "json",
+                    timeout: 20000,
+                    success: function (data, textStatus) {
+                        if (data.status == 1) {
+                            var icase = $("#ckmarketprice").is(':checked');
+                            var iphone = $("#cksellprice").is(':checked');
+                            window.location.href = "OrderPay.aspx?id=" + id + "&icase=" + (icase == true ? "1" : "0") + "&iphone=" + (iphone == true ? "1" : "0");
+                        } else {
+                            alert("您还未登录...");
+                            window.location.href = "Login.aspx";
+                        }
+                    }
+                });
             }
         </script>
         <!--content-->

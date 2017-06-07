@@ -29,7 +29,7 @@ namespace DTcms.DAL
             strSql.Append("select count(1) from " + databaseprefix + "users");
             strSql.Append(" where id=@id ");
             SqlParameter[] parameters = {
-					new SqlParameter("@id", SqlDbType.Int,4)};
+                    new SqlParameter("@id", SqlDbType.Int,4)};
             parameters[0].Value = id;
 
             return DbHelperSQL.Exists(strSql.ToString(), parameters);
@@ -44,7 +44,7 @@ namespace DTcms.DAL
             strSql.Append("select count(1) from " + databaseprefix + "users");
             strSql.Append(" where user_name=@user_name ");
             SqlParameter[] parameters = {
-					new SqlParameter("@user_name", SqlDbType.NVarChar,100)};
+                    new SqlParameter("@user_name", SqlDbType.NVarChar,100)};
             parameters[0].Value = user_name;
             return DbHelperSQL.Exists(strSql.ToString(), parameters);
         }
@@ -58,7 +58,7 @@ namespace DTcms.DAL
             strSql.Append("select count(1) from " + databaseprefix + "users");
             strSql.Append(" where reg_ip=@reg_ip and DATEDIFF(hh,reg_time,getdate())<@regctrl ");
             SqlParameter[] parameters = {
-					new SqlParameter("@reg_ip", SqlDbType.NVarChar,30),
+                    new SqlParameter("@reg_ip", SqlDbType.NVarChar,30),
                     new SqlParameter("@regctrl", SqlDbType.Int,4)};
             parameters[0].Value = reg_ip;
             parameters[1].Value = regctrl;
@@ -72,32 +72,37 @@ namespace DTcms.DAL
         {
             StringBuilder strSql = new StringBuilder();
             strSql.Append("insert into " + databaseprefix + "users(");
-            strSql.Append("group_id,user_name,salt,password,mobile,email,avatar,nick_name,sex,birthday,telphone,area,address,qq,msn,amount,point,exp,status,reg_time,reg_ip)");
+            strSql.Append("group_id,user_name,salt,password,mobile,email,avatar,nick_name,sex,birthday,telphone,area,address,qq,msn,amount,point,exp,status,reg_time,reg_ip,company,MemberStartDate,MemberEndDate,FreeDownNumber,FreeLinkNumber)");
             strSql.Append(" values (");
-            strSql.Append("@group_id,@user_name,@salt,@password,@mobile,@email,@avatar,@nick_name,@sex,@birthday,@telphone,@area,@address,@qq,@msn,@amount,@point,@exp,@status,@reg_time,@reg_ip)");
+            strSql.Append("@group_id,@user_name,@salt,@password,@mobile,@email,@avatar,@nick_name,@sex,@birthday,@telphone,@area,@address,@qq,@msn,@amount,@point,@exp,@status,@reg_time,@reg_ip,@company,@MemberStartDate,@MemberEndDate,@FreeDownNumber,@FreeLinkNumber)");
             strSql.Append(";select @@IDENTITY");
             SqlParameter[] parameters = {
-					new SqlParameter("@group_id", SqlDbType.Int,4),
-					new SqlParameter("@user_name", SqlDbType.NVarChar,100),
-					new SqlParameter("@salt", SqlDbType.NVarChar,20),
-					new SqlParameter("@password", SqlDbType.NVarChar,100),
-					new SqlParameter("@mobile", SqlDbType.NVarChar,20),
-					new SqlParameter("@email", SqlDbType.NVarChar,50),
-					new SqlParameter("@avatar", SqlDbType.NVarChar,255),
-					new SqlParameter("@nick_name", SqlDbType.NVarChar,100),
-					new SqlParameter("@sex", SqlDbType.NVarChar,20),
-					new SqlParameter("@birthday", SqlDbType.DateTime),
-					new SqlParameter("@telphone", SqlDbType.NVarChar,50),
-					new SqlParameter("@area", SqlDbType.NVarChar,255),
-					new SqlParameter("@address", SqlDbType.NVarChar,255),
-					new SqlParameter("@qq", SqlDbType.NVarChar,20),
-					new SqlParameter("@msn", SqlDbType.NVarChar,100),
-					new SqlParameter("@amount", SqlDbType.Decimal,5),
-					new SqlParameter("@point", SqlDbType.Int,4),
-					new SqlParameter("@exp", SqlDbType.Int,4),
-					new SqlParameter("@status", SqlDbType.TinyInt,1),
-					new SqlParameter("@reg_time", SqlDbType.DateTime),
-					new SqlParameter("@reg_ip", SqlDbType.NVarChar,20)};
+                    new SqlParameter("@group_id", SqlDbType.Int,4),
+                    new SqlParameter("@user_name", SqlDbType.NVarChar,100),
+                    new SqlParameter("@salt", SqlDbType.NVarChar,20),
+                    new SqlParameter("@password", SqlDbType.NVarChar,100),
+                    new SqlParameter("@mobile", SqlDbType.NVarChar,20),
+                    new SqlParameter("@email", SqlDbType.NVarChar,50),
+                    new SqlParameter("@avatar", SqlDbType.NVarChar,255),
+                    new SqlParameter("@nick_name", SqlDbType.NVarChar,100),
+                    new SqlParameter("@sex", SqlDbType.NVarChar,20),
+                    new SqlParameter("@birthday", SqlDbType.DateTime),
+                    new SqlParameter("@telphone", SqlDbType.NVarChar,50),
+                    new SqlParameter("@area", SqlDbType.NVarChar,255),
+                    new SqlParameter("@address", SqlDbType.NVarChar,255),
+                    new SqlParameter("@qq", SqlDbType.NVarChar,20),
+                    new SqlParameter("@msn", SqlDbType.NVarChar,100),
+                    new SqlParameter("@amount", SqlDbType.Decimal,5),
+                    new SqlParameter("@point", SqlDbType.Int,4),
+                    new SqlParameter("@exp", SqlDbType.Int,4),
+                    new SqlParameter("@status", SqlDbType.TinyInt,1),
+                    new SqlParameter("@reg_time", SqlDbType.DateTime),
+                    new SqlParameter("@reg_ip", SqlDbType.NVarChar,20),
+            new SqlParameter("@company", SqlDbType.NVarChar,50),
+            new SqlParameter("@MemberStartDate", SqlDbType.DateTime),
+            new SqlParameter("@MemberEndDate", SqlDbType.DateTime),
+            new SqlParameter("@FreeDownNumber", SqlDbType.Int,4),
+            new SqlParameter("@FreeLinkNumber", SqlDbType.Int,4)};
             parameters[0].Value = model.group_id;
             parameters[1].Value = model.user_name;
             parameters[2].Value = model.salt;
@@ -119,6 +124,11 @@ namespace DTcms.DAL
             parameters[18].Value = model.status;
             parameters[19].Value = model.reg_time;
             parameters[20].Value = model.reg_ip;
+            parameters[21].Value = model.company;
+            parameters[22].Value = model.MemberStartDate;
+            parameters[23].Value = model.MemberEndDate;
+            parameters[24].Value = model.FreeDownNumber;
+            parameters[25].Value = model.FreeLinkNumber;
 
             object obj = DbHelperSQL.GetSingle(strSql.ToString(), parameters);
             if (obj == null)
@@ -159,31 +169,40 @@ namespace DTcms.DAL
             strSql.Append("status=@status,");
             strSql.Append("reg_time=@reg_time,");
             strSql.Append("reg_ip=@reg_ip,");
-            strSql.Append("company=@company");
+            strSql.Append("company=@company,");
+            strSql.Append("MemberStartDate=@MemberStartDate,");
+            strSql.Append("MemberEndDate=@MemberEndDate,");
+            strSql.Append("FreeDownNumber=@FreeDownNumber, ");
+            strSql.Append("FreeLinkNumber=@FreeLinkNumber ");
+            
             strSql.Append(" where id=@id");
             SqlParameter[] parameters = {
-					new SqlParameter("@group_id", SqlDbType.Int,4),
-					new SqlParameter("@user_name", SqlDbType.NVarChar,100),
-					new SqlParameter("@salt", SqlDbType.NVarChar,20),
-					new SqlParameter("@password", SqlDbType.NVarChar,100),
-					new SqlParameter("@mobile", SqlDbType.NVarChar,20),
-					new SqlParameter("@email", SqlDbType.NVarChar,50),
-					new SqlParameter("@avatar", SqlDbType.NVarChar,255),
-					new SqlParameter("@nick_name", SqlDbType.NVarChar,100),
-					new SqlParameter("@sex", SqlDbType.NVarChar,20),
-					new SqlParameter("@birthday", SqlDbType.DateTime),
-					new SqlParameter("@telphone", SqlDbType.NVarChar,50),
-					new SqlParameter("@area", SqlDbType.NVarChar,255),
-					new SqlParameter("@address", SqlDbType.NVarChar,255),
-					new SqlParameter("@qq", SqlDbType.NVarChar,20),
-					new SqlParameter("@msn", SqlDbType.NVarChar,100),
-					new SqlParameter("@amount", SqlDbType.Decimal,5),
-					new SqlParameter("@point", SqlDbType.Int,4),
-					new SqlParameter("@exp", SqlDbType.Int,4),
-					new SqlParameter("@status", SqlDbType.TinyInt,1),
-					new SqlParameter("@reg_time", SqlDbType.DateTime),
-					new SqlParameter("@reg_ip", SqlDbType.NVarChar,20),
+                    new SqlParameter("@group_id", SqlDbType.Int,4),
+                    new SqlParameter("@user_name", SqlDbType.NVarChar,100),
+                    new SqlParameter("@salt", SqlDbType.NVarChar,20),
+                    new SqlParameter("@password", SqlDbType.NVarChar,100),
+                    new SqlParameter("@mobile", SqlDbType.NVarChar,20),
+                    new SqlParameter("@email", SqlDbType.NVarChar,50),
+                    new SqlParameter("@avatar", SqlDbType.NVarChar,255),
+                    new SqlParameter("@nick_name", SqlDbType.NVarChar,100),
+                    new SqlParameter("@sex", SqlDbType.NVarChar,20),
+                    new SqlParameter("@birthday", SqlDbType.DateTime),
+                    new SqlParameter("@telphone", SqlDbType.NVarChar,50),
+                    new SqlParameter("@area", SqlDbType.NVarChar,255),
+                    new SqlParameter("@address", SqlDbType.NVarChar,255),
+                    new SqlParameter("@qq", SqlDbType.NVarChar,20),
+                    new SqlParameter("@msn", SqlDbType.NVarChar,100),
+                    new SqlParameter("@amount", SqlDbType.Decimal,5),
+                    new SqlParameter("@point", SqlDbType.Int,4),
+                    new SqlParameter("@exp", SqlDbType.Int,4),
+                    new SqlParameter("@status", SqlDbType.TinyInt,1),
+                    new SqlParameter("@reg_time", SqlDbType.DateTime),
+                    new SqlParameter("@reg_ip", SqlDbType.NVarChar,20),
                     new SqlParameter("@company", SqlDbType.NVarChar,50),
+            new SqlParameter("@MemberStartDate", SqlDbType.DateTime),
+            new SqlParameter("@MemberEndDate", SqlDbType.DateTime),
+            new SqlParameter("@FreeDownNumber", SqlDbType.Int,4),
+             new SqlParameter("@FreeLinkNumber", SqlDbType.Int,4),
                     new SqlParameter("@id", SqlDbType.Int,4)};
             parameters[0].Value = model.group_id;
             parameters[1].Value = model.user_name;
@@ -207,7 +226,11 @@ namespace DTcms.DAL
             parameters[19].Value = model.reg_time;
             parameters[20].Value = model.reg_ip;
             parameters[21].Value = model.company;
-            parameters[22].Value = model.id;
+            parameters[22].Value = model.MemberStartDate;
+            parameters[23].Value = model.MemberEndDate;
+            parameters[24].Value = model.FreeDownNumber;
+            parameters[25].Value = model.FreeLinkNumber;
+            parameters[26].Value = model.id;
 
             int rows = DbHelperSQL.ExecuteSql(strSql.ToString(), parameters);
             if (rows > 0)
@@ -238,7 +261,7 @@ namespace DTcms.DAL
             strSql1.Append("delete from " + databaseprefix + "user_point_log ");
             strSql1.Append(" where user_id=@id");
             SqlParameter[] parameters1 = {
-					new SqlParameter("@id", SqlDbType.Int,4)};
+                    new SqlParameter("@id", SqlDbType.Int,4)};
             parameters1[0].Value = id;
             CommandInfo cmd = new CommandInfo(strSql1.ToString(), parameters1);
             sqllist.Add(cmd);
@@ -248,7 +271,7 @@ namespace DTcms.DAL
             strSql2.Append("delete from " + databaseprefix + "user_amount_log ");
             strSql2.Append(" where user_id=@id");
             SqlParameter[] parameters2 = {
-					new SqlParameter("@id", SqlDbType.Int,4)};
+                    new SqlParameter("@id", SqlDbType.Int,4)};
             parameters2[0].Value = id;
             cmd = new CommandInfo(strSql2.ToString(), parameters2);
             sqllist.Add(cmd);
@@ -258,7 +281,7 @@ namespace DTcms.DAL
             strSql3.Append("delete from " + databaseprefix + "user_attach_log");
             strSql3.Append(" where user_id=@id");
             SqlParameter[] parameters3 = {
-					new SqlParameter("@id", SqlDbType.Int,4)};
+                    new SqlParameter("@id", SqlDbType.Int,4)};
             parameters3[0].Value = id;
             cmd = new CommandInfo(strSql3.ToString(), parameters3);
             sqllist.Add(cmd);
@@ -268,7 +291,7 @@ namespace DTcms.DAL
             strSql4.Append("delete from " + databaseprefix + "user_message ");
             strSql4.Append(" where post_user_name=@post_user_name or accept_user_name=@accept_user_name");
             SqlParameter[] parameters4 = {
-					new SqlParameter("@post_user_name", SqlDbType.NVarChar,100),
+                    new SqlParameter("@post_user_name", SqlDbType.NVarChar,100),
                     new SqlParameter("@accept_user_name", SqlDbType.NVarChar,100)};
             parameters4[0].Value = model.user_name;
             parameters4[1].Value = model.user_name;
@@ -280,7 +303,7 @@ namespace DTcms.DAL
             strSql5.Append("delete from " + databaseprefix + "user_code ");
             strSql5.Append(" where user_id=@id");
             SqlParameter[] parameters5 = {
-					new SqlParameter("@id", SqlDbType.Int,4)};
+                    new SqlParameter("@id", SqlDbType.Int,4)};
             parameters5[0].Value = id;
             cmd = new CommandInfo(strSql5.ToString(), parameters5);
             sqllist.Add(cmd);
@@ -290,7 +313,7 @@ namespace DTcms.DAL
             strSql6.Append("delete from " + databaseprefix + "user_login_log ");
             strSql6.Append(" where user_id=@id");
             SqlParameter[] parameters6 = {
-					new SqlParameter("@id", SqlDbType.Int,4)};
+                    new SqlParameter("@id", SqlDbType.Int,4)};
             parameters6[0].Value = id;
             cmd = new CommandInfo(strSql6.ToString(), parameters6);
             sqllist.Add(cmd);
@@ -300,7 +323,7 @@ namespace DTcms.DAL
             strSql7.Append("delete from " + databaseprefix + "user_addr_book ");
             strSql7.Append(" where user_id=@id");
             SqlParameter[] parameters7 = {
-					new SqlParameter("@id", SqlDbType.Int,4)};
+                    new SqlParameter("@id", SqlDbType.Int,4)};
             parameters7[0].Value = id;
             cmd = new CommandInfo(strSql7.ToString(), parameters7);
             sqllist.Add(cmd);
@@ -310,7 +333,7 @@ namespace DTcms.DAL
             strSql8.Append("delete from " + databaseprefix + "user_oauth ");
             strSql8.Append(" where user_id=@id");
             SqlParameter[] parameters8 = {
-					new SqlParameter("@id", SqlDbType.Int,4)};
+                    new SqlParameter("@id", SqlDbType.Int,4)};
             parameters8[0].Value = id;
             cmd = new CommandInfo(strSql8.ToString(), parameters8);
             sqllist.Add(cmd);
@@ -320,7 +343,7 @@ namespace DTcms.DAL
             strSql9.Append("delete from " + databaseprefix + "user_recharge ");
             strSql9.Append(" where user_id=@id");
             SqlParameter[] parameters9 = {
-					new SqlParameter("@id", SqlDbType.Int,4)};
+                    new SqlParameter("@id", SqlDbType.Int,4)};
             parameters9[0].Value = id;
             cmd = new CommandInfo(strSql9.ToString(), parameters9);
             sqllist.Add(cmd);
@@ -330,7 +353,7 @@ namespace DTcms.DAL
             strSql.Append("delete from " + databaseprefix + "users ");
             strSql.Append(" where id=@id");
             SqlParameter[] parameters = {
-					new SqlParameter("@id", SqlDbType.Int,4)};
+                    new SqlParameter("@id", SqlDbType.Int,4)};
             parameters[0].Value = id;
             cmd = new CommandInfo(strSql.ToString(), parameters);
             sqllist.Add(cmd);
@@ -352,11 +375,11 @@ namespace DTcms.DAL
         public Model.users GetModel(int id)
         {
             StringBuilder strSql = new StringBuilder();
-            strSql.Append("select top 1 id,group_id,user_name,salt,password,mobile,email,avatar,nick_name,sex,birthday,telphone,area,address,qq,msn,amount,point,exp,status,reg_time,reg_ip,company");
+            strSql.Append("select top 1 id,group_id,user_name,salt,password,mobile,email,avatar,nick_name,sex,birthday,telphone,area,address,qq,msn,amount,point,exp,status,reg_time,reg_ip,company,MemberStartDate,MemberEndDate,FreeDownNumber,FreeLinkNumber");
             strSql.Append(" from " + databaseprefix + "users");
             strSql.Append(" where id=@id");
             SqlParameter[] parameters = {
-					new SqlParameter("@id", SqlDbType.Int,4)};
+                    new SqlParameter("@id", SqlDbType.Int,4)};
             parameters[0].Value = id;
 
             DataSet ds = DbHelperSQL.Query(strSql.ToString(), parameters);
@@ -376,7 +399,7 @@ namespace DTcms.DAL
         public Model.users GetModel(string user_name, string password, int emaillogin, int mobilelogin)
         {
             StringBuilder strSql = new StringBuilder();
-            strSql.Append("select top 1 id,group_id,user_name,salt,password,mobile,email,avatar,nick_name,sex,birthday,telphone,area,address,qq,msn,amount,point,exp,status,reg_time,reg_ip,company");
+            strSql.Append("select top 1 id,group_id,user_name,salt,password,mobile,email,avatar,nick_name,sex,birthday,telphone,area,address,qq,msn,amount,point,exp,status,reg_time,reg_ip,company,MemberStartDate,MemberEndDate,FreeDownNumber,FreeLinkNumber");
             strSql.Append(" from " + databaseprefix + "users");
             strSql.Append(" where (user_name=@user_name");
             if (emaillogin == 1)
@@ -390,7 +413,7 @@ namespace DTcms.DAL
             strSql.Append(") and password=@password and status<3");
 
             SqlParameter[] parameters = {
-					    new SqlParameter("@user_name", SqlDbType.NVarChar,100),
+                        new SqlParameter("@user_name", SqlDbType.NVarChar,100),
                         new SqlParameter("@password", SqlDbType.NVarChar,100)};
             parameters[0].Value = user_name;
             parameters[1].Value = password;
@@ -412,12 +435,38 @@ namespace DTcms.DAL
         public Model.users GetModel(string user_name)
         {
             StringBuilder strSql = new StringBuilder();
-            strSql.Append("select top 1 id,group_id,user_name,salt,password,mobile,email,avatar,nick_name,sex,birthday,telphone,area,address,qq,msn,amount,point,exp,status,reg_time,reg_ip,company");
+            strSql.Append("select top 1 id,group_id,user_name,salt,password,mobile,email,avatar,nick_name,sex,birthday,telphone,area,address,qq,msn,amount,point,exp,status,reg_time,reg_ip,company,MemberStartDate,MemberEndDate,FreeDownNumber,FreeLinkNumber");
             strSql.Append(" from " + databaseprefix + "users");
             strSql.Append(" where user_name=@user_name and status<3");
             SqlParameter[] parameters = {
-					new SqlParameter("@user_name", SqlDbType.NVarChar,100)};
+                    new SqlParameter("@user_name", SqlDbType.NVarChar,100)};
             parameters[0].Value = user_name;
+
+            DataSet ds = DbHelperSQL.Query(strSql.ToString(), parameters);
+            if (ds.Tables[0].Rows.Count > 0)
+            {
+                return DataRowToModel(ds.Tables[0].Rows[0]);
+            }
+            else
+            {
+                return null;
+            }
+        }
+
+        /// <summary>
+        /// ∏˘æ›” œ‰∑µªÿmodel
+        /// </summary>
+        /// <param name="Email"></param>
+        /// <returns></returns>
+        public Model.users GetModelEmail(string Email)
+        {
+            StringBuilder strSql = new StringBuilder();
+            strSql.Append("select top 1 id,group_id,user_name,salt,password,mobile,email,avatar,nick_name,sex,birthday,telphone,area,address,qq,msn,amount,point,exp,status,reg_time,reg_ip,company,MemberStartDate,MemberEndDate,FreeDownNumber,FreeLinkNumber");
+            strSql.Append(" from " + databaseprefix + "users");
+            strSql.Append(" where Email=@Email and status<3");
+            SqlParameter[] parameters = {
+                    new SqlParameter("@Email", SqlDbType.NVarChar,100)};
+            parameters[0].Value = Email;
 
             DataSet ds = DbHelperSQL.Query(strSql.ToString(), parameters);
             if (ds.Tables[0].Rows.Count > 0)
@@ -441,7 +490,7 @@ namespace DTcms.DAL
             {
                 strSql.Append(" top " + Top.ToString());
             }
-            strSql.Append(" id,group_id,user_name,salt,password,mobile,email,avatar,nick_name,sex,birthday,telphone,area,address,qq,msn,amount,point,exp,status,reg_time,reg_ip,company");
+            strSql.Append(" id,group_id,user_name,salt,password,mobile,email,avatar,nick_name,sex,birthday,telphone,area,address,qq,msn,amount,point,exp,status,reg_time,reg_ip,company,MemberStartDate,MemberEndDate,FreeDownNumber,FreeLinkNumber");
             strSql.Append(" FROM " + databaseprefix + "users ");
             if (strWhere.Trim() != "")
             {
@@ -478,7 +527,7 @@ namespace DTcms.DAL
             strSql.Append("select count(1) from " + databaseprefix + "users");
             strSql.Append(" where email=@email ");
             SqlParameter[] parameters = {
-					new SqlParameter("@email", SqlDbType.NVarChar,100)};
+                    new SqlParameter("@email", SqlDbType.NVarChar,100)};
             parameters[0].Value = email;
             return DbHelperSQL.Exists(strSql.ToString(), parameters);
         }
@@ -492,7 +541,7 @@ namespace DTcms.DAL
             strSql.Append("select count(1) from " + databaseprefix + "users");
             strSql.Append(" where mobile=@mobile ");
             SqlParameter[] parameters = {
-					new SqlParameter("@mobile", SqlDbType.NVarChar,20)};
+                    new SqlParameter("@mobile", SqlDbType.NVarChar,20)};
             parameters[0].Value = mobile;
             return DbHelperSQL.Exists(strSql.ToString(), parameters);
         }
@@ -652,6 +701,23 @@ namespace DTcms.DAL
                 {
                     model.company = row["company"].ToString();
                 }
+                if (row["MemberStartDate"] != null && row["MemberStartDate"].ToString() != "")
+                {
+                    model.MemberStartDate = DateTime.Parse(row["MemberStartDate"].ToString());
+                }
+                if (row["MemberEndDate"] != null && row["MemberEndDate"].ToString() != "")
+                {
+                    model.MemberEndDate = DateTime.Parse(row["MemberEndDate"].ToString());
+                }
+                if (row["FreeDownNumber"] != null && row["FreeDownNumber"].ToString() != "")
+                {
+                    model.FreeDownNumber = int.Parse(row["FreeDownNumber"].ToString());
+                }
+                if (row["FreeLinkNumber"] != null && row["FreeLinkNumber"].ToString() != "")
+                {
+                    model.FreeLinkNumber = int.Parse(row["FreeLinkNumber"].ToString());
+                }
+                
             }
             return model;
         }

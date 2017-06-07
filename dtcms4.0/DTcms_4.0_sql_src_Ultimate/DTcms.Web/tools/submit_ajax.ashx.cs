@@ -138,6 +138,12 @@ namespace DTcms.Web.tools
                 case "view_cart_count": //输出当前购物车总数
                     view_cart_count(context);
                     break;
+                case "ForgetPwd":
+                    user_getpassword(context);
+                    break;
+                case "ResetPwd":
+                    uerGetPwd(context);
+                    break;
             }
         }
 
@@ -734,6 +740,8 @@ namespace DTcms.Web.tools
             model.mobile = mobile;
             model.reg_ip = userip;
             model.reg_time = DateTime.Now;
+            model.FreeDownNumber = 5;
+            model.FreeLinkNumber = 30;
             //设置用户状态
             if (userConfig.regstatus == 3)
             {
@@ -929,7 +937,7 @@ namespace DTcms.Web.tools
             string city = Utils.ToHtml(DTRequest.GetFormString("txtCity"));
             string area = Utils.ToHtml(DTRequest.GetFormString("txtArea"));
             string address = Utils.ToHtml(context.Request.Form["txtAddress"]);
-            string company= Utils.ToHtml(context.Request.Form["txtcompany"]);
+            string company = Utils.ToHtml(context.Request.Form["txtcompany"]);
             ////检查昵称
             //if (string.IsNullOrEmpty(nick_name))
             //{
@@ -1075,101 +1083,27 @@ namespace DTcms.Web.tools
         }
         #endregion
 
-        #region 用户取回密码=================================
+        #region 用户取回密码发送邮件验证码=================================
         private void user_getpassword(HttpContext context)
         {
             string site = DTRequest.GetQueryString("site");
-            string code = DTRequest.GetFormString("txtCode");
-            string type = DTRequest.GetFormString("txtType");
-            string username = DTRequest.GetFormString("txtUserName").Trim();
-            //检查站点目录
-            if (string.IsNullOrEmpty(site))
-            {
-                context.Response.Write("{\"status\":0, \"msg\":\"对不起，网站传输参数有误！\"}");
-                return;
-            }
-            //检查用户名
-            if (string.IsNullOrEmpty(username))
-            {
-                context.Response.Write("{\"status\":0, \"msg\":\"对不起，用户名不可为空！\"}");
-                return;
-            }
-            //检查取回密码类型
-            if (string.IsNullOrEmpty(type))
-            {
-                context.Response.Write("{\"status\":0, \"msg\":\"对不起，请选择取回密码类型！\"}");
-                return;
-            }
-            //校检验证码
-            string result = verify_code(context, code);
-            if (result != "success")
-            {
-                context.Response.Write(result);
-                return;
-            }
+            string email = DTRequest.GetFormString("Email");
+            string type = "email";// DTRequest.GetFormString("txtType");
+
             //检查用户信息
             BLL.users bll = new BLL.users();
-            Model.users model = bll.GetModel(username);
+            Model.users model = bll.GetModelEmail(email);
             if (model == null)
             {
-                context.Response.Write("{\"status\":0, \"msg\":\"对不起，您输入的用户名不存在！\"}");
+                context.Response.Write("{\"status\":0, \"msg\":\"对不起，您输入的邮箱不存在！\"}");
                 return;
             }
-            //发送取回密码的短信或邮件
-            if (type.ToLower() == "mobile") //使用手机取回密码
-            {
-                #region 发送短信==================
-                if (string.IsNullOrEmpty(model.mobile))
-                {
-                    context.Response.Write("{\"status\":0, \"msg\":\"您尚未绑定手机号码，无法取回密码！\"}");
-                    return;
-                }
-                Model.sms_template smsModel = new BLL.sms_template().GetModel("usercode"); //取得短信内容
-                if (smsModel == null)
-                {
-                    context.Response.Write("{\"status\":0, \"msg\":\"发送失败，短信模板不存在，请联系管理员！\"}");
-                }
-                string strcode = Utils.Number(4); //随机验证码
-                //检查是否重复提交
-                BLL.user_code codeBll = new BLL.user_code();
-                Model.user_code codeModel;
-                codeModel = codeBll.GetModel(username, DTEnums.CodeEnum.RegVerify.ToString(), "d");
-                if (codeModel == null)
-                {
-                    codeModel = new Model.user_code();
-                    //写入数据库
-                    codeModel.user_id = model.id;
-                    codeModel.user_name = model.user_name;
-                    codeModel.type = DTEnums.CodeEnum.Password.ToString();
-                    codeModel.str_code = strcode;
-                    codeModel.eff_time = DateTime.Now.AddMinutes(userConfig.regsmsexpired);
-                    codeModel.add_time = DateTime.Now;
-                    codeBll.Add(codeModel);
-                }
-                //替换标签
-                string msgContent = smsModel.content;
-                msgContent = msgContent.Replace("{webname}", siteConfig.webname);
-                msgContent = msgContent.Replace("{weburl}", siteConfig.weburl);
-                msgContent = msgContent.Replace("{webtel}", siteConfig.webtel);
-                msgContent = msgContent.Replace("{code}", codeModel.str_code);
-                msgContent = msgContent.Replace("{valid}", userConfig.regsmsexpired.ToString());
-                //发送短信
-                string tipMsg = string.Empty;
-                bool result1 = new BLL.sms_message().Send(model.mobile, msgContent, 1, out tipMsg);
-                if (!result1)
-                {
-                    context.Response.Write("{\"status\":0, \"msg\":\"发送失败，" + tipMsg + "\"}");
-                    return;
-                }
-                context.Response.Write("{\"status\":1, \"msg\":\"手机验证码发送成功！\", \"url\":\""
-                    + new BasePage().getlink(site, new BasePage().linkurl("repassword", "?action=mobile&username=" + Utils.UrlEncode(model.user_name))) + "\"}");
-                return;
-                #endregion
-            }
-            else if (type.ToLower() == "email") //使用邮箱取回密码
+            //发送取回密码的邮件
+
+            if (type.ToLower() == "email") //使用邮箱取回密码
             {
                 #region 发送邮件==================
-                if (string.IsNullOrEmpty(model.email))
+                if (string.IsNullOrEmpty(email))
                 {
                     context.Response.Write("{\"status\":0, \"msg\":\"您尚未绑定邮箱，无法取回密码！\"}");
                     return;
@@ -1186,7 +1120,7 @@ namespace DTcms.Web.tools
                 //检查是否重复提交
                 BLL.user_code codeBll = new BLL.user_code();
                 Model.user_code codeModel;
-                codeModel = codeBll.GetModel(username, DTEnums.CodeEnum.RegVerify.ToString(), "d");
+                codeModel = codeBll.GetModel(model.user_name, DTEnums.CodeEnum.RegVerify.ToString(), "d");
                 if (codeModel == null)
                 {
                     codeModel = new Model.user_code();
@@ -1223,7 +1157,7 @@ namespace DTcms.Web.tools
                         model.email,
                         titletxt, bodytxt);
                 }
-                catch
+                catch (Exception ex)
                 {
                     context.Response.Write("{\"status\":0, \"msg\":\"邮件发送失败，请联系本站管理员！\"}");
                     return;
@@ -1232,10 +1166,66 @@ namespace DTcms.Web.tools
                 return;
                 #endregion
             }
+
             context.Response.Write("{\"status\":0, \"msg\":\"发生未知错误，请检查参数是否正确！\"}");
             return;
         }
         #endregion
+
+        #region 用户取回密码提交
+        private void uerGetPwd(HttpContext context)
+        {
+            string code = DTRequest.GetFormString("txtCode");
+            string type = "email";
+            string email = DTRequest.GetFormString("email");
+            string password = DTRequest.GetFormString("txtPassword"); //重设后的密码
+
+            BLL.users bll = new BLL.users();
+            Model.users model = bll.GetModelEmail(email);
+
+
+            BLL.user_code codeBll = new BLL.user_code();
+            Model.user_code codeModel;
+            codeModel = codeBll.GetModel(model.user_name, DTEnums.CodeEnum.Password.ToString(), "d");
+
+            if (string.IsNullOrEmpty(code))
+            {
+                context.Response.Write("{\"status\":0, \"msg\":\"验证码不能为空，请重新填写！\"}");
+                return;
+            }
+            //校检验证码
+            if (codeModel != null && !string.IsNullOrEmpty(code) && codeModel.str_code != code)
+            {
+                context.Response.Write("{\"status\":0, \"msg\":\"对不起，校检码字符串不能为空！\"}");
+                return;
+            }
+            //检查输入的新密码
+            if (string.IsNullOrEmpty(password))
+            {
+                context.Response.Write("{\"status\":0, \"msg\":\"对不起，请输入您的新密码！\"}");
+                return;
+            }
+
+            //验证用户是否存在
+            BLL.users userBll = new BLL.users();
+            if (!userBll.Exists(codeModel.user_id))
+            {
+                context.Response.Write("{\"status\":0, \"msg\":\"对不起，该用户不存在或已被删除！\"}");
+                return;
+            }
+            Model.users userModel = userBll.GetModel(codeModel.user_id);
+            //执行修改操作
+            userModel.password = DESEncrypt.Encrypt(password, userModel.salt);
+            userBll.Update(userModel);
+            //更改验证字符串状态
+            codeModel.count = 1;
+            codeModel.status = 1;
+            codeBll.Update(codeModel);
+            context.Response.Write("{\"status\":1, \"msg\":\"修改密码成功，请记住新密码！\"}");
+
+        }
+        #endregion
+
 
         #region 用户重设密码=================================
         private void user_repassword(HttpContext context)

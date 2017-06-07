@@ -1,4 +1,4 @@
-@charset "utf-8";
+﻿@charset "utf-8";
 /* CSS Document */
 
 html, body, dl, dt, dd, ul, ol, li, h1, h2, h3, h4, h5, h6, pre, form, fieldset, input, button, textarea, p, blockquote, th, td {padding:0;margin:0;}
@@ -15,7 +15,14 @@ input, select, textarea, button {font-size:100%;font-family:inherit; border:0; o
 
 .logo{ width:1200px; margin:15px auto; zoom:1;}
 .logo:after{display:block;clear:both;content:"";visibility:hidden;height:0;}
-.logo h1 a{ background:url(../images/index_07.gif) no-repeat 0 0; width:157px; height:50px; display:block; float:left; margin-right:163px;}
+    .logo h1 a {
+        background: url(../images/logoweb.png) no-repeat 0 0;
+        width: 157px;
+        height: 50px;
+        display: block;
+        float: left;
+        margin-right: 163px;
+    }
 .logo dl{ float:left; width:880px; zoom:1;} 
 .logo dl:after{display:block;clear:both;content:"";visibility:hidden;height:0;}
 .logo dl dt{ float: left; width:630px;}

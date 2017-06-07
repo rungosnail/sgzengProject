@@ -62,7 +62,7 @@
     <th align="left" width="12%">手机</th>
     <th align="left" width="12%">邮箱</th>
     <th width="8%">余额</th>
-    <th width="8%">积分</th>
+    <%--<th width="8%">积分</th>--%>
     <th width="8%">状态</th>
   </tr>
 </HeaderTemplate>
@@ -82,7 +82,7 @@
     <td><%#Eval("mobile").ToString() != "" ? "-" : Eval("mobile")%></td>
     <td><%#Eval("email")%></td>
     <td align="center"><%#Eval("amount")%></td>
-    <td align="center"><%#Eval("point")%></td>
+    <%--<td align="center"><%#Eval("point")%></td>--%>
     <td align="center"><%#GetUserStatus(Convert.ToInt32(Eval("status")))%></td>
   </tr>
 </ItemTemplate>

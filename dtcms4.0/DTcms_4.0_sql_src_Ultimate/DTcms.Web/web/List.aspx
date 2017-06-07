@@ -6,7 +6,7 @@
     <div class="content">
         <div class="crumb">您的位置：<a href="Index.aspx">活动资源网</a> > <span id="spNavtitle">动漫IP</span></div>
         <!--crumb-->
-        <div class="catlist">
+        <div class="catlist" style="display:none;">
             <dl>
                 <dt>资源分类</dt>
                 <dd>

@@ -33,7 +33,10 @@ namespace DTcms.Model
         private DateTime _reg_time = DateTime.Now;
         private string _reg_ip;
         public string _company;
-
+        public DateTime? MemberStartDate { get; set; }
+        public DateTime? MemberEndDate { get; set; }
+        public int FreeDownNumber { get; set; }
+        public int FreeLinkNumber { get; set; }
 
         public string company
         {

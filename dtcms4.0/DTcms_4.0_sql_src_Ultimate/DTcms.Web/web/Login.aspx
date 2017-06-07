@@ -27,7 +27,7 @@
                         <input id="btnSubmit" name="btnSubmit" class="loginbutbutton" type="submit" style="cursor: pointer;" value="登 录">
                     </div>
                     <div id="msgtips" style="margin-left: 150px; color: red"></div>
-                    <div class="forget"><span>没有账户，<a href="#">立即注册</a></span><a href="#">忘记密码</a></div>
+                    <div class="forget"><span>没有账户，<a href="Register.aspx">立即注册</a></span><a href="ForgetPwd.aspx">忘记密码</a></div>
                     <div class="other" style="display: none;">
                         <b>合作网站帐号登录</b>
                         <p><a href="#" class="qqfl"><span>QQ登录</span></a><a href="#" class="wxfl"><span>QQ登录</span></a></p>

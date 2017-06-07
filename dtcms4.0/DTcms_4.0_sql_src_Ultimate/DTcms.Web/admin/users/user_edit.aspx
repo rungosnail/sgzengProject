@@ -130,11 +130,11 @@
     <dt>电话号码</dt>
     <dd><asp:TextBox ID="txtTelphone" runat="server" CssClass="input normal"></asp:TextBox></dd>
   </dl>
-  <dl>
+  <dl style="display:none;">
     <dt>QQ号码</dt>
     <dd><asp:TextBox ID="txtQQ" runat="server" CssClass="input normal"></asp:TextBox></dd>
   </dl>
-  <dl>
+  <dl style="display:none;">
     <dt>MSN</dt>
     <dd><asp:TextBox ID="txtMsn" runat="server" CssClass="input normal"></asp:TextBox></dd>
   </dl>
@@ -152,14 +152,14 @@
       <span class="Validform_checktip">*账户上的余额</span>
     </dd>
   </dl>
-  <dl>
+  <dl style="display:none;">
     <dt>账户积分</dt>
     <dd>
       <asp:TextBox ID="txtPoint" runat="server" CssClass="input small" datatype="n" sucmsg=" ">0</asp:TextBox> 分
       <span class="Validform_checktip">*积分也可做为交易</span>
     </dd>
   </dl>
-  <dl>
+  <dl style="display:none;">
     <dt>升级经验值</dt>
     <dd>
       <asp:TextBox ID="txtExp" runat="server" CssClass="input small" datatype="n" sucmsg=" ">0</asp:TextBox>
@@ -169,6 +169,22 @@
   <dl>
     <dt>注册时间</dt>
     <dd><asp:Label ID="lblRegTime" Text="-" runat="server"></asp:Label></dd>
+  </dl>
+    <dl>
+    <dt>免费下载剩余体验次数</dt>
+    <dd><asp:Label ID="lbFreeDownNumber" Text="-" runat="server"></asp:Label></dd>
+  </dl>
+      <dl>
+    <dt>联系方式剩余体验次数</dt>
+    <dd><asp:Label ID="lbFreeLinkNumber" Text="-" runat="server"></asp:Label></dd>
+  </dl>
+    <dl>
+    <dt>会员开始日期</dt>
+    <dd><asp:Label ID="lbMemberStartDate" Text="-" runat="server"></asp:Label></dd>
+  </dl>
+    <dl>
+    <dt>会员结束日期</dt>
+    <dd><asp:Label ID="lbMemberEndDate" Text="-" runat="server"></asp:Label></dd>
   </dl>
   <dl>
     <dt>注册IP</dt>

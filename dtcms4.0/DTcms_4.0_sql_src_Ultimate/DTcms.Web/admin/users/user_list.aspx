@@ -149,7 +149,7 @@
     <th align="left" width="12%">会员组</th>
     <th align="left" width="12%">邮箱</th>
     <th width="8%">余额</th>
-    <th width="8%">积分</th>
+    <%--<th width="8%">积分</th>--%>
     <th width="8%">状态</th>
     <th width="8%">操作</th>
   </tr>
@@ -171,18 +171,18 @@
         <h4><b><%#Eval("user_name")%></b> (昵称：<%#Eval("nick_name")%>)</h4>
         <i>注册时间：<%#string.Format("{0:g}",Eval("reg_time"))%></i>
         <span>
-          <a class="amount" href="amount_log.aspx?keywords=<%#Eval("user_name")%>" title="消费记录">余额</a>
-          <a class="card" href="recharge_list.aspx?keywords=<%#Eval("user_name")%>" title="充值记录">充值</a>
-          <a class="point" href="point_log.aspx?keywords=<%#Eval("user_name")%>" title="积分记录">积分</a>
-          <a class="msg" href="message_list.aspx?keywords=<%#Eval("user_name")%>" title="消息记录">短消息</a>
-          <%#Eval("mobile").ToString() != "" ? "<a class=\"sms\" href=\"javascript:;\" onclick=\"PostSMS('" + Eval("mobile") + "');\" title=\"发送手机短信通知\">短信通知</a>" : ""%>
+         <%-- <a class="amount" href="amount_log.aspx?keywords=<%#Eval("user_name")%>" title="消费记录">余额</a>
+          <a class="card" href="recharge_list.aspx?keywords=<%#Eval("user_name")%>" title="充值记录">充值</a>--%>
+          <%--<a class="point" href="point_log.aspx?keywords=<%#Eval("user_name")%>" title="积分记录">积分</a>
+          <a class="msg" href="message_list.aspx?keywords=<%#Eval("user_name")%>" title="消息记录">短消息</a>--%>
+         <%-- <%#Eval("mobile").ToString() != "" ? "<a class=\"sms\" href=\"javascript:;\" onclick=\"PostSMS('" + Eval("mobile") + "');\" title=\"发送手机短信通知\">短信通知</a>" : ""%>--%>
         </span>
       </div>
     </td>
     <td><%#new DTcms.BLL.user_groups().GetTitle(Convert.ToInt32(Eval("group_id")))%></td>
     <td><%#Eval("email")%></td>
     <td align="center"><%#Eval("amount")%></td>
-    <td align="center"><%#Eval("point")%></td>
+    <%--<td align="center"><%#Eval("point")%></td>--%>
     <td align="center"><%#GetUserStatus(Convert.ToInt32(Eval("status")))%></td>
     <td align="center"><a href="user_edit.aspx?action=<%#DTEnums.ActionEnum.Edit %>&id=<%#Eval("id")%>">修改</a></td>
   </tr>

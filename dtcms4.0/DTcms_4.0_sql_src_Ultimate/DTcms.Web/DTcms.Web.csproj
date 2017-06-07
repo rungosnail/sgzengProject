@@ -1518,6 +1518,13 @@
     <Compile Include="web\About.aspx.designer.cs">
       <DependentUpon>About.aspx</DependentUpon>
     </Compile>
+    <Compile Include="web\ForgetPwd.aspx.cs">
+      <DependentUpon>ForgetPwd.aspx</DependentUpon>
+      <SubType>ASPXCodeBehind</SubType>
+    </Compile>
+    <Compile Include="web\ForgetPwd.aspx.designer.cs">
+      <DependentUpon>ForgetPwd.aspx</DependentUpon>
+    </Compile>
     <Compile Include="web\List.aspx.cs">
       <DependentUpon>List.aspx</DependentUpon>
       <SubType>ASPXCodeBehind</SubType>
@@ -1676,6 +1683,7 @@
     <Content Include="web\css\list.css" />
     <Content Include="web\css\personal.css" />
     <Content Include="web\css\reg.css" />
+    <Content Include="web\ForgetPwd.aspx" />
     <Content Include="web\html\carousel-mask\css\carousel-style.css" />
     <Content Include="web\html\carousel-mask\img\native1.png" />
     <Content Include="web\html\carousel-mask\img\native2.png" />
@@ -1756,6 +1764,7 @@
     <Content Include="web\images\li_left.png" />
     <Content Include="web\images\li_right.png" />
     <Content Include="web\images\li_right.png.jpg" />
+    <Content Include="web\images\logoweb.png" />
     <Content Include="web\images\member.png" />
     <Content Include="web\images\native1.png" />
     <Content Include="web\images\native2.png" />
